@@ -1,0 +1,21 @@
+{
+  "91824dc51e222680aeb21a62afe250189885df2aabf433fef4015818adb1e883": {
+    "name": "Actionnaire",
+    "email": "apps.desiorac@gmail.com",
+    "tier": "business",
+    "created_at": "2026-02-04T11:11:57.146526",
+    "last_used": "2026-02-04T11:21:30.812076",
+    "requests_count": 2
+  },
+  "a3cacce2146658bd4c92cc025022f9fdfd45030ff1a3bde562ac2c055794014d": {
+    "name": "E2E_Test_Worker",
+    "email": "worker_test@arkforge.fr",
+    "tier": "starter",
+    "created_at": "2026-02-05T10:51:57.331791",
+    "last_used": "2026-02-05T10:55:17.119416",
+    "requests_count": 7,
+    "stripe_customer_id": null,
+    "stripe_subscription_id": null,
+    "subscription_status": null
+  }
+}
