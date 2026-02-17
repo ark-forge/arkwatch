@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Gratuit Monitoring - ArkWatch | Rapport PDF en 48h</title>
+    <meta name="description" content="Audit complet gratuit de votre monitoring web. Rapport PDF personnalis&eacute; en 48h. Places limit&eacute;es : 5 slots seulement. R&eacute;servez maintenant.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Audit Gratuit Monitoring - ArkWatch">
+    <meta property="og:description" content="Audit complet gratuit + rapport PDF en 48h. 5 places seulement.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arkforge.fr/audit-gratuit-monitoring.html">
+
+    <!-- Analytics -->
+    <script defer data-domain="arkforge.fr" src="https://plausible.io/js/script.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #f9fafb;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+            color: white;
+            padding: 50px 20px 80px;
+            text-align: center;
+        }
+        .urgency-bar {
+            background: rgba(0,0,0,0.3);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
+        }
+        .hero .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            font-weight: 500;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Countdown */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .countdown-block {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            padding: 12px 18px;
+            min-width: 75px;
+            text-align: center;
+        }
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .countdown-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        /* Slots badge */
+        .slots-badge {
+            display: inline-block;
+            background: #fbbf24;
+            color: #92400e;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .slots-badge { animation: pulse 2s infinite; }
+        .slots-badge.urgent {
+            background: #ef4444;
+            color: white;
+        }
+
+        /* Form Container */
+        .form-container {
+            max-width: 580px;
+            margin: -50px auto 50px;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+            position: relative;
+            z-index: 10;
+        }
+        .form-container h2 {
+            font-size: 1.7rem;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+        .form-container .form-subtitle {
+            color: #6b7280;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        /* Form */
+        .audit-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-group label {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #374151;
+        }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.2s;
+            font-family: inherit;
+        }
+        .form-input:focus, .form-select:focus {
+            border-color: #dc2626;
+        }
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+
+        /* Submit button */
+        .submit-btn {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 18px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 8px;
+            letter-spacing: 0.3px;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(220,38,38,0.4);
+        }
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .form-note {
+            font-size: 0.82rem;
+            color: #9ca3af;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Message */
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            font-weight: 500;
+            display: none;
+        }
+        .message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        .message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+        .message.show { display: block; }
+
+        /* What you get */
+        .benefits {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        .benefits h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+        .benefit {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        .benefit h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .benefit p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Process */
+        .process {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        .process h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #1a1a1a;
+        }
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .step-number {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .step-content h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #1a1a1a;
+        }
+        .step-content p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Bottom CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            padding: 55px 20px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: white;
+        }
+        .cta-section p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 25px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220,38,38,0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        .footer a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; }
+            .countdown-container { gap: 8px; }
+            .countdown-block { padding: 8px 12px; min-width: 60px; }
+            .countdown-number { font-size: 1.5rem; }
+            .form-container { margin: -40px 15px 40px; padding: 25px; }
+            .benefits-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Expired state */
+        .expired-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .expired-overlay.show {
+            display: flex;
+        }
+        .expired-box {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            max-width: 450px;
+            margin: 20px;
+        }
+        .expired-box h2 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        .expired-box p {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+        .expired-box a {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero with urgency -->
+    <section class="hero">
+        <div class="urgency-bar">
+            OFFRE LIMITEE - Ferme dans <span id="countdown-inline">24:00:00</span>
+        </div>
+        <h1>Audit Gratuit de Votre<br>Monitoring Web</h1>
+        <p class="subtitle">
+            On analyse votre stack monitoring et vous livrons un rapport PDF complet sous 48h. Gratuit, sans engagement.
+        </p>
+
+        <!-- Countdown timer -->
+        <div class="countdown-container">
+            <div class="countdown-block">
+                <div class="countdown-number" id="hours">24</div>
+                <div class="countdown-label">Heures</div>
+            </div>
+            <div class="countdown-block">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-block">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Secondes</div>
+            </div>
+        </div>
+
+        <!-- Slots badge -->
+        <div class="slots-badge" id="slots-badge">
+            <span id="slots-count">3</span>/5 places restantes
+        </div>
+    </section>
+
+    <!-- Form -->
+    <div class="form-container">
+        <h2>Reservez votre audit gratuit</h2>
+        <p class="form-subtitle">Remplissez le formulaire, on s'occupe du reste.</p>
+
+        <div id="message" class="message"></div>
+
+        <form class="audit-form" id="audit-form" onsubmit="return submitAudit(event)">
+            <div class="form-group">
+                <label for="name">Votre nom *</label>
+                <input type="text" id="name" name="name" class="form-input"
+                       placeholder="Jean Dupont" required minlength="2" maxlength="100">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Votre email professionnel *</label>
+                <input type="email" id="email" name="email" class="form-input"
+                       placeholder="jean@entreprise.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="stack">Votre stack technique *</label>
+                <select id="stack" name="stack" class="form-select" required>
+                    <option value="">-- Selectionnez --</option>
+                    <option value="aws">AWS (CloudWatch, X-Ray...)</option>
+                    <option value="gcp">Google Cloud (Stackdriver...)</option>
+                    <option value="azure">Azure (Monitor, App Insights...)</option>
+                    <option value="datadog">Datadog</option>
+                    <option value="newrelic">New Relic</option>
+                    <option value="grafana">Grafana / Prometheus</option>
+                    <option value="custom">Solution custom / maison</option>
+                    <option value="none">Pas de monitoring en place</option>
+                    <option value="other">Autre</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="url">URL principale a monitorer *</label>
+                <input type="url" id="url" name="url" class="form-input"
+                       placeholder="https://www.votre-site.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pain_point">Votre plus gros probleme de monitoring *</label>
+                <select id="pain_point" name="pain_point" class="form-select" required>
+                    <option value="">-- Selectionnez --</option>
+                    <option value="downtime_undetected">Pannes non detectees (clients previennent avant nous)</option>
+                    <option value="alert_fatigue">Trop d'alertes inutiles (alert fatigue)</option>
+                    <option value="slow_response">Temps de reponse lents mais pas d'alerte</option>
+                    <option value="no_monitoring">Aucun monitoring en place</option>
+                    <option value="too_expensive">Outil actuel trop cher</option>
+                    <option value="too_complex">Outil actuel trop complexe</option>
+                    <option value="coverage_gaps">Angles morts (certaines pages/API non surveillees)</option>
+                    <option value="other">Autre</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submit-btn">
+                Reserver mon audit gratuit
+            </button>
+
+            <p class="form-note">
+                Aucune carte bancaire requise. Votre rapport PDF arrive sous 48h.
+            </p>
+        </form>
+
+        <!-- Success state (hidden by default) -->
+        <div id="success-state" style="display:none; text-align:center; padding:20px 0;">
+            <div style="font-size:3rem; margin-bottom:15px;">&#10003;</div>
+            <h3 style="font-size:1.4rem; margin-bottom:10px; color:#065f46;">Audit reserve !</h3>
+            <p style="color:#6b7280;">Vous recevrez votre rapport PDF complet sous 48h a l'adresse indiquee.</p>
+        </div>
+    </div>
+
+    <!-- What you get -->
+    <section class="benefits">
+        <h2>Ce que contient votre audit</h2>
+        <div class="benefits-grid">
+            <div class="benefit">
+                <div class="benefit-icon">&#x1F50D;</div>
+                <h3>Analyse de couverture</h3>
+                <p>On identifie les angles morts de votre monitoring actuel.</p>
+            </div>
+            <div class="benefit">
+                <div class="benefit-icon">&#x26A1;</div>
+                <h3>Test de temps de reponse</h3>
+                <p>Benchmark depuis 3 regions pour mesurer la latence reelle.</p>
+            </div>
+            <div class="benefit">
+                <div class="benefit-icon">&#x1F4CA;</div>
+                <h3>Score de maturite</h3>
+                <p>Note sur 100 avec comparaison aux standards du secteur.</p>
+            </div>
+            <div class="benefit">
+                <div class="benefit-icon">&#x1F4CB;</div>
+                <h3>Plan d'action</h3>
+                <p>Recommandations priorisees pour combler les lacunes identifiees.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process">
+        <h2>Comment ca marche ?</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Vous remplissez le formulaire</h3>
+                    <p>30 secondes. On a juste besoin de votre URL et de votre stack actuelle.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>On lance l'audit</h3>
+                    <p>Notre equipe analyse votre monitoring, teste vos endpoints et identifie les failles.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Vous recevez le rapport PDF</h3>
+                    <p>Sous 48h, un rapport detaille avec score, analyse et recommandations.</p>
+                </div>
+            </div>
+            <div class="process-step" style="border-left:3px solid #6366f1;">
+                <div class="step-number" style="background:linear-gradient(135deg, #6366f1, #8b5cf6);">4</div>
+                <div class="step-content">
+                    <h3>Bonus : 14 jours de monitoring gratuit</h3>
+                    <p>Apres votre rapport, activez le monitoring temps reel pour surveiller automatiquement les changements detectes. Sans engagement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Preview (transparency - qualify leads early) -->
+    <section class="pricing-preview" style="max-width:700px; margin:0 auto 60px; padding:0 20px; text-align:center;">
+        <h2 style="font-size:2rem; font-weight:800; margin-bottom:12px; color:#1a1a1a;">Apres votre audit gratuit</h2>
+        <p style="color:#6b7280; margin-bottom:25px; font-size:1.05rem;">
+            Continuez avec le monitoring en temps reel. <strong>L'audit est 100% gratuit</strong>, sans engagement.
+        </p>
+        <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-bottom:20px;">
+            <div style="background:white; border:2px solid #e5e7eb; border-radius:12px; padding:20px 25px; min-width:140px;">
+                <div style="font-size:1.8rem; font-weight:900; color:#6366f1;">9&euro;</div>
+                <div style="font-size:0.85rem; color:#6b7280;">/mois</div>
+                <div style="font-weight:700; color:#1a1a1a; margin-top:6px;">Starter</div>
+                <div style="font-size:0.8rem; color:#9ca3af;">3 URLs</div>
+            </div>
+            <div style="background:white; border:2px solid #6366f1; border-radius:12px; padding:20px 25px; min-width:140px; position:relative;">
+                <div style="position:absolute; top:-10px; left:50%; transform:translateX(-50%); background:#6366f1; color:white; padding:2px 12px; border-radius:10px; font-size:0.7rem; font-weight:700;">POPULAIRE</div>
+                <div style="font-size:1.8rem; font-weight:900; color:#6366f1;">29&euro;</div>
+                <div style="font-size:0.85rem; color:#6b7280;">/mois</div>
+                <div style="font-weight:700; color:#1a1a1a; margin-top:6px;">Pro</div>
+                <div style="font-size:0.8rem; color:#9ca3af;">Illimite</div>
+            </div>
+            <div style="background:white; border:2px solid #e5e7eb; border-radius:12px; padding:20px 25px; min-width:140px;">
+                <div style="font-size:1.8rem; font-weight:900; color:#6366f1;">99&euro;</div>
+                <div style="font-size:0.85rem; color:#6b7280;">/mois</div>
+                <div style="font-weight:700; color:#1a1a1a; margin-top:6px;">Team</div>
+                <div style="font-size:0.8rem; color:#9ca3af;">5 users</div>
+            </div>
+        </div>
+        <p style="font-size:0.85rem; color:#9ca3af;">
+            Essai gratuit 14 jours inclus. Aucune carte bancaire requise.
+        </p>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="cta-section">
+        <h2>Ne ratez pas cette opportunite</h2>
+        <p>L'offre expire bientot. <span id="slots-count-bottom">3</span> places restantes sur 5.</p>
+        <a href="#audit-form" class="cta-btn" onclick="document.getElementById('name').focus(); return false;">
+            Reserver mon audit gratuit
+        </a>
+        <div style="margin-top:15px;">
+            <a href="https://arkforge.fr/trial-14d.html?from=audit" style="color:rgba(255,255,255,0.7); font-size:0.85rem; text-decoration:underline;">
+                ou essayez directement 14 jours gratuit
+            </a>
+        </div>
+    </section>
+
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">À propos</a>
+            <a href="/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialité</a>
+            <a href="/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions légales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+
+    <!-- Expired overlay -->
+    <div class="expired-overlay" id="expired-overlay">
+        <div class="expired-box">
+            <h2>Offre expiree</h2>
+            <p>Les places d'audit sont prises. Bonne nouvelle : vous pouvez tester notre monitoring complet gratuitement pendant 14 jours, avec le meme niveau d'analyse que l'audit.</p>
+            <a href="https://arkforge.fr/trial-14d.html?from=audit">Essai gratuit 14 jours (meme analyse)</a>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        'use strict';
+
+        // --- Countdown Logic (24h from first visit, persisted) ---
+        var STORAGE_KEY = 'arkwatch_audit_deadline';
+        var SLOTS_KEY = 'arkwatch_audit_slots';
+        var SUBMITTED_KEY = 'arkwatch_audit_submitted';
+
+        function getDeadline() {
+            var stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) {
+                var deadline = new Date(stored);
+                if (deadline > new Date()) return deadline;
+                // Expired — keep showing expired state
+                return new Date(stored);
+            }
+            // Set new 24h deadline on first visit
+            var deadline = new Date(Date.now() + 24 * 60 * 60 * 1000);
+            localStorage.setItem(STORAGE_KEY, deadline.toISOString());
+            return deadline;
+        }
+
+        var deadline = getDeadline();
+        var countdownInterval;
+
+        function updateCountdown() {
+            var now = new Date();
+            var diff = deadline - now;
+
+            if (diff <= 0) {
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                document.getElementById('countdown-inline').textContent = '00:00:00';
+                // Only show expired if user hasn't already submitted
+                if (!localStorage.getItem(SUBMITTED_KEY)) {
+                    document.getElementById('expired-overlay').classList.add('show');
+                }
+                if (countdownInterval) clearInterval(countdownInterval);
+                return;
+            }
+
+            var h = Math.floor(diff / 3600000);
+            var m = Math.floor((diff % 3600000) / 60000);
+            var s = Math.floor((diff % 60000) / 1000);
+
+            var hStr = h < 10 ? '0' + h : '' + h;
+            var mStr = m < 10 ? '0' + m : '' + m;
+            var sStr = s < 10 ? '0' + s : '' + s;
+
+            document.getElementById('hours').textContent = hStr;
+            document.getElementById('minutes').textContent = mStr;
+            document.getElementById('seconds').textContent = sStr;
+            document.getElementById('countdown-inline').textContent = hStr + ':' + mStr + ':' + sStr;
+        }
+
+        updateCountdown();
+        countdownInterval = setInterval(updateCountdown, 1000);
+
+        // --- Slots Logic (fetched from API, dynamic display) ---
+        function updateSlotsDisplay(remaining) {
+            var countEl = document.getElementById('slots-count');
+            var countBottomEl = document.getElementById('slots-count-bottom');
+            var badge = document.getElementById('slots-badge');
+
+            countEl.textContent = remaining;
+            countBottomEl.textContent = remaining;
+
+            if (remaining <= 0) {
+                badge.textContent = 'COMPLET - 0 place restante';
+                badge.classList.add('urgent');
+                document.getElementById('submit-btn').disabled = true;
+                document.getElementById('submit-btn').textContent = 'Offre complete';
+            } else if (remaining === 1) {
+                badge.innerHTML = '<span id="slots-count">1</span>/5 place restante — Derniere chance !';
+                badge.classList.add('urgent');
+            } else if (remaining <= 2) {
+                badge.innerHTML = '<span id="slots-count">' + remaining + '</span>/5 places restantes — Presque complet !';
+                badge.classList.add('urgent');
+            }
+        }
+
+        // Fetch real slot count from API
+        fetch('https://watch.arkforge.fr/audit-gratuit/slots')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (typeof data.slots_remaining === 'number') {
+                    updateSlotsDisplay(data.slots_remaining);
+                    localStorage.setItem(SLOTS_KEY, '' + data.slots_remaining);
+                }
+            })
+            .catch(function() {
+                // Fallback: use local storage
+                var localSlots = localStorage.getItem(SLOTS_KEY);
+                if (localSlots !== null) {
+                    updateSlotsDisplay(parseInt(localSlots, 10));
+                }
+            });
+
+        // Track page view via Plausible custom event
+        if (window.plausible) {
+            window.plausible('AuditGratuitPageView');
+        }
+
+        // --- Form Submission ---
+        window.submitAudit = function(e) {
+            e.preventDefault();
+
+            var btn = document.getElementById('submit-btn');
+            var msg = document.getElementById('message');
+
+            // Client-side validation
+            var emailVal = document.getElementById('email').value.trim();
+            var urlVal = document.getElementById('url').value.trim();
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+                msg.className = 'message error show';
+                msg.textContent = 'Veuillez entrer un email valide.';
+                return false;
+            }
+
+            if (!/^https?:\/\/.+\..+/.test(urlVal)) {
+                msg.className = 'message error show';
+                msg.textContent = 'Veuillez entrer une URL valide (commencant par http:// ou https://).';
+                return false;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'Envoi en cours...';
+            msg.className = 'message';
+
+            var submissionId = 'audit_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+
+            var payload = {
+                name: document.getElementById('name').value.trim(),
+                email: emailVal,
+                stack: document.getElementById('stack').value,
+                url: urlVal,
+                pain_point: document.getElementById('pain_point').value,
+                submission_id: submissionId,
+                source: 'landing_page',
+                utm_source: new URLSearchParams(window.location.search).get('utm_source') || null,
+                utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign') || null,
+                referrer: document.referrer || null,
+                timestamp: new Date().toISOString()
+            };
+
+            fetch('https://watch.arkforge.fr/audit-gratuit/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(function(response) {
+                if (!response.ok) throw new Error('Erreur serveur');
+                return response.json();
+            })
+            .then(function(data) {
+                if (data.success) {
+                    document.getElementById('audit-form').style.display = 'none';
+                    document.getElementById('success-state').style.display = 'block';
+                    msg.className = 'message success show';
+                    msg.textContent = data.message || 'Audit reserve ! Consultez votre email.';
+
+                    // Mark as submitted to prevent expired overlay
+                    localStorage.setItem(SUBMITTED_KEY, 'true');
+
+                    // Update slots locally
+                    if (typeof data.slots_remaining === 'number') {
+                        updateSlotsDisplay(data.slots_remaining);
+                        localStorage.setItem(SLOTS_KEY, '' + data.slots_remaining);
+                    }
+
+                    // Track conversion via Plausible
+                    if (window.plausible) {
+                        window.plausible('AuditGratuitConversion', { props: { stack: payload.stack, pain_point: payload.pain_point } });
+                    }
+                    // Fire conversion tracking pixel
+                    var convPixel = new Image();
+                    convPixel.src = 'https://watch.arkforge.fr/api/track-email-open/conversion_audit_gratuit_' + submissionId + '?t=' + Date.now();
+                } else {
+                    throw new Error(data.message || 'Erreur inconnue');
+                }
+            })
+            .catch(function(err) {
+                msg.className = 'message error show';
+                msg.textContent = err.message || 'Une erreur est survenue. Reessayez.';
+                btn.disabled = false;
+                btn.textContent = 'Reserver mon audit gratuit';
+            });
+
+            return false;
+        };
+    })();
+    </script>
+
+    <!-- HOT Visitor Tracking - Audit Gratuit Conversion Monitoring -->
+    <script>
+    (function() {
+        var TRACKING_ENDPOINT = 'https://watch.arkforge.fr/api/track-visitor-audit-gratuit';
+        var VISITOR_ID = localStorage.getItem('audit_visitor_id') ||
+                        Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('audit_visitor_id', VISITOR_ID);
+
+        var interactions = 0;
+        var scrollDepth = 0;
+        var formStarted = false;
+        var startTime = Date.now();
+
+        function sendEvent(eventType, data) {
+            data = data || {};
+            var payload = {
+                visitor_id: VISITOR_ID,
+                type: eventType,
+                timestamp: new Date().toISOString(),
+                page: '/audit-gratuit-monitoring.html'
+            };
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) payload[key] = data[key];
+            }
+            try {
+                fetch(TRACKING_ENDPOINT, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(payload)
+                }).catch(function() {});
+            } catch(e) {}
+        }
+
+        // Track page view
+        sendEvent('pageview');
+
+        // Track clicks
+        document.addEventListener('click', function() {
+            interactions++;
+            sendEvent('click', {interactions: interactions});
+        });
+
+        // Track scroll depth
+        var scrollTimer = null;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(function() {
+                var docHeight = document.body.scrollHeight - window.innerHeight;
+                if (docHeight > 0) {
+                    var depth = Math.round((window.scrollY / docHeight) * 100);
+                    if (depth > scrollDepth) {
+                        scrollDepth = depth;
+                        sendEvent('scroll', {depth: scrollDepth});
+                    }
+                }
+            }, 200);
+        });
+
+        // Track form interactions
+        var formInputs = document.querySelectorAll('#audit-form input, #audit-form select, #audit-form textarea');
+        for (var i = 0; i < formInputs.length; i++) {
+            (function(input) {
+                input.addEventListener('focus', function() {
+                    if (!formStarted) {
+                        formStarted = true;
+                        sendEvent('form_focus');
+                    }
+                });
+                input.addEventListener('input', function() {
+                    sendEvent('form_input', {field: input.name || input.id});
+                });
+            })(formInputs[i]);
+        }
+
+        // Track form submission
+        var form = document.getElementById('audit-form');
+        if (form) {
+            form.addEventListener('submit', function() {
+                sendEvent('form_submit');
+            });
+        }
+
+        // Track page leave
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                var timeOnPage = Math.round((Date.now() - startTime) / 1000);
+                sendEvent('page_leave', {time_on_page: timeOnPage, interactions: interactions, scrollDepth: scrollDepth});
+            }
+        });
+
+        // Heartbeat every 30s
+        setInterval(function() {
+            var timeOnPage = Math.round((Date.now() - startTime) / 1000);
+            sendEvent('heartbeat', {time_on_page: timeOnPage, interactions: interactions, scrollDepth: scrollDepth});
+        }, 30000);
+    })();
+    </script>
+
+    <!-- Exit-Intent Popup - Capture email visiteurs qui partent sans signup -->
+    <div id="exit-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:10000; justify-content:center; align-items:center;">
+        <div style="background:white; border-radius:16px; padding:40px; max-width:480px; width:90%; position:relative; box-shadow:0 25px 50px rgba(0,0,0,0.3); text-align:center;">
+            <button onclick="document.getElementById('exit-popup').style.display='none'" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:24px; cursor:pointer; color:#999;">&times;</button>
+            <div style="font-size:2.5rem; margin-bottom:12px;">&#9888;&#65039;</div>
+            <h2 style="font-size:1.5rem; font-weight:800; color:#dc2626; margin-bottom:8px;">Attendez ! Votre audit gratuit vous attend</h2>
+            <p style="color:#555; margin-bottom:20px; font-size:0.95rem;">Recevez un rappel par email avant que les places ne soient prises. Aucun spam, juste votre invitation.</p>
+            <form id="exit-form" style="display:flex; flex-direction:column; gap:10px;">
+                <input type="email" id="exit-email" placeholder="Votre email professionnel" required style="padding:14px 16px; border:2px solid #e5e7eb; border-radius:8px; font-size:1rem; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='#dc2626'" onblur="this.style.borderColor='#e5e7eb'">
+                <button type="submit" style="background:linear-gradient(135deg,#dc2626,#b91c1c); color:white; border:none; padding:14px; border-radius:8px; font-size:1rem; font-weight:700; cursor:pointer;">Recevoir mon rappel gratuit</button>
+            </form>
+            <div id="exit-msg" style="display:none; margin-top:12px; padding:10px; border-radius:8px; font-size:0.9rem;"></div>
+            <p style="color:#999; font-size:0.75rem; margin-top:12px;">100% gratuit. D&eacute;sinscription en 1 clic.</p>
+        </div>
+    </div>
+    <script>
+    (function() {
+        var EXIT_SHOWN_KEY = 'audit_exit_shown';
+        var SUBMITTED_KEY = 'audit_submitted';
+        var popupShown = false;
+        var pageStart = Date.now();
+        var MIN_TIME_MS = 120000; // 2 minutes minimum on page
+
+        function showExitPopup() {
+            if (popupShown) return;
+            if (localStorage.getItem(EXIT_SHOWN_KEY)) return;
+            if (localStorage.getItem(SUBMITTED_KEY)) return;
+            if ((Date.now() - pageStart) < MIN_TIME_MS) return;
+
+            popupShown = true;
+            localStorage.setItem(EXIT_SHOWN_KEY, Date.now());
+            document.getElementById('exit-popup').style.display = 'flex';
+        }
+
+        // Exit intent: mouse leaves viewport (desktop)
+        document.addEventListener('mouseout', function(e) {
+            if (e.clientY < 5 && e.relatedTarget === null) {
+                showExitPopup();
+            }
+        });
+
+        // Mobile: back button or visibility change after 2min
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden && (Date.now() - pageStart) >= MIN_TIME_MS) {
+                // Can't show popup when hidden, but mark for next focus
+                if (!popupShown && !localStorage.getItem(EXIT_SHOWN_KEY) && !localStorage.getItem(SUBMITTED_KEY)) {
+                    popupShown = true;
+                    localStorage.setItem(EXIT_SHOWN_KEY, Date.now());
+                    // Show on return
+                    document.addEventListener('visibilitychange', function onReturn() {
+                        if (!document.hidden) {
+                            document.getElementById('exit-popup').style.display = 'flex';
+                            document.removeEventListener('visibilitychange', onReturn);
+                        }
+                    });
+                }
+            }
+        });
+
+        // Handle exit form submission
+        var exitForm = document.getElementById('exit-form');
+        if (exitForm) {
+            exitForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var emailInput = document.getElementById('exit-email');
+                var msg = document.getElementById('exit-msg');
+                var email = emailInput.value.trim();
+
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    msg.style.display = 'block';
+                    msg.style.background = '#fef2f2';
+                    msg.style.color = '#dc2626';
+                    msg.textContent = 'Email invalide.';
+                    return;
+                }
+
+                var visitorId = localStorage.getItem('audit_visitor_id') || 'unknown';
+                var timeOnPage = Math.round((Date.now() - pageStart) / 1000);
+
+                fetch('https://watch.arkforge.fr/api/audit-gratuit-exit-capture', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        email: email,
+                        visitor_id: visitorId,
+                        time_on_page: timeOnPage,
+                        scroll_depth: typeof scrollDepth !== 'undefined' ? scrollDepth : 0,
+                        form_started: typeof formStarted !== 'undefined' ? formStarted : false
+                    })
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    msg.style.display = 'block';
+                    msg.style.background = '#f0fdf4';
+                    msg.style.color = '#16a34a';
+                    msg.textContent = 'Parfait ! Vous recevrez votre rappel sous peu.';
+                    emailInput.disabled = true;
+                    exitForm.querySelector('button').disabled = true;
+                    exitForm.querySelector('button').textContent = 'Envoy\u00e9 !';
+
+                    if (window.plausible) {
+                        window.plausible('AuditExitCapture');
+                    }
+                })
+                .catch(function() {
+                    msg.style.display = 'block';
+                    msg.style.background = '#fef2f2';
+                    msg.style.color = '#dc2626';
+                    msg.textContent = 'Erreur. R\u00e9essayez.';
+                });
+            });
+        }
+    })();
+    </script>
+
+    <!-- Page view tracking pixel -->
+    <img src="https://watch.arkforge.fr/api/track-email-open/page_audit_gratuit" width="1" height="1" style="display:none;" alt="" />
+</body>
+</html>

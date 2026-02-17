@@ -1,0 +1,71 @@
+{
+  "timestamp": "2026-02-06T13:16:54.249241+00:00",
+  "pipeline_version": "1.0",
+  "pages": [
+    {
+      "page_name": "arkwatch",
+      "url": "https://arkforge.fr/arkwatch.html",
+      "composite_score": 94.3,
+      "verdict": "PASS",
+      "e2e": {
+        "score": 100.0,
+        "details": {
+          "page_loads": true,
+          "status_code": 200,
+          "console_errors": 0,
+          "console_error_list": [],
+          "has_title": true,
+          "title": "ArkWatch - Veille Web Automatisée avec IA",
+          "broken_images": 0,
+          "cta_visible_count": 6,
+          "has_cta": true,
+          "form_unlabeled_inputs": 0,
+          "link_count": 13,
+          "has_viewport_meta": true,
+          "screenshot_path": "/opt/claude-ceo/workspace/arkwatch/reports/ui-validation/screenshots/arkwatch.png"
+        }
+      },
+      "lighthouse": {
+        "score": 96.5,
+        "categories": {
+          "performance": 100,
+          "accessibility": 90,
+          "best-practices": 96,
+          "seo": 100
+        }
+      },
+      "axe": {
+        "score": 84.0,
+        "critical": 0,
+        "serious": 1,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "nodes_count": 11
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "description": "Ensure the document has a main landmark",
+            "nodes_count": 1
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "description": "Ensure all page content is contained by landmarks",
+            "nodes_count": 10
+          }
+        ]
+      },
+      "vision": {
+        "score": 80,
+        "skipped": true,
+        "analysis": ""
+      },
+      "errors": []
+    }
+  ],
+  "overall_pass": true
+}

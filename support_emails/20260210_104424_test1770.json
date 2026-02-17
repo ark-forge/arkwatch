@@ -1,0 +1,11 @@
+{
+  "id": "20260210_104424_test1770",
+  "received_at": "2026-02-10T10:44:24.949660",
+  "from": "test@example.com",
+  "to": "contact@arkforge.fr",
+  "subject": "Test Mailgun",
+  "body_text": "Test body content",
+  "body_html": "",
+  "timestamp": "1770720264",
+  "token": "test1770720264"
+}

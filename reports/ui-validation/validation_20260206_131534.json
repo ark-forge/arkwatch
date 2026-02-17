@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-02-06T13:15:34.538704+00:00",
+  "pipeline_version": "1.0",
+  "pages": [
+    {
+      "page_name": "arkwatch",
+      "url": "https://arkforge.fr/arkwatch.html",
+      "composite_score": 0.0,
+      "verdict": "FAIL",
+      "e2e": {
+        "score": 0,
+        "details": {
+          "error": "BrowserType.launch: Executable doesn't exist at /home/ubuntu/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+        }
+      },
+      "lighthouse": {
+        "score": 0.0,
+        "categories": {}
+      },
+      "axe": {
+        "score": 0.0,
+        "critical": 0,
+        "serious": 0,
+        "violations": []
+      },
+      "vision": {
+        "score": 0.0,
+        "skipped": false,
+        "analysis": ""
+      },
+      "errors": [
+        "Page failed to load - skipping further checks"
+      ]
+    }
+  ],
+  "overall_pass": false
+}

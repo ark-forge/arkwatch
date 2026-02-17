@@ -1,0 +1,90 @@
+{
+  "timestamp": "2026-02-10T09:48:11.715510+00:00",
+  "total_bugs_found": 2,
+  "bugs": [
+    {
+      "type": "low_email_send_rate",
+      "send_rate": 0.0,
+      "emails_sent": 0,
+      "total": 3
+    },
+    {
+      "type": "recent_submissions_no_email",
+      "count": 3,
+      "submissions": [
+        {
+          "email": "test-worker@example.com",
+          "submitted_at": "2026-02-09T22:30:00Z",
+          "age_hours": 11.3
+        },
+        {
+          "email": "final-test@example.com",
+          "submitted_at": "2026-02-09T21:24:30Z",
+          "age_hours": 12.4
+        },
+        {
+          "email": "test@test.com",
+          "submitted_at": "2026-02-09T21:25:26.368506Z",
+          "age_hours": 12.4
+        }
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "timestamp": "2026-02-10T09:48:11.714421+00:00",
+      "severity": "CRITICAL",
+      "bug_type": "low_email_send_rate",
+      "message": "Email send rate is 0.0% (threshold: 80%)",
+      "evidence": {
+        "total_submissions": 3,
+        "emails_sent": 0,
+        "send_rate": 0.0,
+        "threshold": 80
+      }
+    },
+    {
+      "timestamp": "2026-02-10T09:48:11.714733+00:00",
+      "severity": "HIGH",
+      "bug_type": "recent_submissions_no_email",
+      "message": "3 recent submissions (< 24h) did not receive confirmation email",
+      "evidence": {
+        "failed_emails": [
+          {
+            "email": "test-worker@example.com",
+            "submitted_at": "2026-02-09T22:30:00Z",
+            "age_hours": 11.3
+          },
+          {
+            "email": "final-test@example.com",
+            "submitted_at": "2026-02-09T21:24:30Z",
+            "age_hours": 12.4
+          },
+          {
+            "email": "test@test.com",
+            "submitted_at": "2026-02-09T21:25:26.368506Z",
+            "age_hours": 12.4
+          }
+        ]
+      }
+    }
+  ],
+  "state": {
+    "last_check": "2026-02-10T09:48:11.715521+00:00",
+    "total_checks": 1,
+    "total_alerts": 2,
+    "last_alert": "2026-02-10T09:48:11.714733+00:00",
+    "bugs_detected": [
+      {
+        "type": "low_email_send_rate",
+        "first_detected": "2026-02-10T09:48:11.714421+00:00",
+        "severity": "CRITICAL"
+      },
+      {
+        "type": "recent_submissions_no_email",
+        "first_detected": "2026-02-10T09:48:11.714733+00:00",
+        "severity": "HIGH"
+      }
+    ]
+  }
+}

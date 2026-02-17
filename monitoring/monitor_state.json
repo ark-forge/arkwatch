@@ -1,0 +1,39 @@
+{
+  "last_check": "2026-02-10T09:55:04.997465+00:00",
+  "total_checks": 3,
+  "total_alerts": 8,
+  "last_alert": "2026-02-10T09:49:20.723375+00:00",
+  "bugs_detected": [
+    {
+      "type": "low_email_send_rate",
+      "first_detected": "2026-02-10T09:48:11.714421+00:00",
+      "severity": "CRITICAL"
+    },
+    {
+      "type": "recent_submissions_no_email",
+      "first_detected": "2026-02-10T09:48:11.714733+00:00",
+      "severity": "HIGH"
+    },
+    {
+      "type": "low_email_send_rate_api",
+      "first_detected": "2026-02-10T09:55:04.979517+00:00",
+      "severity": "CRITICAL"
+    },
+    {
+      "type": "email_warmup_limit_reached",
+      "first_detected": "2026-02-10T09:55:04.981898+00:00",
+      "severity": "CRITICAL"
+    },
+    {
+      "type": "trial_email_send_failures",
+      "first_detected": "2026-02-10T09:55:04.982139+00:00",
+      "severity": "CRITICAL"
+    },
+    {
+      "type": "recent_trial_no_email",
+      "first_detected": "2026-02-10T09:55:04.982278+00:00",
+      "severity": "HIGH"
+    }
+  ],
+  "total_bugs_found": 4
+}

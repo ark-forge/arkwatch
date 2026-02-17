@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="alternate" hreflang="fr" href="/fr/arkwatch.html">
+    <link rel="alternate" hreflang="en" href="/en/arkwatch.html">
+    <script>
+        (function() {
+            var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+            if (lang.startsWith('fr')) {
+                window.location.replace('/fr/arkwatch.html');
+            } else {
+                window.location.replace('/en/arkwatch.html');
+            }
+        })();
+    </script>
+    <noscript><meta http-equiv="refresh" content="0;url=/en/arkwatch.html"></noscript>
+</head>
+<body>
+    <p>Redirecting... <a href="/en/arkwatch.html">English</a> | <a href="/fr/arkwatch.html">Français</a></p>
+</body>
+</html>

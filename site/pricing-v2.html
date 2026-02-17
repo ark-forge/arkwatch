@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArkWatch Pricing - Early Adopter Offer | 50% Off</title>
+    <meta name="description" content="ArkWatch pricing: Early Adopter offer - 50% off Pro plan. Free 14-day trial, no credit card. AI-powered web monitoring for DevOps teams.">
+    <meta property="og:title" content="ArkWatch Pricing - 50% Early Adopter Discount">
+    <meta property="og:description" content="Lock in 50% off Pro monitoring. 14-day free trial. No credit card required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arkforge.fr/pricing-v2.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+
+        /* Urgency Banner */
+        .urgency-banner {
+            background: linear-gradient(90deg, #dc2626 0%, #ef4444 50%, #dc2626 100%);
+            color: white;
+            text-align: center;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+        .urgency-banner .countdown {
+            display: inline-block;
+            background: rgba(0,0,0,0.25);
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            margin-left: 8px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 20px 45px;
+            text-align: center;
+        }
+        .header h1 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 800; }
+        .header p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; opacity: 0.9; }
+        .header-nav { margin-top: 20px; }
+        .header-nav a { color: rgba(255,255,255,0.85); text-decoration: none; margin: 0 15px; font-size: 0.95rem; border-bottom: 2px solid transparent; padding-bottom: 4px; transition: all 0.2s; }
+        .header-nav a:hover { color: white; border-bottom-color: white; }
+
+        /* Social proof bar */
+        .social-proof-bar {
+            background: #1e1b4b;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 0.95rem;
+        }
+        .social-proof-bar .number { font-weight: 800; color: #a5b4fc; font-size: 1.1rem; }
+
+        /* Pricing section */
+        .pricing-section { max-width: 900px; margin: 0 auto; padding: 50px 20px 30px; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* Cards */
+        .price-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 2px solid transparent;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .price-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+        .price-card.featured {
+            border-color: #667eea;
+            box-shadow: 0 8px 30px rgba(102,126,234,0.25);
+            transform: scale(1.03);
+        }
+        .price-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+
+        /* Badge */
+        .badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            color: white;
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+        @keyframes badgePulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.05); }
+        }
+
+        /* Spots indicator */
+        .spots-indicator {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 10px 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+        .spots-indicator .spots-number {
+            font-weight: 800;
+            color: #dc2626;
+            font-size: 1.1rem;
+        }
+
+        .tier-name { font-size: 1.4rem; font-weight: 700; color: #333; margin-bottom: 8px; }
+        .tier-desc { font-size: 0.95rem; color: #888; margin-bottom: 24px; }
+
+        .price-amount { font-size: 3.5rem; font-weight: 800; color: #333; line-height: 1; display: inline; }
+        .price-amount .currency { font-size: 1.5rem; vertical-align: super; }
+        .price-original {
+            font-size: 1.4rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 8px;
+        }
+        .price-savings {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+        .price-period { font-size: 0.95rem; color: #888; margin-bottom: 28px; }
+
+        /* Features list */
+        .features-list { list-style: none; text-align: left; margin-bottom: 32px; }
+        .features-list li {
+            padding: 10px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.95rem;
+            color: #555;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .features-list li:last-child { border-bottom: none; }
+        .features-list li:before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .features-list li.highlight { color: #333; font-weight: 600; }
+        .features-list li.disabled { color: #bbb; }
+        .features-list li.disabled:before { content: "\2717"; color: #ccc; }
+
+        /* CTA buttons */
+        .cta-btn {
+            display: block;
+            width: 100%;
+            padding: 18px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-free { background: #f0f0ff; color: #667eea; }
+        .cta-free:hover { background: #e0e0ff; }
+        .cta-primary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(16,185,129,0.35);
+        }
+        .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(16,185,129,0.45); }
+
+        .no-cc {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .no-cc .lock { color: #10b981; }
+
+        /* Comparison table */
+        .comparison { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
+        .comparison h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #333; font-weight: 700; }
+        .comparison-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .comparison-table th, .comparison-table td { padding: 14px 20px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 0.95rem; }
+        .comparison-table th { background: #f8f9fa; font-weight: 700; color: #333; }
+        .comparison-table th.featured-col { background: #f0f0ff; color: #667eea; }
+        .comparison-table td:first-child { text-align: left; font-weight: 500; color: #555; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .check { color: #4caf50; font-weight: bold; }
+        .cross { color: #ccc; }
+
+        /* Guarantee */
+        .guarantee {
+            text-align: center;
+            margin: 30px auto 50px;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            max-width: 600px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .guarantee p { color: #555; font-size: 0.95rem; }
+        .guarantee strong { color: #667eea; }
+        .guarantee-list {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        .guarantee-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            color: #374151;
+        }
+        .guarantee-item .icon { color: #10b981; font-weight: 700; }
+
+        /* Testimonial */
+        .testimonial-section { max-width: 700px; margin: 0 auto; padding: 0 20px 50px; }
+        .testimonial {
+            background: white;
+            border-left: 4px solid #667eea;
+            padding: 20px 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .testimonial .quote { font-style: italic; color: #374151; font-size: 1rem; margin-bottom: 10px; }
+        .testimonial .author { color: #667eea; font-size: 0.88rem; font-weight: 600; }
+
+        /* FAQ */
+        .faq { max-width: 700px; margin: 0 auto; padding: 0 20px 60px; }
+        .faq h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #333; font-weight: 700; }
+        .faq-item { background: white; border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+        .faq-item h3 { font-size: 1rem; color: #333; margin-bottom: 8px; }
+        .faq-item p { font-size: 0.93rem; color: #666; }
+
+        /* Footer */
+        footer { background: #333; color: white; text-align: center; padding: 30px 20px; }
+        footer a { color: #667eea; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 700px) {
+            .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+            .price-card.featured { transform: scale(1); }
+            .header h1 { font-size: 2rem; }
+            .guarantee-list { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- URGENCY BANNER with countdown -->
+    <div class="urgency-banner" id="urgencyBanner">
+        Early Adopter Offer Expires In: <span class="countdown" id="countdown">23:45:00</span>
+    </div>
+
+    <header class="header">
+        <h1>Simple Pricing</h1>
+        <p>Start with a 14-day free trial. No credit card required.</p>
+        <nav class="header-nav">
+            <a href="/arkwatch.html">Home</a>
+            <a href="/dashboard.html">Dashboard</a>
+            <a href="/api-docs.html">API Docs</a>
+        </nav>
+    </header>
+
+    <!-- SOCIAL PROOF BAR -->
+    <div class="social-proof-bar">
+        <span class="number" id="proofCount">127</span> professionals tested ArkWatch this week
+    </div>
+
+    <section class="pricing-section">
+        <div class="pricing-grid">
+            <!-- FREE -->
+            <div class="price-card">
+                <div class="tier-name">Free</div>
+                <div class="tier-desc">Get started in seconds</div>
+                <div class="price-amount"><span class="currency">&euro;</span>0</div>
+                <div class="price-period">free forever</div>
+                <ul class="features-list">
+                    <li class="highlight">3 monitors</li>
+                    <li>Check every 24h</li>
+                    <li>Email alerts</li>
+                    <li>AI change summaries</li>
+                    <li>1,000 API calls/day</li>
+                    <li class="disabled">SMS alerts</li>
+                    <li class="disabled">Priority support</li>
+                </ul>
+                <a href="/register.html" class="cta-btn cta-free">Get Started Free</a>
+            </div>
+
+            <!-- PRO with FOMO -->
+            <div class="price-card featured">
+                <div class="badge">EARLY ADOPTER: 50% OFF</div>
+                <div class="tier-name">Pro</div>
+                <div class="tier-desc">For professionals &amp; teams</div>
+
+                <!-- Spots remaining -->
+                <div class="spots-indicator">
+                    <span style="font-size:1.2rem;">&#9888;&#65039;</span>
+                    <span><span class="spots-number" id="spotsLeft">7</span> early adopter spots remaining</span>
+                </div>
+
+                <div>
+                    <span class="price-original">&euro;58</span>
+                    <span class="price-amount"><span class="currency">&euro;</span>29</span>
+                </div>
+                <div class="price-savings">You save &euro;348/year</div>
+                <div class="price-period">per month &bull; locked in forever</div>
+
+                <ul class="features-list">
+                    <li class="highlight">Unlimited monitors</li>
+                    <li>Check every 5 min</li>
+                    <li>Email alerts</li>
+                    <li>AI change summaries</li>
+                    <li>Unlimited API access</li>
+                    <li class="highlight">SMS alerts</li>
+                    <li class="highlight">Priority support</li>
+                </ul>
+                <a href="/trial-14d.html?version=v2&amp;ref=pricing-v2" class="cta-btn cta-primary" id="ctaPrimary">
+                    Start My FREE 14-Day Trial
+                </a>
+                <div class="no-cc">
+                    <span class="lock">&#128274;</span> No credit card required &bull; Cancel anytime
+                </div>
+            </div>
+        </div>
+
+        <!-- Guarantee section -->
+        <div class="guarantee">
+            <p><strong>Risk-Free Guarantee</strong></p>
+            <div class="guarantee-list">
+                <div class="guarantee-item"><span class="icon">&#10003;</span> 14-day free trial</div>
+                <div class="guarantee-item"><span class="icon">&#10003;</span> No credit card needed</div>
+                <div class="guarantee-item"><span class="icon">&#10003;</span> Cancel anytime</div>
+                <div class="guarantee-item"><span class="icon">&#10003;</span> Secure checkout via Stripe</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial-section">
+        <div class="testimonial">
+            <div class="quote">"We were losing &euro;2,000/month from undetected downtime. ArkWatch paid for itself in the first week &mdash; now we catch issues in under 30 seconds."</div>
+            <div class="author">&mdash; DevOps Lead, EU SaaS Company (500+ endpoints)</div>
+        </div>
+    </section>
+
+    <!-- Comparison table -->
+    <section class="comparison">
+        <h2>Compare Plans</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Free</th>
+                    <th class="featured-col">Pro &mdash; &euro;29/mo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Monitors</td><td>3</td><td><strong>Unlimited</strong></td></tr>
+                <tr><td>Check frequency</td><td>Every 24h</td><td>Every 5 min</td></tr>
+                <tr><td>Email alerts</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                <tr><td>SMS alerts</td><td class="cross">&mdash;</td><td class="check">&#10003;</td></tr>
+                <tr><td>AI summaries</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                <tr><td>API access</td><td>1,000 calls/day</td><td><strong>Unlimited</strong></td></tr>
+                <tr><td>Priority support</td><td class="cross">&mdash;</td><td class="check">&#10003;</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>What does "Early Adopter pricing" mean?</h3>
+            <p>As one of our first users, you lock in &euro;29/mo forever. When we raise prices (regular price will be &euro;58/mo), your rate stays the same as long as your subscription is active.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How does the free trial work?</h3>
+            <p>Click "Start My FREE 14-Day Trial" to get instant access to all Pro features. No credit card required. After 14 days, choose to subscribe or stay on the Free plan.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Do I need a credit card?</h3>
+            <p>No. Neither the Free plan nor the trial require a credit card. You only add payment info when you decide to subscribe after the trial.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I cancel anytime?</h3>
+            <p>Yes. Cancel anytime with one click. No questions asked. If you cancel during the trial, you are never charged.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What happens after the trial ends?</h3>
+            <p>After 14 days, you will be asked to add a payment method to continue with Pro. If you do not, you are automatically moved to the Free plan &mdash; no charges, ever.</p>
+        </div>
+    </section>
+
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">À propos</a>
+            <a href="/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialité</a>
+            <a href="/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions légales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+
+    <script>
+    (function() {
+        // === SOURCE TRACKING ===
+        function getSource() {
+            var params = new URLSearchParams(location.search);
+            var utm = params.get('utm_source') || params.get('ref') || '';
+            if (utm) return utm.toLowerCase();
+            var ref = (document.referrer || '').toLowerCase();
+            if (ref.indexOf('news.ycombinator.com') !== -1) return 'hackernews';
+            if (ref.indexOf('reddit.com') !== -1) return 'reddit';
+            if (ref.indexOf('twitter.com') !== -1 || ref.indexOf('x.com') !== -1) return 'twitter';
+            if (ref.indexOf('google.') !== -1) return 'google';
+            if (ref) return 'other';
+            return 'direct';
+        }
+        window._tkSrc = getSource();
+
+        function tk(event) {
+            var img = new Image();
+            img.src = '/t.gif?e=' + encodeURIComponent(event) +
+                      '&p=' + encodeURIComponent(location.pathname) +
+                      '&s=' + encodeURIComponent(window._tkSrc) +
+                      '&v=v2' +
+                      '&_=' + Date.now();
+        }
+        window._tk = tk;
+        tk('pageview');
+
+        // === CTA CLICK TRACKING ===
+        var ctaBtn = document.getElementById('ctaPrimary');
+        if (ctaBtn) {
+            ctaBtn.addEventListener('click', function() {
+                tk('cta_click_pricing_v2_trial');
+                fetch('https://watch.arkforge.fr/api/pricing-ab/track', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        event: 'cta_click',
+                        version: 'v2',
+                        source: window._tkSrc,
+                        timestamp: new Date().toISOString()
+                    })
+                }).catch(function() {});
+            });
+        }
+
+        // === COUNTDOWN TIMER (resets daily at midnight UTC) ===
+        function updateCountdown() {
+            var now = new Date();
+            var endOfDay = new Date(now);
+            endOfDay.setUTCHours(23, 59, 59, 999);
+            var diff = endOfDay - now;
+            if (diff <= 0) diff = 86400000;
+
+            var h = Math.floor(diff / 3600000);
+            var m = Math.floor((diff % 3600000) / 60000);
+            var s = Math.floor((diff % 60000) / 1000);
+
+            var el = document.getElementById('countdown');
+            if (el) {
+                el.textContent =
+                    (h < 10 ? '0' : '') + h + ':' +
+                    (m < 10 ? '0' : '') + m + ':' +
+                    (s < 10 ? '0' : '') + s;
+            }
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // === SPOTS REMAINING (session-persistent) ===
+        var spotsEl = document.getElementById('spotsLeft');
+        var storedSpots = sessionStorage.getItem('arkwatch_spots');
+        var spots = storedSpots ? parseInt(storedSpots) : 7;
+        spotsEl.textContent = spots;
+
+        setInterval(function() {
+            if (spots > 3) {
+                spots--;
+                spotsEl.textContent = spots;
+                sessionStorage.setItem('arkwatch_spots', spots);
+            }
+        }, 120000);
+
+        // === SOCIAL PROOF COUNT ===
+        var proofEl = document.getElementById('proofCount');
+        proofEl.textContent = 120 + Math.floor(Math.random() * 15);
+
+        // === PAGE VISIT ALERT ===
+        fetch('https://watch.arkforge.fr/api/page-visit-alert', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                page: '/pricing-v2',
+                referrer: document.referrer || null,
+                utm_source: new URLSearchParams(location.search).get('utm_source') || null,
+                utm_campaign: new URLSearchParams(location.search).get('utm_campaign') || null,
+                version: 'v2'
+            })
+        }).catch(function() {});
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArkWatch - Conversion Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0f1117;
+            color: #e5e7eb;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #374151;
+        }
+        .header h1 { font-size: 22px; font-weight: 800; color: #fff; }
+        .header .live-badge {
+            display: flex; align-items: center; gap: 8px;
+            background: rgba(34,197,94,0.15); color: #22c55e;
+            padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600;
+        }
+        .header .live-badge::before {
+            content: ''; width: 8px; height: 8px; background: #22c55e;
+            border-radius: 50%; animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+        .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
+
+        /* Summary cards */
+        .summary-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px; margin-bottom: 28px;
+        }
+        .summary-card {
+            background: #1f2937; border-radius: 12px; padding: 20px;
+            border: 1px solid #374151;
+        }
+        .summary-card .label { font-size: 12px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; }
+        .summary-card .value { font-size: 32px; font-weight: 800; margin: 6px 0 2px; }
+        .summary-card .sub { font-size: 12px; color: #6b7280; }
+        .value-green { color: #22c55e; }
+        .value-blue { color: #3b82f6; }
+        .value-yellow { color: #eab308; }
+        .value-red { color: #ef4444; }
+        .value-purple { color: #a78bfa; }
+
+        /* Sections */
+        .section {
+            background: #1f2937; border-radius: 12px; padding: 24px;
+            border: 1px solid #374151; margin-bottom: 24px;
+        }
+        .section-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 18px;
+        }
+        .section h2 { font-size: 16px; font-weight: 700; color: #f9fafb; }
+        .badge {
+            display: inline-block; padding: 3px 10px; border-radius: 12px;
+            font-size: 11px; font-weight: 600;
+        }
+        .badge-high { background: rgba(239,68,68,0.15); color: #ef4444; }
+        .badge-medium { background: rgba(234,179,8,0.15); color: #eab308; }
+        .badge-low { background: rgba(34,197,94,0.15); color: #22c55e; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 10px 12px; font-size: 11px; color: #9ca3af;
+             text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #374151; }
+        td { padding: 10px 12px; font-size: 13px; border-bottom: 1px solid #1f2937; }
+        tr:hover td { background: rgba(55,65,81,0.3); }
+        .status-dot {
+            width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px;
+        }
+        .dot-green { background: #22c55e; }
+        .dot-yellow { background: #eab308; }
+        .dot-gray { background: #6b7280; }
+        .dot-red { background: #ef4444; }
+
+        /* Hot leads */
+        .hot-lead-card {
+            background: #1a1a2e; border: 1px solid #ef4444; border-radius: 10px;
+            padding: 16px; margin-bottom: 12px;
+        }
+        .hot-lead-card .lead-header {
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+        }
+        .hot-lead-card .lead-name { font-weight: 700; font-size: 15px; }
+        .hot-lead-card .lead-detail { color: #9ca3af; font-size: 13px; margin-bottom: 6px; }
+        .hot-lead-card .lead-action {
+            color: #22c55e; font-size: 13px; font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer;
+            font-size: 13px; font-weight: 600; transition: all 0.2s;
+        }
+        .btn-primary { background: #6366f1; color: white; }
+        .btn-primary:hover { background: #4f46e5; }
+        .btn-danger { background: #dc2626; color: white; }
+        .btn-danger:hover { background: #b91c1c; }
+        .btn-ghost { background: transparent; color: #9ca3af; border: 1px solid #374151; }
+        .btn-ghost:hover { background: #374151; color: #f9fafb; }
+
+        /* Refresh bar */
+        .refresh-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 20px; color: #6b7280; font-size: 13px;
+        }
+        .refresh-bar .actions { display: flex; gap: 8px; }
+
+        /* Loading */
+        .loading { text-align: center; padding: 40px; color: #6b7280; }
+        .error-msg { background: rgba(239,68,68,0.1); border: 1px solid #ef4444;
+                     border-radius: 8px; padding: 12px; color: #ef4444; margin: 12px 0; }
+
+        /* Funnel */
+        .funnel { display: flex; gap: 4px; align-items: end; margin: 16px 0; }
+        .funnel-step {
+            flex: 1; text-align: center; padding: 12px 8px;
+            border-radius: 8px; background: #374151; position: relative;
+        }
+        .funnel-step .f-value { font-size: 24px; font-weight: 800; }
+        .funnel-step .f-label { font-size: 11px; color: #9ca3af; margin-top: 4px; }
+        .funnel-arrow { color: #4b5563; font-size: 20px; padding: 0 4px; align-self: center; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Conversion Dashboard</h1>
+        <div class="live-badge">LIVE</div>
+    </div>
+
+    <div class="container">
+        <div class="refresh-bar">
+            <span id="last-update">Loading...</span>
+            <div class="actions">
+                <button class="btn btn-ghost" onclick="refresh()">Refresh</button>
+                <button class="btn btn-danger" onclick="sendTestAlert()">Test Alert</button>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="summary-grid" id="summary-cards">
+            <div class="summary-card"><div class="label">Loading...</div></div>
+        </div>
+
+        <!-- Conversion Funnel -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Conversion Funnel</h2>
+            </div>
+            <div class="funnel" id="funnel"></div>
+        </div>
+
+        <!-- Hot Leads -->
+        <div class="section" id="hot-leads-section" style="display:none;">
+            <div class="section-header">
+                <h2>Hot Leads - Action Required</h2>
+                <span class="badge badge-high" id="hot-count">0</span>
+            </div>
+            <div id="hot-leads"></div>
+        </div>
+
+        <!-- Outreach Campaign (Direct) -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Direct Outreach (15 DevOps/SRE)</h2>
+                <span class="badge badge-low" id="outreach-rate">-</span>
+            </div>
+            <div style="overflow-x:auto;">
+                <table id="outreach-table">
+                    <thead>
+                        <tr>
+                            <th>Lead</th><th>Company</th><th>Title</th>
+                            <th>Status</th><th>Opens</th><th>Last Open</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- HN Outreach Campaign -->
+        <div class="section">
+            <div class="section-header">
+                <h2>HN Outreach (20 leads)</h2>
+                <span class="badge badge-low" id="hn-outreach-rate">-</span>
+            </div>
+            <div style="overflow-x:auto;">
+                <table id="hn-outreach-table">
+                    <thead>
+                        <tr>
+                            <th>Lead</th><th>Company</th><th>Role</th>
+                            <th>Pain Point</th><th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Trial Signups -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Trial Signups</h2>
+                <span class="badge badge-low" id="signup-count">-</span>
+            </div>
+            <div style="overflow-x:auto;">
+                <table id="signups-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th><th>Email</th><th>Source</th>
+                            <th>Email Sent</th><th>Opened</th><th>Converted</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Recent Page Visits -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Page Visits (24h)</h2>
+                <span class="badge badge-low" id="visits-count">-</span>
+            </div>
+            <div style="overflow-x:auto;">
+                <table id="visits-table">
+                    <thead>
+                        <tr>
+                            <th>Page</th><th>Time</th><th>Referrer</th><th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Alerts Log -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Alerts Sent</h2>
+            </div>
+            <div id="alerts-log"><p style="color:#6b7280;font-size:13px;">No alerts triggered yet.</p></div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        let autoRefreshInterval = null;
+
+        async function fetchDashboard() {
+            try {
+                const resp = await fetch(`${API_BASE}/api/conversion/dashboard?include_leads=true&check_alerts=true`);
+                if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+                return await resp.json();
+            } catch (e) {
+                console.error('Dashboard fetch error:', e);
+                return null;
+            }
+        }
+
+        function timeAgo(iso) {
+            if (!iso) return '-';
+            const d = new Date(iso);
+            const now = new Date();
+            const diff = (now - d) / 1000;
+            if (diff < 60) return `${Math.floor(diff)}s ago`;
+            if (diff < 3600) return `${Math.floor(diff/60)}m ago`;
+            if (diff < 86400) return `${Math.floor(diff/3600)}h ago`;
+            return `${Math.floor(diff/86400)}d ago`;
+        }
+
+        function renderSummary(data) {
+            const s = data.summary;
+            const hn = data.hn_outreach_campaign || {total_leads: 0, open_rate: 0};
+            const directLeads = data.outreach_campaign.total_leads;
+            const hnLeads = hn.total_leads;
+            document.getElementById('summary-cards').innerHTML = `
+                <div class="summary-card">
+                    <div class="label">Leads Tracked</div>
+                    <div class="value value-blue">${s.total_leads_tracked}</div>
+                    <div class="sub">${directLeads} direct + ${hnLeads} HN + ${data.trial_signups.total} signups</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Email Opens</div>
+                    <div class="value value-green">${s.total_email_opens}</div>
+                    <div class="sub">${data.outreach_campaign.open_rate}% direct / ${hn.open_rate}% HN</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Page Visits</div>
+                    <div class="value value-purple">${s.total_page_visits}</div>
+                    <div class="sub">${data.page_visits.recent_24h} in 24h</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Trial Signups</div>
+                    <div class="value value-yellow">${s.total_signups}</div>
+                    <div class="sub">${data.trial_signups.conversion_rate}% conv rate</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Conversions</div>
+                    <div class="value value-green">${s.total_conversions}</div>
+                    <div class="sub">paying customers</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Hot Leads</div>
+                    <div class="value ${s.hot_leads_count > 0 ? 'value-red' : 'value-green'}">${s.hot_leads_count}</div>
+                    <div class="sub">${s.alerts_triggered} alerts sent</div>
+                </div>
+            `;
+        }
+
+        function renderFunnel(data) {
+            const oc = data.outreach_campaign;
+            const hn = data.hn_outreach_campaign || {total_leads: 0, opened: 0};
+            const ts = data.trial_signups;
+            const totalLeads = oc.total_leads + hn.total_leads;
+            const totalOpens = oc.opened + hn.opened;
+            const steps = [
+                { value: totalLeads, label: 'Leads (35)', color: '#3b82f6' },
+                { value: totalOpens, label: 'Opens', color: '#8b5cf6' },
+                { value: data.page_visits.total, label: 'Visits', color: '#a78bfa' },
+                { value: ts.total, label: 'Signups', color: '#eab308' },
+                { value: ts.conversions, label: 'Paid', color: '#22c55e' },
+            ];
+            const max = Math.max(...steps.map(s => s.value), 1);
+            document.getElementById('funnel').innerHTML = steps.map((s, i) => {
+                const h = Math.max(40, (s.value / max) * 120);
+                return `${i > 0 ? '<div class="funnel-arrow">&#8594;</div>' : ''}
+                    <div class="funnel-step" style="min-height:${h}px;border-left:3px solid ${s.color};">
+                        <div class="f-value" style="color:${s.color}">${s.value}</div>
+                        <div class="f-label">${s.label}</div>
+                    </div>`;
+            }).join('');
+        }
+
+        function renderHotLeads(data) {
+            const hl = data.hot_leads || [];
+            const section = document.getElementById('hot-leads-section');
+            const container = document.getElementById('hot-leads');
+            document.getElementById('hot-count').textContent = hl.length;
+
+            if (hl.length === 0) {
+                section.style.display = 'none';
+                return;
+            }
+            section.style.display = 'block';
+            const typeLabels = {
+                'high_engagement': 'Multi-open',
+                'pricing_no_signup': 'Pricing drop-off',
+                'demo_no_form': 'Demo drop-off',
+                'email_then_visit': 'Cross-channel',
+                'trial_stalled': 'Stalled trial',
+            };
+            container.innerHTML = hl.map(l => `
+                <div class="hot-lead-card">
+                    <div class="lead-header">
+                        <span class="lead-name">${l.lead_name}${l.company ? ' - ' + l.company : ''}</span>
+                        <span style="display:flex;gap:6px;align-items:center;">
+                            <span style="font-size:10px;color:#6b7280;text-transform:uppercase;">${typeLabels[l.type] || l.type}</span>
+                            <span class="badge badge-${l.severity}">${l.severity}</span>
+                        </span>
+                    </div>
+                    <div class="lead-detail">${l.detail}</div>
+                    <div class="lead-action">&#9889; ${l.action}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderOutreach(data) {
+            const leads = (data.outreach_campaign.leads || []).sort((a,b) => b.open_count - a.open_count);
+            document.getElementById('outreach-rate').textContent = `${data.outreach_campaign.open_rate}% open`;
+            const tbody = document.querySelector('#outreach-table tbody');
+            tbody.innerHTML = leads.map(l => {
+                const dotClass = l.trial_activated ? 'dot-green' : l.opened ? 'dot-yellow' : 'dot-gray';
+                const status = l.trial_activated ? 'Trial Active' : l.replied ? 'Replied' : l.opened ? 'Opened' : 'Pending';
+                return `<tr>
+                    <td><strong>${l.name}</strong></td>
+                    <td>${l.company}</td>
+                    <td style="color:#9ca3af">${l.title}</td>
+                    <td><span class="status-dot ${dotClass}"></span>${status}</td>
+                    <td>${l.open_count}x</td>
+                    <td style="color:#6b7280">${timeAgo(l.last_open)}</td>
+                </tr>`;
+            }).join('');
+        }
+
+        function renderHnOutreach(data) {
+            const hn = data.hn_outreach_campaign || {leads: [], open_rate: 0};
+            const leads = hn.leads || [];
+            document.getElementById('hn-outreach-rate').textContent = `${hn.open_rate}% open | ${hn.total_leads || 0} leads`;
+            const tbody = document.querySelector('#hn-outreach-table tbody');
+            if (leads.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="color:#6b7280;text-align:center;">No HN leads loaded</td></tr>';
+                return;
+            }
+            tbody.innerHTML = leads.map(l => {
+                const dotClass = l.trial_activated ? 'dot-green' : l.opened ? 'dot-yellow' : 'dot-gray';
+                const status = l.trial_activated ? 'Trial Active' : l.replied ? 'Replied' : l.opened ? 'Opened' : 'Scheduled';
+                return `<tr>
+                    <td><strong>${l.name}</strong></td>
+                    <td>${l.company}</td>
+                    <td style="color:#9ca3af">${l.title}</td>
+                    <td style="color:#6b7280;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${l.pain_point || '-'}</td>
+                    <td><span class="status-dot ${dotClass}"></span>${status}</td>
+                </tr>`;
+            }).join('');
+        }
+
+        function renderSignups(data) {
+            const signups = data.trial_signups.signups || [];
+            document.getElementById('signup-count').textContent = `${signups.length} signups`;
+            const tbody = document.querySelector('#signups-table tbody');
+            tbody.innerHTML = signups.map(s => {
+                const check = v => v ? '<span style="color:#22c55e">&#10003;</span>' : '<span style="color:#6b7280">&#10007;</span>';
+                return `<tr>
+                    <td><strong>${s.name}</strong></td>
+                    <td style="color:#9ca3af">${s.email}</td>
+                    <td>${s.utm_source || s.source || 'direct'}</td>
+                    <td>${check(s.email_sent)}</td>
+                    <td>${check(s.email_opened)}</td>
+                    <td>${check(s.conversion_completed)}</td>
+                </tr>`;
+            }).join('');
+        }
+
+        function renderVisits(data) {
+            const visits = data.page_visits.recent_visits || [];
+            document.getElementById('visits-count').textContent = `${visits.length} visits`;
+            const tbody = document.querySelector('#visits-table tbody');
+            if (visits.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="color:#6b7280;text-align:center;">No visits in last 24h</td></tr>';
+                return;
+            }
+            tbody.innerHTML = visits.map(v => `<tr>
+                <td><strong>${v.page}</strong></td>
+                <td style="color:#9ca3af">${timeAgo(v.timestamp)}</td>
+                <td style="color:#6b7280;max-width:200px;overflow:hidden;text-overflow:ellipsis;">${v.referrer || '-'}</td>
+                <td>${v.utm_source || '-'}</td>
+            </tr>`).join('');
+        }
+
+        function renderAlerts(data) {
+            const alerts = data.alerts || [];
+            const container = document.getElementById('alerts-log');
+            if (alerts.length === 0) {
+                container.innerHTML = '<p style="color:#6b7280;font-size:13px;">No new alerts this refresh.</p>';
+                return;
+            }
+            container.innerHTML = alerts.map(a => `
+                <div style="background:#1a1a2e;border:1px solid ${a.email_sent ? '#22c55e' : '#eab308'};border-radius:8px;padding:12px;margin-bottom:8px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <strong>${a.lead || 'System'}</strong>
+                        <span style="font-size:11px;color:#6b7280;">${timeAgo(a.timestamp)}</span>
+                    </div>
+                    <div style="color:#9ca3af;font-size:13px;margin-top:4px;">${a.detail}</div>
+                    <div style="font-size:11px;margin-top:4px;color:${a.email_sent ? '#22c55e' : '#eab308'};">
+                        ${a.email_sent ? 'Email sent to shareholder' : 'Email not sent (check config)'}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function refresh() {
+            document.getElementById('last-update').textContent = 'Refreshing...';
+            const data = await fetchDashboard();
+            if (!data) {
+                document.getElementById('last-update').innerHTML = '<span style="color:#ef4444;">Failed to load. Retrying in 30s...</span>';
+                return;
+            }
+            renderSummary(data);
+            renderFunnel(data);
+            renderHotLeads(data);
+            renderOutreach(data);
+            renderHnOutreach(data);
+            renderSignups(data);
+            renderVisits(data);
+            renderAlerts(data);
+            document.getElementById('last-update').textContent = `Last updated: ${new Date().toLocaleTimeString()} (auto-refresh 30s)`;
+        }
+
+        async function sendTestAlert() {
+            try {
+                const resp = await fetch(`${API_BASE}/api/conversion/test-alert`, { method: 'POST' });
+                const result = await resp.json();
+                alert(result.email_sent
+                    ? `Test alert sent to ${result.recipient}`
+                    : `Alert logged but email not sent: ${result.note || result.error || 'unknown'}`);
+                refresh();
+            } catch (e) {
+                alert('Error sending test alert: ' + e.message);
+            }
+        }
+
+        // Initial load + auto-refresh
+        refresh();
+        autoRefreshInterval = setInterval(refresh, 30000);
+    </script>
+
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">À propos</a>
+            <a href="/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialité</a>
+            <a href="/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions légales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+</body>
+</html>

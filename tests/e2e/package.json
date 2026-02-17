@@ -1,0 +1,19 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "helpers.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:onboarding": "npx playwright test onboarding.spec.js",
+    "test:core": "npx playwright test core-flow.spec.js",
+    "test:rgpd": "npx playwright test rgpd.spec.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@playwright/test": "^1.58.1"
+  }
+}

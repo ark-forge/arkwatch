@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArkWatch - Conversion Funnel Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f1117;
+            color: #e5e7eb;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #1f2937;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+        .live-dot {
+            width: 8px; height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .grid { display: grid; gap: 20px; }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+        .card {
+            background: #1f2937;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #374151;
+        }
+        .card-title {
+            font-size: 13px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .card-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: #f9fafb;
+        }
+        .card-sub {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 28px 0 16px;
+            color: #f9fafb;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+        .funnel-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .funnel-label {
+            width: 160px;
+            font-size: 13px;
+            color: #d1d5db;
+            flex-shrink: 0;
+        }
+        .funnel-track {
+            flex: 1;
+            height: 32px;
+            background: #374151;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+        .funnel-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.6s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            color: white;
+            min-width: 40px;
+        }
+        .funnel-count {
+            width: 60px;
+            text-align: right;
+            font-size: 14px;
+            font-weight: 700;
+            color: #f9fafb;
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid #374151;
+            font-size: 13px;
+        }
+        th {
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        td { color: #d1d5db; }
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .badge-devto { background: #1a1a2e; color: #a78bfa; }
+        .badge-linkedin { background: #1a2332; color: #60a5fa; }
+        .badge-email { background: #1a2e1a; color: #4ade80; }
+        .badge-direct { background: #2e2a1a; color: #fbbf24; }
+        .badge-hackernews { background: #2e1a1a; color: #f87171; }
+        .badge-twitter { background: #1a2e2e; color: #22d3ee; }
+        .error-msg {
+            background: #7f1d1d;
+            border: 1px solid #991b1b;
+            padding: 16px;
+            border-radius: 8px;
+            color: #fca5a5;
+            display: none;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6b7280;
+        }
+        .refresh-info {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        @media (max-width: 900px) {
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .grid-4 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Conversion Funnel: Trial &rarr; Paid</h1>
+        <div class="live-badge">
+            <div class="live-dot"></div>
+            <span>LIVE</span>
+            <span class="refresh-info" id="lastUpdate">Loading...</span>
+        </div>
+    </div>
+
+    <div id="errorMsg" class="error-msg"></div>
+
+    <!-- KPI Cards -->
+    <div class="grid grid-4" id="kpiCards">
+        <div class="card">
+            <div class="card-title">Total Trial Signups</div>
+            <div class="card-value" id="totalSignups">-</div>
+            <div class="card-sub" id="signupsSources">-</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Emails Opened</div>
+            <div class="card-value" id="emailsOpened">-</div>
+            <div class="card-sub" id="openRate">-</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Conversions (Paid)</div>
+            <div class="card-value" id="conversions">-</div>
+            <div class="card-sub" id="convRate">-</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Avg. Time to Convert</div>
+            <div class="card-value" id="avgTime">-</div>
+            <div class="card-sub" id="avgTimeSub">signup &rarr; paid</div>
+        </div>
+    </div>
+
+    <!-- Funnel Visualization -->
+    <h2 class="section-title">Funnel Stages</h2>
+    <div class="card" id="funnelContainer">
+        <div class="loading">Loading funnel data...</div>
+    </div>
+
+    <!-- Charts Row -->
+    <h2 class="section-title">Breakdown</h2>
+    <div class="grid grid-2">
+        <div class="card">
+            <div class="card-title">Signups by Source</div>
+            <div class="chart-container">
+                <canvas id="sourceChart"></canvas>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Nurturing Email Performance</div>
+            <div class="chart-container">
+                <canvas id="nurturingChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nurturing Steps Table -->
+    <h2 class="section-title">Nurturing Sequence Detail</h2>
+    <div class="card">
+        <table id="nurturingTable">
+            <thead>
+                <tr>
+                    <th>Step</th>
+                    <th>Day</th>
+                    <th>Sent</th>
+                    <th>Opens</th>
+                    <th>Open Rate</th>
+                    <th>Clicks</th>
+                    <th>Click Rate</th>
+                </tr>
+            </thead>
+            <tbody id="nurturingBody">
+                <tr><td colspan="7" style="text-align:center;color:#6b7280">Loading...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Recent CTA Clicks -->
+    <h2 class="section-title">Recent CTA Clicks</h2>
+    <div class="card">
+        <table id="clicksTable">
+            <thead>
+                <tr>
+                    <th>Lead</th>
+                    <th>URL</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody id="clicksBody">
+                <tr><td colspan="3" style="text-align:center;color:#6b7280">Loading...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        const REFRESH_INTERVAL = 5 * 60 * 1000; // 5 minutes
+        let sourceChart = null;
+        let nurturingChart = null;
+
+        const FUNNEL_COLORS = [
+            '#6366f1', '#818cf8', '#a78bfa', '#c4b5fd', '#ddd6fe'
+        ];
+
+        const SOURCE_COLORS = {
+            devto: '#a78bfa',
+            linkedin: '#60a5fa',
+            email: '#4ade80',
+            direct: '#fbbf24',
+            hackernews: '#f87171',
+            twitter: '#22d3ee',
+        };
+
+        function showError(msg) {
+            const el = document.getElementById('errorMsg');
+            el.textContent = msg;
+            el.style.display = 'block';
+        }
+
+        function hideError() {
+            document.getElementById('errorMsg').style.display = 'none';
+        }
+
+        function formatTime(hours) {
+            if (hours === 0) return 'N/A';
+            if (hours < 24) return Math.round(hours) + 'h';
+            return (hours / 24).toFixed(1) + 'd';
+        }
+
+        function renderKPIs(data) {
+            const signups = data.signups;
+            const conv = data.conversion;
+
+            document.getElementById('totalSignups').textContent = signups.total;
+
+            const sources = Object.keys(signups.by_source || {});
+            document.getElementById('signupsSources').textContent =
+                sources.map(s => s + ': ' + signups.by_source[s].count).join(' | ') || 'No data';
+
+            const totalOpened = Object.values(signups.by_source || {})
+                .reduce((sum, s) => sum + (s.emails_opened || 0), 0);
+            const totalSent = Object.values(signups.by_source || {})
+                .reduce((sum, s) => sum + (s.emails_sent || 0), 0);
+            document.getElementById('emailsOpened').textContent = totalOpened;
+            document.getElementById('openRate').textContent =
+                totalSent > 0 ? (totalOpened / totalSent * 100).toFixed(1) + '% open rate' : 'No emails sent';
+
+            document.getElementById('conversions').textContent = conv.total_conversions;
+            document.getElementById('convRate').textContent =
+                conv.conversion_rate + '% conversion rate';
+
+            document.getElementById('avgTime').textContent =
+                formatTime(conv.avg_time_to_conversion_hours);
+        }
+
+        function renderFunnel(stages) {
+            const container = document.getElementById('funnelContainer');
+            if (!stages || stages.length === 0) {
+                container.innerHTML = '<div style="text-align:center;color:#6b7280;padding:20px">No funnel data yet</div>';
+                return;
+            }
+
+            let html = '';
+            stages.forEach((stage, i) => {
+                const width = Math.max(stage.percentage, 5);
+                const color = FUNNEL_COLORS[i] || '#6366f1';
+                html += `
+                <div class="funnel-bar">
+                    <div class="funnel-label">${stage.stage}</div>
+                    <div class="funnel-track">
+                        <div class="funnel-fill" style="width:${width}%;background:${color}">
+                            ${stage.percentage}%
+                        </div>
+                    </div>
+                    <div class="funnel-count">${stage.count}</div>
+                </div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderSourceChart(bySource) {
+            const ctx = document.getElementById('sourceChart').getContext('2d');
+            const labels = Object.keys(bySource);
+            const counts = labels.map(k => bySource[k].count);
+            const colors = labels.map(k => SOURCE_COLORS[k] || '#6b7280');
+
+            if (sourceChart) sourceChart.destroy();
+
+            sourceChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels.map(l => l.charAt(0).toUpperCase() + l.slice(1)),
+                    datasets: [{
+                        data: counts,
+                        backgroundColor: colors,
+                        borderColor: '#1f2937',
+                        borderWidth: 2,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { color: '#d1d5db', font: { size: 12 } }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderNurturingChart(steps) {
+            const ctx = document.getElementById('nurturingChart').getContext('2d');
+            const labels = steps.map(s => s.label);
+            const opens = steps.map(s => s.open_rate);
+            const clicks = steps.map(s => s.click_rate);
+
+            if (nurturingChart) nurturingChart.destroy();
+
+            nurturingChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Open Rate %',
+                            data: opens,
+                            backgroundColor: '#6366f1',
+                            borderRadius: 4,
+                        },
+                        {
+                            label: 'Click Rate %',
+                            data: clicks,
+                            backgroundColor: '#22c55e',
+                            borderRadius: 4,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            ticks: { color: '#9ca3af', font: { size: 11 } },
+                            grid: { display: false },
+                        },
+                        y: {
+                            ticks: { color: '#9ca3af', callback: v => v + '%' },
+                            grid: { color: '#374151' },
+                            max: 100,
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#d1d5db', font: { size: 12 } }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderNurturingTable(steps) {
+            const tbody = document.getElementById('nurturingBody');
+            if (!steps || steps.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#6b7280">No nurturing data</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = steps.map(s => `
+                <tr>
+                    <td>${s.label}</td>
+                    <td>J+${s.day}</td>
+                    <td>${s.sent}</td>
+                    <td>${s.opens}</td>
+                    <td>${s.open_rate}%</td>
+                    <td>${s.clicks}</td>
+                    <td>${s.click_rate}%</td>
+                </tr>
+            `).join('');
+        }
+
+        function renderClicksTable(clicks) {
+            const tbody = document.getElementById('clicksBody');
+            if (!clicks || clicks.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;color:#6b7280">No CTA clicks recorded yet</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = clicks.map(c => {
+                const ts = c.timestamp ? new Date(c.timestamp).toLocaleString() : '-';
+                const shortUrl = c.url ? c.url.replace('https://', '').substring(0, 40) : '-';
+                return `
+                <tr>
+                    <td>${c.lead_id}</td>
+                    <td><a href="${c.url}" style="color:#818cf8" target="_blank">${shortUrl}</a></td>
+                    <td>${ts}</td>
+                </tr>`;
+            }).join('');
+        }
+
+        async function fetchAndRender() {
+            try {
+                const res = await fetch(API_BASE + '/api/conversion-metrics');
+                if (!res.ok) throw new Error('API returned ' + res.status);
+                const data = await res.json();
+
+                hideError();
+
+                renderKPIs(data);
+                renderFunnel(data.funnel);
+                renderSourceChart(data.signups.by_source || {});
+                renderNurturingChart(data.nurturing.steps || []);
+                renderNurturingTable(data.nurturing.steps || []);
+                renderClicksTable(data.nurturing.recent_cta_clicks || []);
+
+                const now = new Date();
+                document.getElementById('lastUpdate').textContent =
+                    'Updated ' + now.toLocaleTimeString();
+
+            } catch (err) {
+                showError('Failed to load metrics: ' + err.message);
+                console.error('Dashboard fetch error:', err);
+            }
+        }
+
+        // Initial load
+        fetchAndRender();
+
+        // Auto-refresh every 5 minutes
+        setInterval(fetchAndRender, REFRESH_INTERVAL);
+    </script>
+
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">À propos</a>
+            <a href="/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialité</a>
+            <a href="/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions légales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+</body>
+</html>

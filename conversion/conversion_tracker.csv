@@ -1,0 +1,27 @@
+email,source,capture_date,status,contacted_date,trial_created_date,trial_end_date,demo_done,invoice_id,paid_date,tier,amount,conversion_days,notes
+# Example row (delete before use):
+# john.doe@company.com,pricing_page,2026-02-09T10:00:00Z,converted_paid,2026-02-09T11:00:00Z,2026-02-09T12:00:00Z,2026-02-23T12:00:00Z,yes,in_ABC123,2026-02-22T09:30:00Z,pro,29.00,13,"Quick conversion, very engaged during trial"
+
+# Instructions:
+# - Add one row per lead
+# - Update status as lead progresses through funnel
+# - Status values: qualified, contacted, replied, no_reply, trial_active, invoice_sent, converted_paid, trial_expired_no_conversion
+# - demo_done: yes/no
+# - conversion_days: number of days from capture_date to paid_date
+# - Use ISO 8601 format for dates (YYYY-MM-DDTHH:MM:SSZ)
+
+# Status definitions:
+# - qualified: Lead validated (real email, not test)
+# - contacted: First email sent
+# - replied: Lead responded positively
+# - no_reply: No response after 3+ days
+# - trial_active: Trial created and active
+# - invoice_sent: Stripe invoice sent
+# - converted_paid: Payment received, subscription active
+# - trial_expired_no_conversion: Trial ended without payment
+
+# KPIs to calculate:
+# - Conversion rate = converted_paid / contacted
+# - Avg response time = contacted_date - capture_date
+# - Avg conversion time = paid_date - capture_date
+# - Demo impact = conversion rate (demo_done=yes) vs (demo_done=no)

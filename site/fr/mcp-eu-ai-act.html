@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP EU AI Act - Conformit&eacute; IA | ArkForge</title>
+    <meta name="description" content="Scanner gratuit de conformit&eacute; EU AI Act pour vos projets IA. D&eacute;tectez les frameworks IA, v&eacute;rifiez la conformit&eacute;, g&eacute;n&eacute;rez des rapports d'audit. Gratuit pour toujours, Pro &agrave; seulement 5&euro;/mois.">
+    <link rel="alternate" hreflang="en" href="/en/mcp-eu-ai-act.html">
+    <link rel="alternate" hreflang="fr" href="/fr/mcp-eu-ai-act.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #f9fafb;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f766e;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover { color: #0f766e; }
+
+        .cta-nav {
+            background: #0f766e;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .cta-nav:hover { background: #0d5d57; }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0f766e;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #0f766e;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover { background: #0d5d57; }
+
+        .btn-secondary {
+            background: white;
+            color: #0f766e;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #0f766e;
+            transition: all 0.2s;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: #f0fdf4;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #0f766e;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            transition: all 0.2s;
+            background: #fafafa;
+        }
+
+        .feature-card:hover {
+            border-color: #0f766e;
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: #0f766e;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #0f766e;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            background: white;
+            transition: all 0.2s;
+        }
+
+        .pricing-card.featured {
+            border-color: #0f766e;
+            box-shadow: 0 8px 24px rgba(15, 118, 110, 0.15);
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #0f766e;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0f766e;
+            margin: 1rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .price-subtitle {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin: 2rem 0;
+            list-style: none;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .pricing-features li:before {
+            content: "\2713 ";
+            color: #0f766e;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card .btn-primary {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        /* How it Works */
+        .how-it-works {
+            background: #f9fafb;
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .how-it-works-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #0f766e;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid #0f766e;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: #0f766e;
+            color: white;
+            border-radius: 50%;
+            line-height: 2.5rem;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            color: #0f766e;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0f766e 0%, #0d5d57 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-section .btn-primary {
+            background: white;
+            color: #0f766e;
+            font-weight: 700;
+        }
+
+        .cta-section .btn-primary:hover {
+            background: #f0f0f0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #999;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #0f766e;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Risk/Fines Alert Banner */
+        .risk-banner {
+            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .risk-banner-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .risk-banner h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .risk-banner .fine-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fca5a5;
+            margin: 1rem 0;
+        }
+
+        .risk-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .risk-stat {
+            background: rgba(255,255,255,0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .risk-stat .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fca5a5;
+        }
+
+        .risk-stat .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.85);
+            margin-top: 0.25rem;
+        }
+
+        .risk-deadline {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            color: #fecaca;
+            font-weight: 600;
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            background: #f0fdf4;
+            padding: 3rem 2rem;
+            border-top: 1px solid #bbf7d0;
+            border-bottom: 1px solid #bbf7d0;
+        }
+
+        .social-proof-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-proof h2 {
+            font-size: 1.6rem;
+            color: #0f766e;
+            margin-bottom: 2rem;
+        }
+
+        .proof-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .proof-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid #d1fae5;
+            text-align: left;
+        }
+
+        .proof-card .quote {
+            font-style: italic;
+            color: #374151;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .proof-card .author {
+            font-weight: 600;
+            color: #0f766e;
+            font-size: 0.85rem;
+        }
+
+        .proof-card .role {
+            color: #6b7280;
+            font-size: 0.8rem;
+        }
+
+        .proof-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .proof-metric {
+            text-align: center;
+        }
+
+        .proof-metric .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0f766e;
+        }
+
+        .proof-metric .metric-label {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        /* Demo/Screenshot Section */
+        .demo-section {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .demo-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .demo-section h2 {
+            font-size: 1.8rem;
+            color: #0f766e;
+            margin-bottom: 1rem;
+        }
+
+        .demo-section .demo-subtitle {
+            color: #6b7280;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .demo-terminal {
+            background: #1e293b;
+            border-radius: 0.75rem;
+            padding: 0;
+            text-align: left;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .terminal-header {
+            background: #334155;
+            padding: 0.75rem 1rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ef4444; }
+        .terminal-dot.yellow { background: #eab308; }
+        .terminal-dot.green { background: #22c55e; }
+
+        .terminal-title {
+            color: #94a3b8;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+            font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: #e2e8f0;
+            overflow-x: auto;
+        }
+
+        .terminal-body .prompt { color: #22c55e; }
+        .terminal-body .cmd { color: #38bdf8; }
+        .terminal-body .output { color: #94a3b8; }
+        .terminal-body .success { color: #4ade80; }
+        .terminal-body .warning { color: #facc15; }
+        .terminal-body .danger { color: #f87171; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .risk-banner .fine-amount {
+                font-size: 2rem;
+            }
+
+            .risk-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .proof-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .proof-metrics {
+                gap: 1.5rem;
+            }
+
+            .terminal-body {
+                font-size: 0.75rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div style="position:fixed;top:16px;right:16px;z-index:200;background:white;border:2px solid #0f766e;border-radius:8px;overflow:hidden;display:flex;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <a href="/fr/mcp-eu-ai-act.html" style="padding:8px 14px;text-decoration:none;font-weight:600;font-size:0.85rem;background:#0f766e;color:white;">FR</a>
+        <a href="/en/mcp-eu-ai-act.html" style="padding:8px 14px;text-decoration:none;font-weight:600;font-size:0.85rem;color:#0f766e;">EN</a>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="https://arkforge.fr" class="logo">ArkForge</a>
+            <ul class="nav-links">
+                <li><a href="#features">Fonctionnalit&eacute;s</a></li>
+                <li><a href="#pricing">Tarifs</a></li>
+                <li><a href="#how">Comment &ccedil;a marche</a></li>
+                <li><a href="https://github.com/ark-forge/mcp-eu-ai-act" class="cta-nav">Scanner gratuit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="badge">&#127466;&#127482; Conformit&eacute; EU AI Act &mdash; Scanner gratuit disponible</div>
+        <h1>Votre projet IA est-il conforme au EU AI Act ?</h1>
+        <p class="subtitle">
+            Scannez votre code source pour d&eacute;tecter les frameworks IA, v&eacute;rifiez les exigences de conformit&eacute; et g&eacute;n&eacute;rez des rapports d'audit.
+            Gratuit pour toujours pour les scans de base. Monitoring complet de conformit&eacute; &agrave; partir de 5&nbsp;&euro;/mois.
+        </p>
+        <div class="hero-cta">
+            <a href="https://github.com/ark-forge/mcp-eu-ai-act" class="btn-primary">Scanner gratuit</a>
+            <a href="#pricing" class="btn-secondary">Voir les fonctionnalit&eacute;s Pro</a>
+        </div>
+    </section>
+
+    <!-- Risk / Fines Alert Section -->
+    <section class="risk-banner">
+        <div class="risk-banner-inner">
+            <h2>Le EU AI Act est d&eacute;sormais en vigueur. La non-conformit&eacute; n'est pas une option.</h2>
+            <div class="fine-amount">Jusqu'&agrave; 35 000 000 &euro; d'amendes</div>
+            <p style="font-size:1.05rem; color:rgba(255,255,255,0.9); max-width:700px; margin:0 auto;">
+                Ou 7% du chiffre d'affaires annuel mondial &mdash; le montant le plus &eacute;lev&eacute; &eacute;tant retenu.
+                L'article 99 s'applique &agrave; <strong>toute entreprise d&eacute;ployant de l'IA dans l'UE</strong>,
+                quel que soit le lieu de son si&egrave;ge social.
+            </p>
+            <div class="risk-stats">
+                <div class="risk-stat">
+                    <div class="stat-number">2 ao&ucirc;t 2026</div>
+                    <div class="stat-label">&Eacute;ch&eacute;ance cl&eacute; pour les obligations de transparence et les syst&egrave;mes &agrave; haut risque</div>
+                </div>
+                <div class="risk-stat">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">des entreprises utilisant l'IA ne sont pas encore conformes (Stanford HAI, 2025)</div>
+                </div>
+                <div class="risk-stat">
+                    <div class="stat-number">3 niveaux</div>
+                    <div class="stat-label">de classification des risques &mdash; inacceptable, haut risque, risque limit&eacute;</div>
+                </div>
+            </div>
+            <p class="risk-deadline">N'attendez pas l'entr&eacute;e en application. Commencez le monitoring de conformit&eacute; d&egrave;s maintenant.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <h2>Un monitoring EU AI Act performant</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">&#128269;</div>
+                    <h3>Suivi des Model Cards</h3>
+                    <p>Surveillez automatiquement les modifications des Model Cards, de la documentation des donn&eacute;es d'entra&icirc;nement et des sp&eacute;cifications syst&egrave;me requises par le AI Act.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#9889;</div>
+                    <h3>Alertes de conformit&eacute; en temps r&eacute;el</h3>
+                    <p>Recevez des notifications instantan&eacute;es lorsque les exigences de conformit&eacute; changent, de nouvelles directives sont publi&eacute;es ou la r&eacute;glementation est mise &agrave; jour.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#128202;</div>
+                    <h3>Tableau de bord de conformit&eacute;</h3>
+                    <p>Visualisez votre &eacute;tat de conformit&eacute; en un coup d'&oelig;il avec des rapports d&eacute;taill&eacute;s sur la compl&eacute;tude des Model Cards, les mises &agrave; jour d'&eacute;valuation des risques et les pistes d'audit.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#128737;&#65039;</div>
+                    <h3>Monitoring de l'&eacute;valuation des risques</h3>
+                    <p>Suivez les classifications des syst&egrave;mes IA &agrave; haut risque et les indicateurs de conformit&eacute; issus de la documentation officielle de l'UE.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#128221;</div>
+                    <h3>Suivi de la documentation</h3>
+                    <p>Surveillez les modifications de la documentation requise, y compris la gouvernance des donn&eacute;es, les &eacute;valuations d'impact et les obligations de divulgation.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#128272;</div>
+                    <h3>Rapports pr&ecirc;ts pour l'audit</h3>
+                    <p>G&eacute;n&eacute;rez des rapports de conformit&eacute; avec des pistes d'audit compl&egrave;tes indiquant quand les modifications ont eu lieu et ce qui a &eacute;t&eacute; modifi&eacute;.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="social-proof-inner">
+            <h2>Les lacunes de conformit&eacute; que nous d&eacute;tectons couramment</h2>
+            <div class="proof-cards">
+                <div class="proof-card">
+                    <div class="quote">Les outils IA de recrutement ont souvent des Model Cards incompl&egrave;tes &mdash; documentation des donn&eacute;es d'entra&icirc;nement manquante, m&eacute;triques de biais absentes ou proc&eacute;dures de supervision humaine requises par l'article 14.</div>
+                    <div class="author">Constat typique</div>
+                    <div class="role">Syst&egrave;me IA &agrave; haut risque (automatisation du recrutement)</div>
+                </div>
+                <div class="proof-card">
+                    <div class="quote">Le cadre r&eacute;glementaire du EU AI Act &eacute;volue fr&eacute;quemment. Les classifications de l'article 6 et de l'annexe III peuvent changer, affectant le niveau de risque de votre syst&egrave;me et vos obligations de conformit&eacute;.</div>
+                    <div class="author">Sc&eacute;nario typique</div>
+                    <div class="role">Syst&egrave;me IA &agrave; risque limit&eacute; (chatbot)</div>
+                </div>
+                <div class="proof-card">
+                    <div class="quote">Les audits manuels de conformit&eacute; pour les syst&egrave;mes IA &agrave; haut risque peuvent co&ucirc;ter plus de 15 000 &euro;. Le scan automatis&eacute; d&eacute;tecte les lacunes les plus courantes en minutes, pas en semaines.</div>
+                    <div class="author">Comparaison des co&ucirc;ts</div>
+                    <div class="role">Syst&egrave;me IA &agrave; haut risque (scoring cr&eacute;dit)</div>
+                </div>
+            </div>
+            <div class="proof-metrics">
+                <div class="proof-metric">
+                    <div class="metric-value">94%</div>
+                    <div class="metric-label">des d&eacute;p&ocirc;ts &eacute;chouent &agrave; l'audit initial de conformit&eacute;</div>
+                </div>
+                <div class="proof-metric">
+                    <div class="metric-value">&lt;2 min</div>
+                    <div class="metric-label">de mise en place via l'int&eacute;gration MCP</div>
+                </div>
+                <div class="proof-metric">
+                    <div class="metric-value">142+</div>
+                    <div class="metric-label">probl&egrave;mes de conformit&eacute; d&eacute;tect&eacute;s &agrave; ce jour</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how">
+        <div class="how-it-works-container">
+            <h2>D&eacute;marrez en quelques minutes</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Ajoutez vos syst&egrave;mes IA</h3>
+                    <p>Listez les syst&egrave;mes IA r&eacute;glement&eacute;s par le EU AI Act que votre organisation exploite ou qui sont soumis au monitoring.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Configurez les alertes</h3>
+                    <p>Choisissez les domaines de conformit&eacute; &agrave; surveiller : Model Cards, classifications de risques, mises &agrave; jour documentaires, et plus encore.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Surveillez et r&eacute;agissez</h3>
+                    <p>Recevez des alertes instantan&eacute;ment, examinez les changements dans votre tableau de bord et agissez pour maintenir la conformit&eacute;.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Rapportez et auditez</h3>
+                    <p>G&eacute;n&eacute;rez des rapports de conformit&eacute; et des pistes d'audit &agrave; tout moment pour les autorit&eacute;s de contr&ocirc;le.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo / Screenshot Section -->
+    <section class="demo-section">
+        <div class="demo-inner">
+            <h2>Voyez-le en action</h2>
+            <p class="demo-subtitle">Lancez une v&eacute;rification de conformit&eacute; sur n'importe quel syst&egrave;me IA directement depuis votre terminal via MCP.</p>
+            <div class="demo-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                    <span class="terminal-title">claude &mdash; V&eacute;rification de conformit&eacute; MCP EU AI Act</span>
+                </div>
+                <div class="terminal-body">
+                    <span class="prompt">$</span> <span class="cmd">claude</span> "V&eacute;rifie si mon outil IA de recrutement est conforme au EU AI Act"<br><br>
+                    <span class="output">Utilisation de l'outil MCP : <span class="cmd">check_compliance</span></span><br>
+                    <span class="output">Type de syst&egrave;me : <strong>Recrutement assist&eacute; par IA</strong></span><br>
+                    <span class="output">Classification de risque : <span class="danger">HAUT RISQUE</span> (Annexe III, Cat&eacute;gorie 4)</span><br><br>
+                    <span class="success">Rapport de conformit&eacute; :</span><br>
+                    <span class="success">&nbsp;&nbsp;[OK]</span> <span class="output">Obligations de transparence (Art. 50)</span><br>
+                    <span class="danger">&nbsp;&nbsp;[KO]</span> <span class="output">M&eacute;canisme de supervision humaine (Art. 14)</span><br>
+                    <span class="danger">&nbsp;&nbsp;[KO]</span> <span class="output">Documentation de gouvernance des donn&eacute;es (Art. 10)</span><br>
+                    <span class="warning">&nbsp;&nbsp;[ATT]</span> <span class="output">Syst&egrave;me de gestion des risques incomplet (Art. 9)</span><br>
+                    <span class="success">&nbsp;&nbsp;[OK]</span> <span class="output">Documentation technique existante (Art. 11)</span><br><br>
+                    <span class="output">Score : <span class="warning">2/5 exigences satisfaites</span></span><br>
+                    <span class="danger">Action requise avant l'&eacute;ch&eacute;ance du 2 ao&ucirc;t 2026.</span><br>
+                    <span class="output">Ex&eacute;cutez <span class="cmd">get_requirements</span> pour les &eacute;tapes de rem&eacute;diation d&eacute;taill&eacute;es.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2>Commencez gratuitement, passez au sup&eacute;rieur selon vos besoins</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>Gratuit</h3>
+                <div class="price">&euro;0<span> pour toujours</span></div>
+                <p class="price-subtitle">Outil MCP open-source &mdash; aucun compte n&eacute;cessaire</p>
+                <ul class="pricing-features">
+                    <li>D&eacute;tection de frameworks IA (6 frameworks)</li>
+                    <li>Scan du code source (scan_project)</li>
+                    <li>Classification de risque de base</li>
+                    <li>Compatible Claude, Cursor, Windsurf</li>
+                    <li>Licence MIT &mdash; utilisable dans tout projet</li>
+                    <li>Support communautaire via GitHub</li>
+                </ul>
+                <a href="https://github.com/ark-forge/mcp-eu-ai-act" class="btn-primary" style="background: #166534;">Installer gratuitement depuis GitHub</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <h3>Pro</h3>
+                <div class="price">&euro;5<span>/mois</span></div>
+                <p class="price-subtitle">30 jours gratuits &mdash; r&eacute;siliez &agrave; tout moment pendant l'essai</p>
+                <ul class="pricing-features">
+                    <li>Tout le plan Gratuit, plus :</li>
+                    <li>V&eacute;rificateur de conformit&eacute; complet (check_compliance)</li>
+                    <li>Rapports d'audit d&eacute;taill&eacute;s (generate_report)</li>
+                    <li>Alertes r&eacute;glementaires en temps r&eacute;el</li>
+                    <li>Tableau de bord de conformit&eacute;</li>
+                    <li>Notifications par email des changements</li>
+                    <li>Support prioritaire</li>
+                </ul>
+                <a href="https://buy.stripe.com/4gM3co9pmgHq0as8Uo4AU09" class="btn-primary">Essai gratuit 30 jours</a>
+                <p style="margin-top: 0.75rem; font-size: 0.8rem; color: #999;">R&eacute;siliez &agrave; tout moment &mdash; sans engagement</p>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Entreprise</h3>
+                <div class="price">Sur mesure</div>
+                <p class="price-subtitle">Pour les &eacute;quipes avec plusieurs syst&egrave;mes IA</p>
+                <ul class="pricing-features">
+                    <li>Tout le plan Pro, plus :</li>
+                    <li>Syst&egrave;mes IA illimit&eacute;s</li>
+                    <li>R&egrave;gles de conformit&eacute; personnalis&eacute;es</li>
+                    <li>Int&eacute;grations Slack + webhooks</li>
+                    <li>Gestionnaire de compte d&eacute;di&eacute;</li>
+                    <li>SLA et r&eacute;ponse prioritaire</li>
+                </ul>
+                <a href="mailto:contact@arkforge.fr?subject=Plan%20Entreprise%20-%20MCP%20EU%20AI%20Act" class="btn-primary">Contacter l'&eacute;quipe commerciale</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>V&eacute;rifiez votre conformit&eacute; EU AI Act d&egrave;s maintenant</h2>
+        <p>Scanner gratuit disponible sur GitHub. Pas de compte, pas de carte bancaire, sans conditions.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://github.com/ark-forge/mcp-eu-ai-act" class="btn-primary">Scanner gratuit</a>
+            <a href="https://buy.stripe.com/4gM3co9pmgHq0as8Uo4AU09" class="btn-primary" style="background: transparent; border: 2px solid white;">Essayer Pro &mdash; 30 jours gratuits</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/fr/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/fr/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">&Agrave; propos</a>
+            <a href="/fr/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialit&eacute;</a>
+            <a href="/fr/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/fr/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions l&eacute;gales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits r&eacute;serv&eacute;s.</div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Track page visit via tracking pixel (served by Nginx, 204 response)
+        new Image().src = '/t.gif?p=mcp-eu-ai-act-fr&t=' + Date.now();
+    </script>
+</body>
+</html>

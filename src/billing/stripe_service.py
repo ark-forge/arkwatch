@@ -1,0 +1,164 @@
+"""Stripe integration service for ArkWatch subscriptions"""
+
+import os
+from datetime import datetime
+
+import stripe
+
+# Initialize Stripe
+stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
+
+# Tier to Stripe price mapping
+TIER_PRICES = {
+    "starter": os.getenv("STRIPE_PRICE_STARTER"),
+    "pro": os.getenv("STRIPE_PRICE_PRO"),
+    "business": os.getenv("STRIPE_PRICE_BUSINESS"),
+}
+
+# Stripe price to tier mapping (reverse)
+PRICE_TO_TIER = {v: k for k, v in TIER_PRICES.items() if v}
+
+
+class StripeService:
+    """Service for managing Stripe subscriptions"""
+
+    @staticmethod
+    def create_customer(email: str, name: str, api_key_hash: str) -> str:
+        """Create a Stripe customer and return customer ID"""
+        customer = stripe.Customer.create(
+            email=email,
+            name=name,
+            metadata={"api_key_hash": api_key_hash[:16]},  # Truncated for reference
+        )
+        return customer.id
+
+    @staticmethod
+    def get_customer(customer_id: str) -> dict | None:
+        """Get customer details from Stripe"""
+        try:
+            customer = stripe.Customer.retrieve(customer_id)
+            return {
+                "id": customer.id,
+                "email": customer.email,
+                "name": customer.name,
+                "created": datetime.fromtimestamp(customer.created).isoformat(),
+            }
+        except stripe.error.InvalidRequestError:
+            return None
+
+    @staticmethod
+    def create_checkout_session(customer_id: str, tier: str, success_url: str, cancel_url: str, promotion_code: str | None = None, trial_days: int | None = 14) -> dict:
+        """Create a Stripe Checkout session for subscription"""
+        price_id = TIER_PRICES.get(tier)
+        if not price_id:
+            raise ValueError(f"Invalid tier: {tier}. Must be one of: {list(TIER_PRICES.keys())}")
+
+        session_params = {
+            "customer": customer_id,
+            "mode": "subscription",
+            "line_items": [{"price": price_id, "quantity": 1}],
+            "success_url": success_url,
+            "cancel_url": cancel_url,
+            "metadata": {"tier": tier},
+            "allow_promotion_codes": True,
+        }
+
+        # Add free trial: no credit card required during trial period
+        if trial_days and trial_days > 0:
+            session_params["subscription_data"] = {"trial_period_days": trial_days}
+            session_params["payment_method_collection"] = "if_required"
+        else:
+            session_params["payment_method_types"] = ["card"]
+
+        if promotion_code:
+            # Look up the promotion code object to get its ID
+            promo_codes = stripe.PromotionCode.list(code=promotion_code, active=True, limit=1)
+            if promo_codes.data:
+                session_params.pop("allow_promotion_codes", None)
+                session_params["discounts"] = [{"promotion_code": promo_codes.data[0].id}]
+
+        session = stripe.checkout.Session.create(**session_params)
+
+        return {
+            "session_id": session.id,
+            "checkout_url": session.url,
+        }
+
+    @staticmethod
+    def create_billing_portal_session(customer_id: str, return_url: str) -> dict:
+        """Create a Stripe Billing Portal session for managing subscription"""
+        session = stripe.billing_portal.Session.create(
+            customer=customer_id,
+            return_url=return_url,
+        )
+        return {
+            "portal_url": session.url,
+        }
+
+    @staticmethod
+    def get_subscription(subscription_id: str) -> dict | None:
+        """Get subscription details"""
+        try:
+            sub = stripe.Subscription.retrieve(subscription_id)
+            price_id = sub["items"]["data"][0]["price"]["id"] if sub["items"]["data"] else None
+
+            return {
+                "id": sub.id,
+                "status": sub.status,
+                "tier": PRICE_TO_TIER.get(price_id, "unknown"),
+                "current_period_start": datetime.fromtimestamp(sub.current_period_start).isoformat(),
+                "current_period_end": datetime.fromtimestamp(sub.current_period_end).isoformat(),
+                "cancel_at_period_end": sub.cancel_at_period_end,
+            }
+        except stripe.error.InvalidRequestError:
+            return None
+
+    @staticmethod
+    def cancel_subscription(subscription_id: str, at_period_end: bool = True) -> dict:
+        """Cancel a subscription"""
+        if at_period_end:
+            sub = stripe.Subscription.modify(subscription_id, cancel_at_period_end=True)
+        else:
+            sub = stripe.Subscription.cancel(subscription_id)
+
+        return {
+            "id": sub.id,
+            "status": sub.status,
+            "cancel_at_period_end": sub.cancel_at_period_end,
+        }
+
+    @staticmethod
+    def get_customer_subscriptions(customer_id: str) -> list:
+        """Get all subscriptions for a customer"""
+        subscriptions = stripe.Subscription.list(customer=customer_id, limit=10)
+
+        result = []
+        for sub in subscriptions.data:
+            price_id = sub["items"]["data"][0]["price"]["id"] if sub["items"]["data"] else None
+            result.append(
+                {
+                    "id": sub.id,
+                    "status": sub.status,
+                    "tier": PRICE_TO_TIER.get(price_id, "unknown"),
+                    "current_period_end": datetime.fromtimestamp(sub.current_period_end).isoformat(),
+                }
+            )
+
+        return result
+
+    @staticmethod
+    def construct_webhook_event(payload: bytes, sig_header: str) -> stripe.Event:
+        """Construct and verify a webhook event"""
+        webhook_secret = os.getenv("STRIPE_WEBHOOK_SECRET")
+        if not webhook_secret:
+            raise ValueError("STRIPE_WEBHOOK_SECRET not configured")
+
+        return stripe.Webhook.construct_event(payload, sig_header, webhook_secret)
+
+    @staticmethod
+    def get_tier_from_subscription(subscription: stripe.Subscription) -> str:
+        """Extract tier from subscription object"""
+        if subscription["items"]["data"]:
+            price_id = subscription["items"]["data"][0]["price"]["id"]
+            return PRICE_TO_TIER.get(price_id, "free")
+        return "free"

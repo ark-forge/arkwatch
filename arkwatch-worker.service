@@ -1,0 +1,15 @@
+[Unit]
+Description=ArkWatch Worker Service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/claude-ceo/workspace/arkwatch
+Environment=PATH=/opt/claude-ceo/workspace/arkwatch/venv/bin
+ExecStart=/opt/claude-ceo/workspace/arkwatch/venv/bin/python run_worker.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+{
+  "id": "20260210_104523_test123",
+  "received_at": "2026-02-10T10:45:23.954334",
+  "from": "test@example.com",
+  "to": "contact@arkforge.fr",
+  "subject": "Test",
+  "body_text": "Test body",
+  "body_html": "",
+  "timestamp": "1770720323",
+  "token": "test123"
+}

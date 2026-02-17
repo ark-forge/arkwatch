@@ -1,0 +1,25 @@
+{
+  "endpoints": {
+    "ArkWatch API": {
+      "consecutive_failures": 0,
+      "last_success": "2026-02-12T10:56:01.954732+00:00",
+      "last_response_ms": 42
+    },
+    "ArkWatch API (local)": {
+      "consecutive_failures": 0,
+      "last_success": "2026-02-12T10:56:01.961314+00:00",
+      "last_response_ms": 6
+    },
+    "ArkForge Website": {
+      "consecutive_failures": 0,
+      "last_success": "2026-02-12T10:56:01.987004+00:00",
+      "last_response_ms": 25
+    },
+    "ArkWatch Ready": {
+      "consecutive_failures": 0,
+      "last_success": "2026-02-12T10:56:02.158578+00:00",
+      "last_response_ms": 171
+    }
+  },
+  "last_alert_sent": null
+}

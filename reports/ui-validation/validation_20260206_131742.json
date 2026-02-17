@@ -1,0 +1,141 @@
+{
+  "timestamp": "2026-02-06T13:17:42.159687+00:00",
+  "pipeline_version": "1.0",
+  "pages": [
+    {
+      "page_name": "dashboard",
+      "url": "https://arkforge.fr/dashboard.html",
+      "composite_score": 92.4,
+      "verdict": "PASS",
+      "e2e": {
+        "score": 100.0,
+        "details": {
+          "page_loads": true,
+          "status_code": 200,
+          "console_errors": 0,
+          "console_error_list": [],
+          "has_title": true,
+          "title": "Dashboard - ArkWatch",
+          "broken_images": 0,
+          "cta_visible_count": 2,
+          "has_cta": true,
+          "form_unlabeled_inputs": 0,
+          "link_count": 9,
+          "has_viewport_meta": true,
+          "screenshot_path": "/opt/claude-ceo/workspace/arkwatch/reports/ui-validation/screenshots/dashboard.png"
+        }
+      },
+      "lighthouse": {
+        "score": 93.75,
+        "categories": {
+          "performance": 100,
+          "accessibility": 89,
+          "best-practices": 96,
+          "seo": 90
+        }
+      },
+      "axe": {
+        "score": 81.0,
+        "critical": 0,
+        "serious": 1,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "nodes_count": 2
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "description": "Ensure the document has a main landmark",
+            "nodes_count": 1
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+            "nodes_count": 1
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "description": "Ensure all page content is contained by landmarks",
+            "nodes_count": 4
+          }
+        ]
+      },
+      "vision": {
+        "score": 80,
+        "skipped": true,
+        "analysis": ""
+      },
+      "errors": []
+    },
+    {
+      "page_name": "index",
+      "url": "https://arkforge.fr/index.html",
+      "composite_score": 87.8,
+      "verdict": "PASS",
+      "e2e": {
+        "score": 85.0,
+        "details": {
+          "page_loads": true,
+          "status_code": 200,
+          "console_errors": 0,
+          "console_error_list": [],
+          "has_title": true,
+          "title": "ArkForge - Solutions IA",
+          "broken_images": 0,
+          "cta_visible_count": 0,
+          "has_cta": false,
+          "form_unlabeled_inputs": 0,
+          "link_count": 4,
+          "has_viewport_meta": true,
+          "screenshot_path": "/opt/claude-ceo/workspace/arkwatch/reports/ui-validation/screenshots/index.png"
+        }
+      },
+      "lighthouse": {
+        "score": 92.75,
+        "categories": {
+          "performance": 100,
+          "accessibility": 85,
+          "best-practices": 96,
+          "seo": 90
+        }
+      },
+      "axe": {
+        "score": 84.0,
+        "critical": 0,
+        "serious": 1,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "nodes_count": 1
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "description": "Ensure the document has a main landmark",
+            "nodes_count": 1
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "description": "Ensure all page content is contained by landmarks",
+            "nodes_count": 3
+          }
+        ]
+      },
+      "vision": {
+        "score": 80,
+        "skipped": true,
+        "analysis": ""
+      },
+      "errors": []
+    }
+  ],
+  "overall_pass": true
+}

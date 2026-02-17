@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArkWatch - Monitoring Web en Temps Réel | ArkForge</title>
+    <meta name="description" content="ArkWatch surveille la disponibilité, les performances et les certificats SSL de vos sites web et APIs. Essai gratuit.">
+    <link rel="alternate" hreflang="en" href="/en/arkwatch.html">
+    <link rel="alternate" hreflang="fr" href="/fr/arkwatch.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif; line-height: 1.6; color: #1a1a1a; background: #f9fafb; }
+        .lang-switch { position: fixed; top: 16px; right: 16px; z-index: 200; background: white; border: 2px solid #6366f1; border-radius: 8px; overflow: hidden; display: flex; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .lang-switch a { padding: 8px 14px; text-decoration: none; font-weight: 600; font-size: 0.85rem; color: #6366f1; transition: all 0.2s; }
+        .lang-switch a.active { background: #6366f1; color: white; }
+        .lang-switch a:hover:not(.active) { background: #f0f0ff; }
+        .header { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 80px 20px 60px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 12px; font-weight: 800; }
+        .header p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; opacity: 0.9; }
+        .header .cta-buttons { margin-top: 32px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { display: inline-block; background: white; color: #6366f1; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .btn-secondary { display: inline-block; background: transparent; color: white; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 1rem; border: 2px solid rgba(255,255,255,0.5); transition: all 0.2s; }
+        .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
+        .content { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .card { background: white; border-radius: 16px; padding: 40px 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 32px; }
+        .card h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; color: #6366f1; }
+        .card p { font-size: 1rem; color: #4b5563; line-height: 1.7; margin-bottom: 12px; }
+        .card ul { padding-left: 24px; margin: 12px 0; }
+        .card li { font-size: 1rem; color: #4b5563; line-height: 1.7; margin-bottom: 8px; }
+        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+        .feature-item { background: #f9fafb; border: 2px solid #e5e7eb; border-radius: 12px; padding: 24px; transition: border-color 0.2s; }
+        .feature-item:hover { border-color: #6366f1; }
+        .feature-item h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: #1a1a1a; }
+        .feature-item p { font-size: 0.95rem; color: #6b7280; }
+        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+        .pricing-card { background: #f9fafb; border: 2px solid #e5e7eb; border-radius: 12px; padding: 32px; text-align: center; }
+        .pricing-card.featured { border-color: #6366f1; box-shadow: 0 4px 16px rgba(99,102,241,0.15); }
+        .pricing-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+        .pricing-card .price { font-size: 2.2rem; font-weight: 800; color: #6366f1; margin: 12px 0; }
+        .pricing-card .price span { font-size: 1rem; color: #6b7280; }
+        .pricing-card ul { list-style: none; padding: 0; margin: 16px 0; text-align: left; }
+        .pricing-card li { padding: 8px 0; color: #4b5563; font-size: 0.95rem; border-bottom: 1px solid #e5e7eb; }
+        .pricing-card li:last-child { border-bottom: none; }
+        .pricing-card .btn-cta { display: inline-block; background: #6366f1; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 600; margin-top: 16px; transition: background 0.2s; }
+        .pricing-card .btn-cta:hover { background: #4f46e5; }
+        footer { background: #0f1117; color: #9ca3af; padding: 40px 20px; text-align: center; margin-top: 40px; border-top: 1px solid #374151; font-size: 0.9rem; }
+        footer a { color: #6366f1; text-decoration: none; margin: 0 12px; }
+        footer a:hover { text-decoration: underline; }
+        footer .footer-links { margin-bottom: 16px; }
+        footer .footer-copy { color: #6b7280; font-size: 0.85rem; }
+        @media (max-width: 700px) {
+            .header h1 { font-size: 1.8rem; }
+            .features-grid, .pricing-grid { grid-template-columns: 1fr; }
+            .card { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch">
+        <a href="/fr/arkwatch.html" class="active">FR</a>
+        <a href="/en/arkwatch.html">EN</a>
+    </div>
+
+    <div class="header">
+        <h1>ArkWatch</h1>
+        <p>Monitoring web en temps réel pour vos sites, APIs et certificats SSL</p>
+        <div class="cta-buttons">
+            <a href="/pricing.html" class="btn-primary">Voir les offres</a>
+            <a href="/free-trial.html" class="btn-secondary">Essai gratuit</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="card">
+            <h2>Pourquoi ArkWatch ?</h2>
+            <p>Chaque minute d'indisponibilité coûte cher. ArkWatch surveille vos services en continu et vous alerte instantanément en cas de problème.</p>
+            <p>Conçu pour les équipes techniques qui veulent une solution simple, fiable et abordable.</p>
+        </div>
+
+        <div class="card">
+            <h2>Fonctionnalités</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>Monitoring HTTP/HTTPS</h3>
+                    <p>Surveillance de la disponibilité et du temps de réponse de vos endpoints.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Alertes instantanées</h3>
+                    <p>Notifications par email dès qu'un incident est détecté.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Certificats SSL</h3>
+                    <p>Vérification automatique de la validité et de l'expiration de vos certificats.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Dashboard temps réel</h3>
+                    <p>Visualisez l'état de tous vos monitors en un coup d'oeil.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Tarifs</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Gratuit</h3>
+                    <div class="price">0&euro;</div>
+                    <ul>
+                        <li>3 monitors</li>
+                        <li>Vérification toutes les 5 min</li>
+                        <li>Alertes email</li>
+                        <li>Dashboard basique</li>
+                    </ul>
+                    <a href="/free-trial.html" class="btn-cta">Commencer gratuitement</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Pro</h3>
+                    <div class="price">9&euro;<span>/mois</span></div>
+                    <ul>
+                        <li>Monitors illimités</li>
+                        <li>Vérification toutes les 30s</li>
+                        <li>Alertes multi-canal</li>
+                        <li>Dashboard avancé</li>
+                        <li>Support prioritaire</li>
+                    </ul>
+                    <a href="/pricing.html" class="btn-cta">Choisir Pro</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/fr/support.html">Support</a>
+            <a href="/fr/about.html">À propos</a>
+            <a href="/fr/privacy.html">Confidentialité</a>
+            <a href="/fr/cgv.html">CGV</a>
+            <a href="/fr/mentions-legales.html">Mentions légales</a>
+        </div>
+        <div class="footer-copy">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Free 14-Day Trial - ArkWatch | Website Monitoring</title>
+    <meta name="description" content="Monitor up to 10,000 endpoints. Get alerts in 30 seconds. 14-day free trial, no credit card. AI-powered change detection for DevOps teams.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Start Your Free 14-Day Trial - ArkWatch">
+    <meta property="og:description" content="Monitor up to 10,000 endpoints. Alerts in 30 seconds. AI-powered. 14-day free trial, no credit card.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arkforge.fr/trial-14d.html">
+
+    <!-- Analytics -->
+    <script defer data-domain="arkforge.fr" src="https://plausible.io/js/script.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #f9fafb;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Form Container */
+        .form-container {
+            max-width: 600px;
+            margin: -40px auto 60px;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 10;
+        }
+        .form-container h2 {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        .form-container p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+        .form-container p strong {
+            color: #10b981;
+        }
+
+        /* Form */
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #374151;
+        }
+        .email-input {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.05rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .email-input:focus {
+            border-color: #6366f1;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 18px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            letter-spacing: 0.3px;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16,185,129,0.35);
+        }
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .form-note {
+            font-size: 0.85rem;
+            color: #6b7280;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Message */
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            display: none;
+        }
+        .message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        .message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+        .message.show {
+            display: block;
+        }
+
+        /* Features */
+        .features {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        .features h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .feature h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        .feature p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: white;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16,185,129,0.4);
+        }
+
+        /* Scarcity timer animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .subtitle { font-size: 1.1rem; }
+            .form-container { padding: 30px 20px; margin: -30px 20px 40px; }
+            .features h2 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <div class="hero">
+        <div class="badge">🔥 Limited Early Adopter Offer</div>
+        <h1>Your Website Just Went Down.<br>Would You Know?</h1>
+        <p class="subtitle">Monitor up to 10,000 endpoints. Get alerts in under 30 seconds. Start free — no credit card needed.</p>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="form-container">
+        <!-- Contextual banner when coming from audit page -->
+        <div id="audit-bridge" style="display:none; background:#f0fdf4; border:1px solid #10b981; border-radius:10px; padding:14px 20px; margin-bottom:20px; text-align:left;">
+            <div style="font-weight:700; color:#065f46; font-size:0.95rem;">Votre audit gratuit est en bonne voie</div>
+            <div style="color:#047857; font-size:0.88rem; margin-top:4px;">En attendant votre rapport PDF (48h), activez le monitoring temps reel pour suivre les changements automatiquement.</div>
+        </div>
+
+        <h2>Get Full Access — Free for 14 Days</h2>
+        <p>Just your email. <strong>Setup takes 60 seconds.</strong> No credit card. Cancel anytime.</p>
+
+        <!-- TRUST SIGNALS -->
+        <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #374151;">
+                <span style="color: #10b981; font-weight: 700;">&#10003;</span> No credit card
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #374151;">
+                <span style="color: #10b981; font-weight: 700;">&#10003;</span> Cancel anytime
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #374151;">
+                <span style="color: #10b981; font-weight: 700;">&#10003;</span> GDPR compliant
+            </div>
+        </div>
+
+        <!-- SCARCITY INDICATOR -->
+        <div style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: 10px; padding: 12px 20px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.3rem;">⚡</span>
+            <div>
+                <div style="font-weight: 700; color: #92400e; font-size: 0.95rem;">Early Adopter Pricing — <span id="trialsLeft">12</span> spots left</div>
+                <div style="color: #92400e; font-size: 0.85rem;">Lock in at <strong>€29/mo</strong> (regular €49/mo) after your free trial</div>
+            </div>
+        </div>
+
+        <!-- SOCIAL PROOF - ROI focused -->
+        <div style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 15px 20px; margin-bottom: 20px; border-radius: 8px;">
+            <div style="color: #065f46; font-size: 0.95rem; font-style: italic; margin-bottom: 8px;">
+                "We were losing €2,000/month from undetected downtime. ArkWatch paid for itself in the first week — now we catch issues in under 30 seconds."
+            </div>
+            <div style="color: #059669; font-size: 0.85rem; font-weight: 600;">
+                — DevOps Lead, EU SaaS Company (500+ endpoints monitored)
+            </div>
+        </div>
+
+        <!-- SECOND TESTIMONIAL -->
+        <div style="background: #eef2ff; border-left: 4px solid #6366f1; padding: 12px 20px; margin-bottom: 20px; border-radius: 8px;">
+            <div style="color: #312e81; font-size: 0.9rem; font-style: italic; margin-bottom: 6px;">
+                "Setup took 2 minutes, not 2 days. We monitor 3 environments across 2 regions with zero config."
+            </div>
+            <div style="color: #4f46e5; font-size: 0.85rem; font-weight: 600;">
+                — SRE Manager, Fintech Startup
+            </div>
+        </div>
+
+        <!-- KEY METRIC -->
+        <div style="text-align: center; margin-bottom: 20px; padding: 10px; background: #eef2ff; border-radius: 8px;">
+            <span style="font-size: 1.8rem; font-weight: 900; color: #4f46e5;">30s</span>
+            <span style="font-size: 0.9rem; color: #4338ca; display: block;">average alert time — before your customers notice</span>
+        </div>
+
+        <div id="message" class="message"></div>
+
+        <form id="signupForm" class="signup-form">
+            <div class="form-group">
+                <label for="email">Work Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="email-input"
+                    placeholder="you@company.com"
+                    required
+                    autocomplete="email"
+                    autofocus
+                >
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Start Monitoring Now — It's Free →
+            </button>
+
+            <p class="form-note">
+                14-day trial. Then €29/mo or downgrade to Free. <a href="/legal/privacy.html" style="color: #6366f1;">Privacy Policy</a>
+            </p>
+        </form>
+    </div>
+
+    <!-- Features -->
+    <div class="features">
+        <h2>Why Teams Switch to ArkWatch</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Alerts in 30 Seconds</h3>
+                <p>Downtime costs €5,600/min on average. ArkWatch detects issues before your customers do.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>Scale to 10,000 Endpoints</h3>
+                <p>From 1 URL to enterprise-scale. Monitor APIs, websites, and services — all in one dashboard.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Tells You What Changed</h3>
+                <p>No more digging through logs. AI analyzes every change and gives you a plain-English summary.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🚀</div>
+                <h3>60-Second Setup</h3>
+                <p>Enter your URL, pick your alert channel (email or webhook), done. No agents to install.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3>EU-Hosted, GDPR Compliant</h3>
+                <p>Your data stays in Europe. Encrypted at rest. No third-party tracking. Privacy by design.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <h3>€29/mo After Trial</h3>
+                <p>Unlimited monitors, 5-min checks, AI summaries. No hidden fees. Cancel anytime.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <h2>Still Checking Manually?</h2>
+        <p>Every minute of undetected downtime costs you customers. Start monitoring in 60 seconds.</p>
+        <a href="#" class="cta-btn" onclick="document.getElementById('email').scrollIntoView({behavior:'smooth'}); setTimeout(function(){document.getElementById('email').focus();},500); return false;">Start Free Trial — No Credit Card →</a>
+        <div style="margin-top: 15px; font-size: 0.85rem; color: rgba(255,255,255,0.6);">14 days free. Then €29/mo or switch to Free plan.</div>
+    </div>
+
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">À propos</a>
+            <a href="/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialité</a>
+            <a href="/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions légales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('signupForm');
+        const messageEl = document.getElementById('message');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function showMessage(text, type) {
+            messageEl.textContent = text;
+            messageEl.className = `message ${type} show`;
+            messageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+
+            if (!email || !email.includes('@')) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Creating your account...';
+            messageEl.className = 'message';
+
+            try {
+                // Track submission attempt
+                if (window.plausible) {
+                    plausible('Trial Signup Attempt', { props: { source: 'trial-14d' } });
+                }
+
+                const response = await fetch('https://watch.arkforge.fr/api/trial-14d/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        source: new URLSearchParams(window.location.search).get('source') || 'direct',
+                        campaign: 'trial_14d_v2_optimized'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    showMessage('Success! Check your email to get started.', 'success');
+                    form.reset();
+
+                    // Track success
+                    if (window.plausible) {
+                        plausible('Trial Signup Success', { props: { source: 'trial-14d' } });
+                    }
+
+                    // Redirect after 3 seconds
+                    setTimeout(() => {
+                        window.location.href = data.dashboard_url || 'https://arkforge.fr/dashboard.html';
+                    }, 3000);
+                } else {
+                    showMessage(data.detail || data.message || 'An error occurred. Please try again.', 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Start Monitoring Now \u2014 It's Free \u2192";
+                }
+            } catch (error) {
+                console.error('Signup error:', error);
+                showMessage('Network error. Please check your connection and try again.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Start Monitoring Now \u2014 It's Free \u2192";
+            }
+        });
+
+        // Track page view
+        if (window.plausible) {
+            plausible('Trial Page View', { props: { source: new URLSearchParams(window.location.search).get('source') || 'direct' } });
+        }
+
+        // High-value page visit alert (trial page)
+        fetch('https://watch.arkforge.fr/api/page-visit-alert', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                page: '/try',
+                referrer: document.referrer || null,
+                utm_source: new URLSearchParams(location.search).get('utm_source') || null,
+                utm_campaign: new URLSearchParams(location.search).get('utm_campaign') || null
+            })
+        }).catch(function() {});
+
+        // Show audit bridge banner if coming from audit page
+        if (new URLSearchParams(window.location.search).get('from') === 'audit') {
+            const bridge = document.getElementById('audit-bridge');
+            if (bridge) bridge.style.display = 'block';
+        }
+
+        // Scarcity timer - randomize between 8-15 spots
+        const trialsLeftEl = document.getElementById('trialsLeft');
+        const initialSpots = Math.floor(Math.random() * 8) + 8; // 8-15
+        trialsLeftEl.textContent = initialSpots;
+
+        // Decrease by 1 every 45-90 seconds (simulate real bookings)
+        setInterval(() => {
+            const current = parseInt(trialsLeftEl.textContent);
+            if (current > 5) { // Don't go below 5 to maintain urgency
+                trialsLeftEl.textContent = current - 1;
+                trialsLeftEl.classList.add('pulse');
+                setTimeout(() => trialsLeftEl.classList.remove('pulse'), 2000);
+            }
+        }, (Math.random() * 45000) + 45000); // 45-90 seconds
+    </script>
+</body>
+</html>

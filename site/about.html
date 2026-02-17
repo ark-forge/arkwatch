@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - ArkForge</title>
+    <meta name="description" content="ArkForge développe des outils de monitoring et de conformité IA pour les équipes tech. Découvrez notre mission et nos produits.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif; line-height: 1.6; color: #1a1a1a; background: #f9fafb; }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 60px 20px 50px;
+            text-align: center;
+        }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 800; }
+        .header p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; opacity: 0.9; }
+
+        .content { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            margin-bottom: 32px;
+        }
+        .card h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; color: #6366f1; }
+        .card p { font-size: 1rem; color: #4b5563; line-height: 1.7; margin-bottom: 12px; }
+        .card ul { padding-left: 24px; margin: 12px 0; }
+        .card li { font-size: 1rem; color: #4b5563; line-height: 1.7; margin-bottom: 8px; }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .product-card {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            transition: border-color 0.2s;
+        }
+        .product-card:hover { border-color: #6366f1; }
+        .product-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: #1a1a1a; }
+        .product-card p { font-size: 0.95rem; color: #6b7280; margin-bottom: 12px; }
+        .product-card a {
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .product-card a:hover { text-decoration: underline; }
+
+        .contact-info { background: #f0f0ff; border-radius: 12px; padding: 24px; margin-top: 16px; }
+        .contact-info p { margin-bottom: 6px; }
+
+        footer {
+            background: #0f1117;
+            color: #9ca3af;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 40px;
+            border-top: 1px solid #374151;
+            font-size: 0.9rem;
+        }
+        footer a { color: #6366f1; text-decoration: none; margin: 0 12px; }
+        footer a:hover { text-decoration: underline; }
+        footer .footer-links { margin-bottom: 16px; }
+        footer .footer-copy { color: #6b7280; font-size: 0.85rem; }
+
+        @media (max-width: 700px) {
+            .header h1 { font-size: 1.8rem; }
+            .card { padding: 24px 20px; }
+            .products-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>À propos d'ArkForge</h1>
+        <p>Outils de monitoring et de conformité IA pour les équipes tech</p>
+    </div>
+
+    <div class="content">
+        <div class="card">
+            <h2>Notre mission</h2>
+            <p>ArkForge développe des outils qui aident les équipes techniques à surveiller leurs infrastructures et à se conformer aux réglementations émergentes sur l'intelligence artificielle.</p>
+            <p>Nous croyons que la fiabilité des services numériques et la conformité réglementaire ne devraient pas être des luxes réservés aux grandes entreprises. Nos outils sont conçus pour être accessibles, simples à déployer, et efficaces dès le premier jour.</p>
+        </div>
+
+        <div class="card">
+            <h2>Nos produits</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3>ArkWatch</h3>
+                    <p>Monitoring web en temps réel. Surveillez la disponibilité, les performances et les certificats SSL de vos sites et APIs.</p>
+                    <a href="/pricing.html">Voir les offres &rarr;</a>
+                </div>
+                <div class="product-card">
+                    <h3>MCP EU AI Act</h3>
+                    <p>Serveur MCP pour analyser la conformité de vos systèmes d'IA avec le Règlement Européen sur l'Intelligence Artificielle.</p>
+                    <a href="/mcp-eu-ai-act.html">En savoir plus &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Contact & informations légales</h2>
+            <div class="contact-info">
+                <p><strong>Raison sociale :</strong> ArkForge</p>
+                <p><strong>Email :</strong> <a href="mailto:contact@arkforge.fr">contact@arkforge.fr</a></p>
+                <p><strong>Site web :</strong> <a href="https://arkforge.fr">arkforge.fr</a></p>
+                <p><strong>Hébergement :</strong> OVH SAS, 2 rue Kellermann, 59100 Roubaix, France</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Liens utiles</h2>
+            <ul>
+                <li><a href="/support.html">Support & assistance</a></li>
+                <li><a href="/privacy.html">Politique de confidentialité</a></li>
+                <li><a href="/cgv.html">Conditions générales de vente</a></li>
+                <li><a href="/mentions-legales.html">Mentions légales</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/support.html">Support</a>
+            <a href="/about.html">À propos</a>
+            <a href="/privacy.html">Confidentialité</a>
+            <a href="/cgv.html">CGV</a>
+            <a href="/mentions-legales.html">Mentions légales</a>
+        </div>
+        <div class="footer-copy">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+</body>
+</html>

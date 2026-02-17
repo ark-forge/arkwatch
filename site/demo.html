@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Demo - ArkWatch | 5-Minute Setup Walkthrough</title>
+    <meta name="description" content="See ArkWatch in action. Follow our interactive 5-minute setup guide and start monitoring your website today.">
+    <meta property="og:title" content="ArkWatch Interactive Demo - See It In Action">
+    <meta property="og:description" content="5-minute walkthrough. Real API. Real monitoring. Start now.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #f9fafb;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #6366f1;
+            text-decoration: none;
+        }
+        .header-cta {
+            background: #6366f1;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .header-cta:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+        .demo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Demo steps */
+        .demo-steps {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        .step {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #f3f4f6;
+        }
+        .step:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+        .step-description {
+            font-size: 1.05rem;
+            color: #666;
+            margin-bottom: 20px;
+            padding-left: 60px;
+        }
+
+        /* Terminal/Code block */
+        .terminal {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 20px;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin-left: 60px;
+            position: relative;
+        }
+        .terminal::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff5f56;
+            box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+        }
+        .terminal-header {
+            color: #888;
+            margin-bottom: 15px;
+            padding-top: 10px;
+        }
+        .command {
+            color: #4ec9b0;
+            margin-bottom: 10px;
+        }
+        .command-prompt {
+            color: #569cd6;
+        }
+        .output {
+            color: #dcdcdc;
+            margin-bottom: 15px;
+        }
+        .comment {
+            color: #6a9955;
+        }
+        .success {
+            color: #4ec9b0;
+            font-weight: 700;
+        }
+        .highlight {
+            color: #fbbf24;
+            font-weight: 700;
+        }
+
+        /* Blur overlay for locked content */
+        .locked {
+            filter: blur(5px);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* Email gate */
+        .email-gate {
+            position: relative;
+            margin-top: -120px;
+            z-index: 50;
+        }
+        .email-gate-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            text-align: center;
+            border: 3px solid #6366f1;
+        }
+        .email-gate h2 {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+        .email-gate p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .email-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .email-input {
+            flex: 1;
+            padding: 16px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .email-input:focus {
+            border-color: #6366f1;
+        }
+        .unlock-btn {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 16px 35px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .unlock-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99,102,241,0.4);
+        }
+        .email-note {
+            font-size: 0.85rem;
+            color: #999;
+        }
+        .benefits-list {
+            text-align: left;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 2px solid #f3f4f6;
+        }
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .benefits-list li::before {
+            content: '✓';
+            background: #10b981;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        /* Success message */
+        .success-message {
+            display: none;
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .success-message.show {
+            display: block;
+        }
+        .success-message h3 {
+            color: #10b981;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        .success-message p {
+            color: #065f46;
+            font-size: 1rem;
+        }
+
+        /* CTA section */
+        .cta-section {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 35px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #6366f1;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .cta-note {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .subtitle { font-size: 1.1rem; }
+            .demo-steps { padding: 25px; }
+            .step-description, .terminal { margin-left: 0; padding-left: 0; }
+            .step-header { flex-direction: column; align-items: flex-start; }
+            .email-form { flex-direction: column; }
+            .email-gate-card { padding: 30px 20px; }
+            .cta-section { padding: 40px 20px; }
+            .cta-section h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="logo">ArkWatch</a>
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <a href="/site/pricing-v2.html" style="color: #6b7280; text-decoration: none; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#6366f1'" onmouseout="this.style.color='#6b7280'">Pricing</a>
+                <a href="/site/trial-14d.html" class="header-cta">Start Free Trial</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="demo-badge">
+            <span class="live-dot"></span>
+            Interactive Demo
+        </div>
+        <h1>See ArkWatch In Action</h1>
+        <p class="subtitle">Follow our 5-minute setup guide and monitor your first website</p>
+    </div>
+
+    <!-- Main container -->
+    <div class="container">
+        <!-- Success message (hidden by default) -->
+        <div class="success-message" id="successMessage">
+            <h3>✓ Full Demo Unlocked!</h3>
+            <p>Scroll down to see the complete setup walkthrough.</p>
+        </div>
+
+        <!-- Demo steps -->
+        <div class="demo-steps">
+            <!-- Step 1 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h2 class="step-title">Create Your Account</h2>
+                </div>
+                <p class="step-description">
+                    Sign up in 30 seconds. No credit card required.
+                </p>
+                <div class="terminal">
+                    <div class="terminal-header"># Sign up via API</div>
+                    <div class="command">
+                        <span class="command-prompt">$</span> curl -X POST https://watch.arkforge.fr/api/signup \<br>
+                        &nbsp;&nbsp;-H "Content-Type: application/json" \<br>
+                        &nbsp;&nbsp;-d '{"email":"your@email.com","password":"secure123"}'
+                    </div>
+                    <div class="output">
+                        {<br>
+                        &nbsp;&nbsp;"status": "success",<br>
+                        &nbsp;&nbsp;"message": "Account created",<br>
+                        &nbsp;&nbsp;"api_key": "ark_live_<span class="highlight">*********************</span>",<br>
+                        &nbsp;&nbsp;"user_id": "usr_abc123"<br>
+                        }
+                    </div>
+                    <div class="success">✓ Account created in 2.3 seconds</div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h2 class="step-title">Add Your First Monitor</h2>
+                </div>
+                <p class="step-description">
+                    Configure a monitor for your website. We'll check it every 60 seconds.
+                </p>
+                <div class="terminal">
+                    <div class="terminal-header"># Create your first monitor</div>
+                    <div class="command">
+                        <span class="command-prompt">$</span> curl -X POST https://watch.arkforge.fr/api/monitors \<br>
+                        &nbsp;&nbsp;-H "Authorization: Bearer ark_live_<span class="highlight">***</span>" \<br>
+                        &nbsp;&nbsp;-H "Content-Type: application/json" \<br>
+                        &nbsp;&nbsp;-d '{<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"url": "https://yourwebsite.com",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"name": "Production Site",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"check_interval": 60,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"alert_email": "your@email.com"<br>
+                        &nbsp;&nbsp;}'
+                    </div>
+                    <div class="output">
+                        {<br>
+                        &nbsp;&nbsp;"status": "success",<br>
+                        &nbsp;&nbsp;"monitor_id": "mon_xyz789",<br>
+                        &nbsp;&nbsp;"url": "https://yourwebsite.com",<br>
+                        &nbsp;&nbsp;"status": "<span class="success">active</span>",<br>
+                        &nbsp;&nbsp;"next_check": "2026-02-09 17:31:00 UTC"<br>
+                        }
+                    </div>
+                    <div class="success">✓ Monitor created and activated</div>
+                </div>
+            </div>
+
+            <!-- Step 3 (locked initially) -->
+            <div class="step" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <h2 class="step-title">Receive Real-Time Alerts</h2>
+                </div>
+                <p class="step-description">
+                    When we detect downtime, you get an instant email alert with full details.
+                </p>
+                <div class="terminal">
+                    <div class="terminal-header"># Sample alert webhook</div>
+                    <div class="output">
+                        <span class="highlight">⚠ ALERT: yourwebsite.com is DOWN</span><br><br>
+                        Monitor: Production Site<br>
+                        URL: https://yourwebsite.com<br>
+                        Status: <span style="color: #ef4444;">503 Service Unavailable</span><br>
+                        Detected at: 2026-02-09 17:32:15 UTC<br>
+                        Response time: timeout (30s)<br><br>
+                        This is check #1,247 since monitoring started.<br>
+                        Previous uptime: <span class="success">99.8%</span>
+                    </div>
+                    <div class="comment"><br># Alert sent via email in 1.2 seconds</div>
+                </div>
+            </div>
+
+            <!-- Step 4 (locked initially) -->
+            <div class="step" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <h2 class="step-title">Check Your Dashboard</h2>
+                </div>
+                <p class="step-description">
+                    View uptime history, response times, and incident reports in your dashboard.
+                </p>
+                <div class="terminal">
+                    <div class="terminal-header"># Get monitor status</div>
+                    <div class="command">
+                        <span class="command-prompt">$</span> curl https://watch.arkforge.fr/api/monitors/mon_xyz789/status \<br>
+                        &nbsp;&nbsp;-H "Authorization: Bearer ark_live_<span class="highlight">***</span>"
+                    </div>
+                    <div class="output">
+                        {<br>
+                        &nbsp;&nbsp;"monitor_id": "mon_xyz789",<br>
+                        &nbsp;&nbsp;"current_status": "<span class="success">up</span>",<br>
+                        &nbsp;&nbsp;"uptime_24h": "<span class="success">99.8%</span>",<br>
+                        &nbsp;&nbsp;"uptime_7d": "<span class="success">99.95%</span>",<br>
+                        &nbsp;&nbsp;"avg_response_time": "245ms",<br>
+                        &nbsp;&nbsp;"total_checks": 1248,<br>
+                        &nbsp;&nbsp;"incidents_resolved": 1,<br>
+                        &nbsp;&nbsp;"last_check": "2026-02-09 17:35:00 UTC"<br>
+                        }
+                    </div>
+                    <div class="success">✓ All systems operational</div>
+                </div>
+            </div>
+
+            <!-- Step 5 (locked initially) -->
+            <div class="step" id="step5">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <h2 class="step-title">Advanced Features</h2>
+                </div>
+                <p class="step-description">
+                    Multi-location checks, SSL monitoring, custom headers, and webhook integrations.
+                </p>
+                <div class="terminal">
+                    <div class="terminal-header"># Advanced monitor configuration</div>
+                    <div class="command">
+                        <span class="command-prompt">$</span> curl -X PATCH https://watch.arkforge.fr/api/monitors/mon_xyz789 \<br>
+                        &nbsp;&nbsp;-H "Authorization: Bearer ark_live_<span class="highlight">***</span>" \<br>
+                        &nbsp;&nbsp;-d '{<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"check_ssl": true,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"check_locations": ["eu-west", "us-east", "ap-south"],<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"timeout": 10,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"webhook_url": "https://your-app.com/webhooks/uptime"<br>
+                        &nbsp;&nbsp;}'
+                    </div>
+                    <div class="output">
+                        {<br>
+                        &nbsp;&nbsp;"status": "success",<br>
+                        &nbsp;&nbsp;"message": "Monitor updated with advanced features",<br>
+                        &nbsp;&nbsp;"ssl_expiry": "2026-08-15 (188 days remaining)",<br>
+                        &nbsp;&nbsp;"multi_location": "<span class="success">enabled</span>",<br>
+                        &nbsp;&nbsp;"webhook": "<span class="success">configured</span>"<br>
+                        }
+                    </div>
+                    <div class="success">✓ Advanced monitoring active</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email gate (shows after step 2) -->
+        <div class="email-gate" id="emailGate">
+            <div class="email-gate-card">
+                <h2>🔒 Unlock Full Demo</h2>
+                <p>Enter your email to see steps 3-5 and get instant access to our 14-day free trial.</p>
+
+                <form class="email-form" id="emailForm">
+                    <input
+                        type="email"
+                        class="email-input"
+                        id="emailInput"
+                        placeholder="your@email.com"
+                        required
+                    >
+                    <button type="submit" class="unlock-btn">Unlock Now</button>
+                </form>
+
+                <p class="email-note">No spam. Unsubscribe anytime.</p>
+
+                <ul class="benefits-list">
+                    <li>See complete 5-step walkthrough</li>
+                    <li>Get 14-day free trial (no credit card)</li>
+                    <li>Receive setup guide via email</li>
+                    <li>Join 100+ developers already monitoring</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section" id="ctaSection" style="display: none;">
+            <h2>Ready to Monitor Your Website?</h2>
+            <p>Start your 14-day free trial now. No credit card required.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                <a href="/site/trial-14d.html" class="cta-button">Start Free Trial →</a>
+                <a href="/site/pricing-v2.html" class="cta-button" style="background: white; color: #6366f1; border: 2px solid #6366f1;">View Pricing →</a>
+            </div>
+            <p class="cta-note">Setup takes less than 5 minutes</p>
+        </div>
+    </div>
+
+    <script>
+        // Lock steps 3-5 initially
+        document.getElementById('step3').classList.add('locked');
+        document.getElementById('step4').classList.add('locked');
+        document.getElementById('step5').classList.add('locked');
+
+        // Handle form submission
+        document.getElementById('emailForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('emailInput').value;
+            const submitBtn = e.target.querySelector('.unlock-btn');
+
+            // Disable button during submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Unlocking...';
+
+            try {
+                // Send email to backend
+                const response = await fetch('https://watch.arkforge.fr/api/demo-leads', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        source: 'demo_page',
+                        timestamp: new Date().toISOString()
+                    })
+                });
+
+                if (response.ok) {
+                    // Unlock content
+                    document.getElementById('step3').classList.remove('locked');
+                    document.getElementById('step4').classList.remove('locked');
+                    document.getElementById('step5').classList.remove('locked');
+
+                    // Hide email gate
+                    document.getElementById('emailGate').style.display = 'none';
+
+                    // Show success message
+                    document.getElementById('successMessage').classList.add('show');
+
+                    // Show CTA section
+                    document.getElementById('ctaSection').style.display = 'block';
+
+                    // Smooth scroll to unlocked content
+                    setTimeout(() => {
+                        document.getElementById('step3').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 500);
+
+                    // Track conversion
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'demo_unlock', {
+                            'event_category': 'engagement',
+                            'event_label': email
+                        });
+                    }
+
+                    // Redirect to trial after 15 seconds
+                    setTimeout(() => {
+                        window.location.href = '/site/trial-14d.html?from=demo';
+                    }, 15000);
+                } else {
+                    throw new Error('Failed to submit');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again or contact support.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Unlock Now';
+            }
+        });
+
+        // Track page view
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                'page_title': 'Interactive Demo',
+                'page_location': window.location.href
+            });
+        }
+
+        // High-value page visit alert (demo page)
+        fetch('https://watch.arkforge.fr/api/page-visit-alert', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                page: '/demo',
+                referrer: document.referrer || null,
+                utm_source: new URLSearchParams(location.search).get('utm_source') || null,
+                utm_campaign: new URLSearchParams(location.search).get('utm_campaign') || null
+            })
+        }).catch(function() {});
+    </script>
+
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">À propos</a>
+            <a href="/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialité</a>
+            <a href="/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions légales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+</body>
+</html>

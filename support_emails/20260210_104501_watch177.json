@@ -1,0 +1,11 @@
+{
+  "id": "20260210_104501_watch177",
+  "received_at": "2026-02-10T10:45:01.213522",
+  "from": "mailgun@test.com",
+  "to": "contact@arkforge.fr",
+  "subject": "Test from watch domain",
+  "body_text": "Testing watch.arkforge.fr endpoint",
+  "body_html": "",
+  "timestamp": "1770720301",
+  "token": "watch1770720301"
+}

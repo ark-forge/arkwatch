@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to MCP EU AI Act Compliance - ArkWatch</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .success-container {
+            background: white;
+            border-radius: 1rem;
+            padding: 3rem;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(15, 118, 110, 0.15);
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #0f766e;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .info-box {
+            background: #f0fdf4;
+            border-left: 4px solid #0f766e;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+            border-radius: 0.5rem;
+        }
+
+        .info-box h3 {
+            color: #0f766e;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-box li {
+            padding: 0.5rem 0;
+            color: #666;
+        }
+
+        .info-box li:before {
+            content: "✓ ";
+            color: #0f766e;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .next-steps {
+            background: #fafafa;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .next-steps h3 {
+            color: #0f766e;
+            margin-bottom: 1rem;
+        }
+
+        .next-steps ol {
+            padding-left: 1.5rem;
+            color: #666;
+        }
+
+        .next-steps li {
+            padding: 0.5rem 0;
+        }
+
+        .btn-primary {
+            background: #0f766e;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover { background: #0d5d57; }
+
+        .trial-badge {
+            background: #dcfce7;
+            color: #166534;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .email-sent {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #1e40af;
+        }
+
+        .footer-text {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">🎉</div>
+        <h1>Welcome to MCP EU AI Act Compliance!</h1>
+        <p class="subtitle">Your 30-day free trial has started successfully</p>
+
+        <div class="trial-badge">🎁 30 Days Free Trial Active</div>
+
+        <div class="info-box">
+            <h3>What's Included in Your Trial</h3>
+            <ul>
+                <li>Full access to Model Card Protocol tracking</li>
+                <li>Real-time compliance alerts via email</li>
+                <li>Comprehensive compliance dashboard</li>
+                <li>Risk assessment monitoring</li>
+                <li>Audit-ready reports</li>
+                <li>30 days to explore all features</li>
+            </ul>
+        </div>
+
+        <div class="next-steps">
+            <h3>Next Steps</h3>
+            <ol>
+                <li><strong>Check your email</strong> - We've sent you a confirmation with your trial details</li>
+                <li><strong>Trial active</strong> - You won't be charged during your 30-day trial</li>
+                <li><strong>Install the MCP tool</strong> - Follow the <a href="https://github.com/ark-forge/mcp-eu-ai-act#quick-start" style="color:#0f766e;">Quick Start guide</a> to set up in Claude, Cursor, or Windsurf</li>
+                <li><strong>Run your first scan</strong> - Use <code>scan_project</code> to check your AI systems</li>
+            </ol>
+        </div>
+
+        <div class="email-sent">
+            📧 A confirmation email has been sent to your inbox. Please check your spam folder if you don't see it.
+        </div>
+
+        <a href="https://github.com/ark-forge/mcp-eu-ai-act#quick-start" class="btn-primary">Install MCP Tool</a>
+
+        <p class="footer-text">
+            Questions? Contact us at <a href="mailto:contact@arkforge.fr" style="color: #0f766e;">contact@arkforge.fr</a>
+        </p>
+    </div>
+
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">À propos</a>
+            <a href="/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialité</a>
+            <a href="/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions légales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+
+    <script>
+        // Track successful conversion via pixel (Nginx serves t.gif with 204)
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session_id') || 'direct';
+        new Image().src = '/t.gif?p=mcp-success&e=conversion&sid=' + encodeURIComponent(sessionId) + '&t=' + Date.now();
+    </script>
+</body>
+</html>

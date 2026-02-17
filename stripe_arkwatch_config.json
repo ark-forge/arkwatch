@@ -1,0 +1,46 @@
+{
+  "test": {
+    "product_id": "prod_TvmgLqrL05b38K",
+    "prices": {
+      "starter": "price_1Sxv706iihEhp9U9OsGWlagb",
+      "pro": "price_1Sxv706iihEhp9U911gCbNJq",
+      "business": "price_1Sxv706iihEhp9U9qg9KkXyq"
+    },
+    "payment_links": {
+      "starter": {
+        "payment_link_id": "plink_1Sxv7F6iihEhp9U9G9lilZtV",
+        "url": "https://buy.stripe.com/test_bJe6oA0SQ1Mw3mEeeI4AU01"
+      },
+      "pro": {
+        "payment_link_id": "plink_1Sxv7F6iihEhp9U9aP9xzvss",
+        "url": "https://buy.stripe.com/test_9B63codFC8aUcXeeeI4AU02"
+      },
+      "business": {
+        "payment_link_id": "plink_1Sxv7G6iihEhp9U9m0mDMgVj",
+        "url": "https://buy.stripe.com/test_9B6eV6dFCezibTagmQ4AU03"
+      }
+    }
+  },
+  "live": {
+    "product_id": "prod_TvmgE1PETPHF6G",
+    "prices": {
+      "starter": "price_1Sxv716iihEhp9U9W5BSeNbK",
+      "pro": "price_1Sxv716iihEhp9U9VBl5cnxR",
+      "business": "price_1Sxv716iihEhp9U9ilPBpzAV"
+    },
+    "payment_links": {
+      "starter": {
+        "payment_link_id": "plink_1Sxv7G6iihEhp9U9z2v7wro3",
+        "url": "https://buy.stripe.com/00w7sE8li8aU2iA8Uo4AU04"
+      },
+      "pro": {
+        "payment_link_id": "plink_1Sxv7H6iihEhp9U9SBIH0f29",
+        "url": "https://buy.stripe.com/5kQ28k6dagHq9L2eeI4AU05"
+      },
+      "business": {
+        "payment_link_id": "plink_1Sxv7H6iihEhp9U9XjvMBn8E",
+        "url": "https://buy.stripe.com/9B6dR2bxucra0aseeI4AU06"
+      }
+    }
+  }
+}

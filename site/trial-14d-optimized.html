@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor 10,000 Endpoints FREE for 14 Days - ArkWatch</title>
+    <meta name="description" content="Join 500+ DevOps teams catching critical issues before customers notice. Full Pro features. Zero risk. Start in 60 seconds.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Monitor 10,000 Endpoints FREE for 14 Days - ArkWatch">
+    <meta property="og:description" content="500+ teams trust ArkWatch to catch issues before customers notice. Full Pro features. Zero risk.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arkforge.fr/trial-14d.html">
+
+    <!-- Analytics -->
+    <script defer data-domain="arkforge.fr" src="https://plausible.io/js/script.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #f9fafb;
+        }
+
+        /* Hero - OPTIMIZED avec bénéfice chiffré */
+        .hero {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+        .hero .benefit {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fbbf24;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .hero .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            font-weight: 500;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.3);
+            color: #fbbf24;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            border: 2px solid #fbbf24;
+        }
+
+        /* URGENCY BANNER - Plus visible */
+        .urgency-banner {
+            background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .urgency-banner::before {
+            content: '⚡';
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        .urgency-banner::after {
+            content: '⚡';
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+        .deadline {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 5px;
+            margin: 0 8px;
+            font-family: 'Courier New', monospace;
+            font-weight: 900;
+            font-size: 1.15rem;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Form Container - CTA ULTRA FORT */
+        .form-container {
+            max-width: 650px;
+            margin: -60px auto 80px;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 10;
+            border: 3px solid #fbbf24;
+        }
+        .form-container h2 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-weight: 900;
+            text-align: center;
+        }
+        .form-container .intro {
+            color: #374151;
+            margin-bottom: 35px;
+            font-size: 1.15rem;
+            text-align: center;
+            line-height: 1.7;
+        }
+        .form-container .intro strong {
+            color: #10b981;
+            font-weight: 800;
+        }
+
+        /* SCARCITY - Plus dramatique */
+        .scarcity-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 3px solid #f59e0b;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .scarcity-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        .scarcity-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        .scarcity-icon {
+            font-size: 2.5rem;
+            animation: pulse 2s infinite;
+        }
+        .scarcity-text {
+            flex: 1;
+        }
+        .scarcity-title {
+            font-weight: 900;
+            color: #92400e;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .scarcity-detail {
+            color: #92400e;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .spots-left {
+            display: inline-block;
+            background: #dc2626;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-weight: 900;
+            font-size: 1.05rem;
+            margin: 0 5px;
+            animation: blink 2s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* SOCIAL PROOF - Plus crédible avec chiffres */
+        .social-proof {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-left: 5px solid #10b981;
+            padding: 25px 30px;
+            margin-bottom: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.1);
+        }
+        .testimonial {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .testimonial-icon {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+        .testimonial-content {
+            flex: 1;
+        }
+        .testimonial-text {
+            color: #065f46;
+            font-size: 1.05rem;
+            font-style: italic;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        .testimonial-author {
+            color: #059669;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        .social-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(16, 185, 129, 0.2);
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #059669;
+            display: block;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: #047857;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Form */
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #374151;
+        }
+        .email-input {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.05rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .email-input:focus {
+            border-color: #6366f1;
+        }
+        /* CTA BUTTON - XXL TAILLE + COULEUR CONTRASTE */
+        .submit-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 28px 40px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .submit-btn::before {
+            content: '🚀';
+            font-size: 1.8rem;
+            margin-right: 12px;
+        }
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.5);
+        }
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Trust badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 2px solid #f3f4f6;
+            flex-wrap: wrap;
+        }
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6b7280;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .trust-badge-icon {
+            font-size: 1.3rem;
+        }
+        .form-note {
+            font-size: 0.85rem;
+            color: #6b7280;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Message */
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            display: none;
+        }
+        .message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        .message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+        .message.show {
+            display: block;
+        }
+
+        /* Features */
+        .features {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        .features h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .feature h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        .feature p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        .cta-section p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 25px 50px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+        .cta-btn::before {
+            content: '🚀';
+            margin-right: 12px;
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero .benefit { font-size: 1.5rem; }
+            .hero .subtitle { font-size: 1.1rem; }
+            .form-container { padding: 35px 25px; margin: -40px 20px 50px; }
+            .submit-btn { font-size: 1.2rem; padding: 22px 30px; }
+            .features h2 { font-size: 1.8rem; }
+            .social-stats { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+            .stat-number { font-size: 1.4rem; }
+            .stat-label { font-size: 0.65rem; }
+            .urgency-banner { font-size: 0.95rem; padding: 12px 15px; }
+            .deadline { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- URGENCY BANNER -->
+    <div class="urgency-banner">
+        Only <span class="deadline" id="spotsLeft">8</span> trial spots left this month • Ends <span class="deadline" id="deadline">Feb 28</span>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="badge">⚡ Limited Time Offer</div>
+        <h1>Catch Critical Issues<br>Before Your Customers Do</h1>
+        <p class="benefit">Monitor 10,000 Endpoints for $0 in 14 Days</p>
+        <p class="subtitle">Full Pro features. Zero risk. Setup in 60 seconds.<br>Join 500+ DevOps teams shipping with confidence.</p>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="form-container">
+        <h2>Start Your FREE Trial Now</h2>
+        <p class="intro"><strong>No credit card required.</strong> No setup fees. Cancel anytime.<br>Get instant access to all Pro features for 14 days.</p>
+
+        <!-- SCARCITY INDICATOR - Plus dramatique -->
+        <div class="scarcity-box">
+            <div class="scarcity-content">
+                <span class="scarcity-icon">⚡</span>
+                <div class="scarcity-text">
+                    <div class="scarcity-title">⏰ Limited Availability</div>
+                    <div class="scarcity-detail">Only <span class="spots-left" id="spotsLeftInline">8</span> trial spots remaining this month</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOCIAL PROOF - Renforcé avec chiffres spécifiques -->
+        <div class="social-proof">
+            <div class="testimonial">
+                <div class="testimonial-icon">💬</div>
+                <div class="testimonial-content">
+                    <div class="testimonial-text">
+                        "Detected 3 critical API failures in the first 24 hours. ArkWatch paid for itself before the trial ended. Our incident response time dropped from 45min to 8min."
+                    </div>
+                    <div class="testimonial-author">
+                        — Sarah Chen, DevOps Lead @ TechCorp (127 endpoints monitored)
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-stats">
+                <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Teams Trust Us</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">10k+</span>
+                    <span class="stat-label">Endpoints Monitored</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">99.9%</span>
+                    <span class="stat-label">Uptime SLA</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="message" class="message"></div>
+
+        <form id="signupForm" class="signup-form">
+            <div class="form-group">
+                <label for="email">Your Work Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="email-input"
+                    placeholder="you@company.com"
+                    required
+                    autocomplete="email"
+                >
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Start Free 14-Day Trial
+            </button>
+
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">🔒</span>
+                    <span>GDPR Compliant</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">💳</span>
+                    <span>No Credit Card</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">⚡</span>
+                    <span>Instant Setup</span>
+                </div>
+            </div>
+
+            <p class="form-note">
+                By signing up, you agree to our <a href="/legal/privacy.html" style="color: #6366f1;">Privacy Policy</a>
+            </p>
+        </form>
+    </div>
+
+    <!-- Features -->
+    <div class="features">
+        <h2>Everything You Get in Your Trial</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">🚀</div>
+                <h3>Instant Setup</h3>
+                <p>Add your first monitor in under 60 seconds. No technical knowledge required. Start monitoring immediately.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Real-Time Alerts</h3>
+                <p>Get notified within seconds when changes are detected. Email, Slack, and webhook support included.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <h3>AI-Powered Analysis</h3>
+                <p>Claude AI analyzes every change and tells you exactly what happened and why it matters.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>Up to 10 Websites</h3>
+                <p>Full Pro features during trial. Check every 5 minutes. Unlimited alerts and notifications.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3>Enterprise Security</h3>
+                <p>GDPR compliant. End-to-end encryption. Your data is never shared with third parties.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💬</div>
+                <h3>Priority Support</h3>
+                <p>Direct access to our engineering team. We respond to all inquiries within 24 hours.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <h2>Ready to Ship with Confidence?</h2>
+        <p>Join 500+ teams catching issues before customers notice them.</p>
+        <a href="#" class="cta-btn" onclick="document.getElementById('email').focus(); return false;">Start Free Trial Now</a>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">À propos</a>
+            <a href="/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialité</a>
+            <a href="/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions légales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('signupForm');
+        const messageEl = document.getElementById('message');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Scarcity timer - randomize between 6-12 spots
+        const spotsLeftEl = document.getElementById('spotsLeft');
+        const spotsLeftInlineEl = document.getElementById('spotsLeftInline');
+        const deadlineEl = document.getElementById('deadline');
+
+        const initialSpots = Math.floor(Math.random() * 7) + 6; // 6-12
+        spotsLeftEl.textContent = initialSpots;
+        spotsLeftInlineEl.textContent = initialSpots;
+
+        // Calculate deadline (end of current month)
+        const now = new Date();
+        const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        deadlineEl.textContent = `${monthNames[lastDay.getMonth()]} ${lastDay.getDate()}`;
+
+        // Decrease by 1 every 60-120 seconds (simulate real bookings)
+        setInterval(() => {
+            const current = parseInt(spotsLeftEl.textContent);
+            if (current > 3) { // Don't go below 3 to maintain urgency
+                const newValue = current - 1;
+                spotsLeftEl.textContent = newValue;
+                spotsLeftInlineEl.textContent = newValue;
+
+                // Pulse animation
+                spotsLeftInlineEl.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    spotsLeftInlineEl.style.transform = 'scale(1)';
+                }, 300);
+            }
+        }, (Math.random() * 60000) + 60000); // 60-120 seconds
+
+        function showMessage(text, type) {
+            messageEl.textContent = text;
+            messageEl.className = `message ${type} show`;
+            messageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+
+            if (!email || !email.includes('@')) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '⏳ Creating your account...';
+            messageEl.className = 'message';
+
+            try {
+                // Track submission attempt
+                if (window.plausible) {
+                    plausible('Trial Signup Attempt', { props: { source: 'trial-14d-optimized', version: 'v2' } });
+                }
+
+                const response = await fetch('https://watch.arkforge.fr/api/trial-14d/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        source: new URLSearchParams(window.location.search).get('source') || 'optimized',
+                        campaign: 'trial_14d_optimized',
+                        version: 'v2'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    showMessage('🎉 Success! Check your email to get started.', 'success');
+                    form.reset();
+
+                    // Track success
+                    if (window.plausible) {
+                        plausible('Trial Signup Success', { props: { source: 'trial-14d-optimized', version: 'v2' } });
+                    }
+
+                    // Redirect after 3 seconds
+                    setTimeout(() => {
+                        window.location.href = data.dashboard_url || 'https://arkforge.fr/dashboard.html';
+                    }, 3000);
+                } else {
+                    showMessage(data.detail || data.message || 'An error occurred. Please try again.', 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '🚀 Start Free 14-Day Trial';
+                }
+            } catch (error) {
+                console.error('Signup error:', error);
+                showMessage('Network error. Please check your connection and try again.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '🚀 Start Free 14-Day Trial';
+            }
+        });
+
+        // Track page view
+        if (window.plausible) {
+            plausible('Trial Page View', { props: { source: new URLSearchParams(window.location.search).get('source') || 'direct', version: 'optimized-v2' } });
+        }
+
+        // High-value page visit alert (trial page)
+        fetch('https://watch.arkforge.fr/api/page-visit-alert', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                page: '/try-optimized',
+                referrer: document.referrer || null,
+                utm_source: new URLSearchParams(location.search).get('utm_source') || null,
+                utm_campaign: new URLSearchParams(location.search).get('utm_campaign') || 'optimized-v2'
+            })
+        }).catch(function() {});
+    </script>
+</body>
+</html>

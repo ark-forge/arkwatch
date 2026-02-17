@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Months FREE - ArkWatch | Stop Website Downtime in 5 Minutes</title>
+    <meta name="description" content="Monitor your website 24/7. Get instant alerts when something breaks. 6 months completely free for first 10 users. No credit card. Start in 5 minutes.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Hero - Ultra focused */
+        .hero {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            border: 2px solid rgba(255,255,255,0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+        .hero h1 .highlight {
+            color: #fbbf24;
+            display: block;
+            font-size: 4rem;
+        }
+        .hero .problem {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* Free offer box */
+        .free-box {
+            background: white;
+            color: #1a1a1a;
+            max-width: 600px;
+            margin: -30px auto 0;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 10;
+        }
+        .free-box h2 {
+            font-size: 2.5rem;
+            color: #6366f1;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+        .free-box .value {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .free-box .value strong {
+            color: #10b981;
+            font-size: 1.3rem;
+        }
+
+        /* Email form - MASSIVE CTA */
+        .email-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .email-input {
+            flex: 1;
+            padding: 18px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .email-input:focus {
+            border-color: #6366f1;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99,102,241,0.4);
+        }
+        .form-note {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+        }
+        .form-note strong { color: #10b981; }
+
+        /* Social proof */
+        .spots-counter {
+            background: #fef3c7;
+            border: 2px solid #fbbf24;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 25px;
+            font-weight: 700;
+            color: #78350f;
+        }
+        .spots-number {
+            font-size: 2rem;
+            color: #f59e0b;
+        }
+
+        /* Content sections */
+        .section {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        /* How it works - Simple 3 steps */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .step {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0 auto 20px;
+        }
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        .step p {
+            color: #666;
+            font-size: 1rem;
+        }
+        .time-badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        /* Features - Simple list */
+        .features {
+            background: #f9fafb;
+            border-radius: 20px;
+            padding: 50px 40px;
+        }
+        .features h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+        .feature {
+            display: flex;
+            gap: 15px;
+            align-items: start;
+        }
+        .feature-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        .feature-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #1a1a1a;
+        }
+        .feature-text p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Social proof section */
+        .proof {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+        }
+        .proof h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+        .proof-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .proof-item {
+            text-align: center;
+        }
+        .proof-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #6366f1;
+            display: block;
+        }
+        .proof-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+        .final-cta .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        .final-cta .email-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* EXIT-INTENT POPUP */
+        #exit-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #exit-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 24px;
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 90%;
+            z-index: 10000;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            animation: slideIn 0.4s ease;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -45%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        #exit-popup .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            color: #9ca3af;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        #exit-popup .close-btn:hover {
+            color: #1a1a1a;
+        }
+        #exit-popup h2 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+        #exit-popup .emoji {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        #exit-popup .offer-text {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        #exit-popup .offer-text strong {
+            color: #10b981;
+            font-size: 1.4rem;
+        }
+        #exit-popup .popup-cta {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        #exit-popup .popup-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16,185,129,0.4);
+        }
+        #exit-popup .popup-note {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            text-align: center;
+        }
+        #exit-popup .calendly-link {
+            display: block;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: #6366f1;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background 0.2s;
+        }
+        #exit-popup .calendly-link:hover {
+            background: #e5e7eb;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero h1 .highlight { font-size: 2.8rem; }
+            .hero .problem { font-size: 1.15rem; }
+            .free-box { padding: 30px 20px; margin: -20px 20px 0; }
+            .free-box h2 { font-size: 2rem; }
+            .email-form { flex-direction: column; }
+            .submit-btn { width: 100%; }
+            .steps { grid-template-columns: 1fr; }
+            .final-cta h2 { font-size: 2rem; }
+            #exit-popup { padding: 40px 25px; }
+            #exit-popup h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Exit Intent Popup -->
+    <div id="exit-popup-overlay"></div>
+    <div id="exit-popup">
+        <button class="close-btn" onclick="closeExitPopup()">×</button>
+        <span class="emoji">🎯</span>
+        <h2>Wait! Get 30 Days Free</h2>
+        <p class="offer-text">
+            Before you go — try ArkWatch <strong>FREE for 30 days</strong>.<br>
+            No credit card. Full access. Cancel anytime.
+        </p>
+        <button class="popup-cta" onclick="scrollToSignup()">Start My Free Trial →</button>
+        <p class="popup-note">Takes 2 minutes to set up</p>
+        <a href="https://calendly.com/arkforge/demo" target="_blank" class="calendly-link" onclick="trackCalendlyClick()">
+            📅 Or book a personal demo (15 min)
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="badge">⚡ Limited Offer - First 10 Users Only</div>
+        <h1>
+            Stop Website Downtime
+            <span class="highlight">in 5 Minutes</span>
+        </h1>
+        <p class="problem">Get instant alerts when your website breaks. Before your customers notice.</p>
+    </section>
+
+    <!-- Free Offer Box -->
+    <div class="section">
+        <div class="free-box" id="signup-box">
+            <h2>🎁 6 Months FREE</h2>
+            <p class="value">Be one of the first 10 users. <strong>Save €174</strong> (worth €29/month × 6)</p>
+
+            <form class="email-form" id="signup-form" action="https://watch.arkforge.fr/api/early-signup" method="POST">
+                <input
+                    type="email"
+                    name="email"
+                    class="email-input"
+                    placeholder="your@email.com"
+                    required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                >
+                <button type="submit" class="submit-btn">Start Free →</button>
+            </form>
+
+            <p class="form-note">
+                <strong>No credit card.</strong> No commitment. Cancel anytime.
+            </p>
+
+            <div class="spots-counter">
+                🔥 Only <span class="spots-number" id="spots-left">10</span> spots left
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <section class="section">
+        <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 20px;">How It Works</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 50px;">Get started in under 5 minutes. Seriously.</p>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Enter Your Email</h3>
+                <p>No credit card. Just your email to get started.</p>
+                <span class="time-badge">30 seconds</span>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Add Your Website</h3>
+                <p>Paste your URL. We start monitoring instantly.</p>
+                <span class="time-badge">1 minute</span>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Relax</h3>
+                <p>We check every 5 minutes. You get alerts when things break.</p>
+                <span class="time-badge">Done!</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+        <div class="features">
+            <h2>Everything You Need</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-text">
+                        <h3>5-Min Monitoring</h3>
+                        <p>Fast detection. Know before users complain.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📧</div>
+                    <div class="feature-text">
+                        <h3>Instant Alerts</h3>
+                        <p>Email + SMS when something breaks.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-text">
+                        <h3>AI Summaries</h3>
+                        <p>Understand what changed, instantly.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">∞</div>
+                    <div class="feature-text">
+                        <h3>Unlimited Sites</h3>
+                        <p>Monitor as many websites as needed.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔌</div>
+                    <div class="feature-text">
+                        <h3>Full API Access</h3>
+                        <p>Integrate with your tools. No limits.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <div class="feature-text">
+                        <h3>Founder Support</h3>
+                        <p>Direct access. We actually care.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="proof">
+        <h2>Join the First Wave</h2>
+        <div class="proof-grid">
+            <div class="proof-item">
+                <span class="proof-number">99.9%</span>
+                <span class="proof-label">Uptime</span>
+            </div>
+            <div class="proof-item">
+                <span class="proof-number">5min</span>
+                <span class="proof-label">Check Interval</span>
+            </div>
+            <div class="proof-item">
+                <span class="proof-number">24/7</span>
+                <span class="proof-label">Monitoring</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Ready to Never Miss Downtime Again?</h2>
+        <p class="subtitle">Join the first 10 users. Get 6 months free. No catch.</p>
+
+        <form class="email-form" id="signup-form-bottom" action="https://watch.arkforge.fr/api/early-signup" method="POST">
+            <input
+                type="email"
+                name="email"
+                class="email-input"
+                placeholder="your@email.com"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            >
+            <button type="submit" class="submit-btn">Get 6 Months FREE →</button>
+        </form>
+
+        <p class="form-note" style="color: rgba(255,255,255,0.9); margin-top: 20px;">
+            <strong>No credit card required.</strong> Start monitoring in 5 minutes.
+        </p>
+    </section>
+
+    <script>
+    // Exit Intent Detection
+    let exitPopupShown = false;
+    let mouseY = 0;
+
+    function showExitPopup() {
+        if (exitPopupShown) return;
+        if (localStorage.getItem('arkwatch_exit_popup_shown')) return;
+
+        exitPopupShown = true;
+        localStorage.setItem('arkwatch_exit_popup_shown', Date.now().toString());
+
+        document.getElementById('exit-popup-overlay').style.display = 'block';
+        document.getElementById('exit-popup').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+
+        // Track popup shown
+        if (window._tk) window._tk('exit_popup_shown');
+    }
+
+    function closeExitPopup() {
+        document.getElementById('exit-popup-overlay').style.display = 'none';
+        document.getElementById('exit-popup').style.display = 'none';
+        document.body.style.overflow = 'auto';
+
+        // Track popup closed
+        if (window._tk) window._tk('exit_popup_closed');
+    }
+
+    function scrollToSignup() {
+        closeExitPopup();
+        document.getElementById('signup-box').scrollIntoView({ behavior: 'smooth' });
+
+        // Track CTA click
+        if (window._tk) window._tk('exit_popup_cta_clicked');
+    }
+
+    function trackCalendlyClick() {
+        if (window._tk) window._tk('exit_popup_calendly_clicked');
+    }
+
+    // Detect exit intent
+    document.addEventListener('mousemove', (e) => {
+        mouseY = e.clientY;
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        // Detect if mouse is leaving at the top (exit intent)
+        if (e.clientY < 10 && mouseY < 100) {
+            // Check if user has been on page for at least 5 seconds
+            if (Date.now() - pageLoadTime > 5000) {
+                showExitPopup();
+            }
+        }
+    });
+
+    // Also show popup on back button intent (mobile)
+    window.addEventListener('popstate', () => {
+        if (Date.now() - pageLoadTime > 5000) {
+            showExitPopup();
+        }
+    });
+
+    // Close popup on overlay click
+    document.getElementById('exit-popup-overlay').addEventListener('click', closeExitPopup);
+
+    // Track page load time
+    const pageLoadTime = Date.now();
+
+    // Clear old exit popup flags (older than 24 hours)
+    (() => {
+        const flag = localStorage.getItem('arkwatch_exit_popup_shown');
+        if (flag && Date.now() - parseInt(flag) > 24 * 3600 * 1000) {
+            localStorage.removeItem('arkwatch_exit_popup_shown');
+        }
+    })();
+
+    // Track form submissions
+    function trackSubmit(formId) {
+        const form = document.getElementById(formId);
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = form.querySelector('input[type="email"]').value;
+            const btn = form.querySelector('button');
+            const originalText = btn.textContent;
+
+            btn.textContent = 'Processing...';
+            btn.disabled = true;
+
+            // Analytics tracking
+            if (window._tk) window._tk('submit_free_trial_' + formId);
+
+            // Submit to API
+            fetch(form.action, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: email,
+                    source: window._tkSrc || 'direct',
+                    campaign: 'free_trial_6months_leadgen'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Track successful signup
+                    if (window._tk) window._tk('signup_success');
+
+                    // Redirect to Stripe checkout to activate 6 months free
+                    if (data.checkout_url) {
+                        window.location.href = data.checkout_url;
+                    } else {
+                        // Fallback to dashboard if no checkout URL
+                        window.location.href = '/dashboard.html?welcome=true&plan=free_trial';
+                    }
+                } else {
+                    // Track failed signup
+                    if (window._tk) window._tk('signup_failed');
+
+                    alert('Error: ' + (data.message || 'Please try again'));
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }
+            })
+            .catch(err => {
+                console.error('Signup error:', err);
+
+                // Track error
+                if (window._tk) window._tk('signup_error');
+
+                alert('Something went wrong. Please try again.');
+                btn.textContent = originalText;
+                btn.disabled = false;
+            });
+        });
+    }
+
+    trackSubmit('signup-form');
+    trackSubmit('signup-form-bottom');
+
+    // Update spots counter
+    async function updateSpots() {
+        try {
+            const response = await fetch('https://watch.arkforge.fr/api/free-trial/spots');
+            const data = await response.json();
+            if (data.remaining !== undefined) {
+                const spotElements = document.querySelectorAll('#spots-left');
+                spotElements.forEach(el => el.textContent = data.remaining);
+
+                // Add urgency if low
+                if (data.remaining <= 3) {
+                    spotElements.forEach(el => {
+                        el.parentElement.style.background = '#fee2e2';
+                        el.parentElement.style.borderColor = '#ef4444';
+                        el.style.color = '#dc2626';
+                    });
+                }
+            }
+        } catch (e) {
+            console.log('Could not fetch spots');
+        }
+    }
+    updateSpots();
+    setInterval(updateSpots, 15000); // Update every 15s
+
+    // Analytics
+    (function() {
+        function getSource() {
+            var params = new URLSearchParams(location.search);
+            var utm = params.get('utm_source') || params.get('ref') || '';
+            if (utm) return utm.toLowerCase();
+            var ref = (document.referrer || '').toLowerCase();
+            if (ref.indexOf('news.ycombinator.com') !== -1) return 'hackernews';
+            if (ref.indexOf('reddit.com') !== -1) return 'reddit';
+            if (ref.indexOf('twitter.com') !== -1 || ref.indexOf('x.com') !== -1) return 'twitter';
+            if (ref.indexOf('facebook.com') !== -1) return 'facebook';
+            if (ref.indexOf('linkedin.com') !== -1) return 'linkedin';
+            return 'direct';
+        }
+        window._tkSrc = getSource();
+
+        function tk(event) {
+            var img = new Image();
+            img.src = '/t.gif?e=' + encodeURIComponent(event) +
+                      '&p=free-trial-leadgen' +
+                      '&s=' + encodeURIComponent(window._tkSrc) +
+                      '&_=' + Date.now();
+        }
+        window._tk = tk;
+        tk('pageview_free_trial_leadgen');
+
+        // Track scroll depth
+        var scrolled25 = false, scrolled50 = false, scrolled75 = false, scrolled100 = false;
+        window.addEventListener('scroll', function() {
+            var scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent > 25 && !scrolled25) {
+                scrolled25 = true;
+                tk('scroll_25');
+            }
+            if (scrollPercent > 50 && !scrolled50) {
+                scrolled50 = true;
+                tk('scroll_50');
+            }
+            if (scrollPercent > 75 && !scrolled75) {
+                scrolled75 = true;
+                tk('scroll_75');
+            }
+            if (scrollPercent > 95 && !scrolled100) {
+                scrolled100 = true;
+                tk('scroll_100');
+            }
+        });
+
+        // Track time on page
+        var timeCheckpoints = [10, 30, 60, 120, 300]; // 10s, 30s, 1min, 2min, 5min
+        var checkpointIndex = 0;
+        setInterval(function() {
+            if (checkpointIndex < timeCheckpoints.length) {
+                var elapsed = Math.floor((Date.now() - pageLoadTime) / 1000);
+                if (elapsed >= timeCheckpoints[checkpointIndex]) {
+                    tk('time_on_page_' + timeCheckpoints[checkpointIndex] + 's');
+                    checkpointIndex++;
+                }
+            }
+        }, 1000);
+    })();
+    </script>
+
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">À propos</a>
+            <a href="/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialité</a>
+            <a href="/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions légales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+</body>
+</html>

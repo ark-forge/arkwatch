@@ -1,0 +1,41 @@
+{
+  "campaign_id": "outreach_demo_pricing_20260209",
+  "created_at": "2026-02-09T20:30:00Z",
+  "task_id": "20260910",
+  "log_entries": [],
+  "instructions": {
+    "purpose": "Track all outreach sends and responses for campaign #20260910",
+    "how_to_log": "Add entry to log_entries array when message sent or response received",
+    "entry_format": {
+      "timestamp": "ISO 8601 datetime",
+      "lead_id": "From outreach_results_20260209.json",
+      "action": "sent | response_received | meeting_booked | trial_started | payment_received",
+      "channel": "email | linkedin | hackernews | devto | twitter",
+      "status": "success | failed | pending",
+      "message": "Brief description of action",
+      "response_text": "If response received, copy here",
+      "next_action": "What to do next"
+    }
+  },
+  "quick_stats": {
+    "total_sent": 0,
+    "total_responses": 0,
+    "total_meetings_booked": 0,
+    "total_trials_started": 0,
+    "response_rate": "0%",
+    "conversion_rate": "0%"
+  },
+  "example_entry": {
+    "timestamp": "2026-02-09T20:30:00Z",
+    "lead_id": "HL001",
+    "lead_name": "alexander2002",
+    "action": "sent",
+    "channel": "hackernews",
+    "status": "success",
+    "message": "Replied to HN comment #46943302 with API fix + onboarding offer",
+    "response_text": null,
+    "next_action": "Monitor HN thread for response within 24-48h"
+  },
+  "update_frequency": "After each outreach send or response received",
+  "owner": "croissance"
+}

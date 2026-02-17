@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 FIRST 3 CUSTOMERS: Lifetime FREE - ArkWatch</title>
+    <meta name="description" content="The first 3 customers get ArkWatch LIFETIME FREE (€2,400/year value) in exchange for a video testimonial. 72 hours only.">
+    <meta property="og:title" content="First 3 Customers Get ArkWatch Lifetime FREE">
+    <meta property="og:description" content="€2,400/year value. Free forever. Video testimonial required. 72 hours only.">
+    <meta property="og:type" content="website">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+            min-height: 100vh;
+        }
+
+        /* Urgent banner */
+        .urgent-banner {
+            background: #000;
+            color: #FFD700;
+            text-align: center;
+            padding: 15px 20px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.85; }
+        }
+
+        /* Hero section */
+        .hero {
+            text-align: center;
+            padding: 40px 20px 30px;
+        }
+        .hero .eyebrow {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(255,255,255,0.4);
+            text-transform: uppercase;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            line-height: 1.1;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .hero .value {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            font-weight: 700;
+        }
+        .hero .value-strike {
+            text-decoration: line-through;
+            color: rgba(255,255,255,0.7);
+        }
+        .hero .catch {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Countdown */
+        .countdown-section {
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255,255,255,0.4);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        .countdown-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 900;
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .countdown-number {
+            background: rgba(255,255,255,0.95);
+            color: #cc0000;
+            padding: 20px;
+            border-radius: 15px;
+            min-width: 90px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        .countdown-label {
+            font-size: 0.85rem;
+            margin-top: 10px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .spots-left {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #FFD700;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.5);
+        }
+        .spots-number {
+            font-size: 4rem;
+            display: block;
+            margin: 10px 0;
+            animation: glow 1.5s infinite;
+        }
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700; }
+            50% { text-shadow: 0 0 30px #FFD700, 0 0 60px #FFD700; }
+        }
+
+        /* Main content */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* Value prop */
+        .value-prop {
+            background: rgba(255,255,255,0.98);
+            color: #333;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .value-prop h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #cc0000;
+            text-align: center;
+            font-weight: 900;
+        }
+        .value-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        .value-item {
+            text-align: center;
+            padding: 25px;
+            background: #f8f8f8;
+            border-radius: 15px;
+        }
+        .value-item .amount {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #cc0000;
+            margin-bottom: 10px;
+        }
+        .value-item .label {
+            font-size: 1.05rem;
+            color: #666;
+            font-weight: 600;
+        }
+        .total-value {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #cc0000 0%, #ff0000 100%);
+            color: white;
+            border-radius: 15px;
+            font-size: 1.8rem;
+            font-weight: 900;
+        }
+        .total-value .amount {
+            font-size: 3.5rem;
+            display: block;
+            margin: 10px 0;
+        }
+
+        /* What we need */
+        .requirements {
+            background: rgba(255,255,255,0.98);
+            color: #333;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        .requirements h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #cc0000;
+            text-align: center;
+            font-weight: 900;
+        }
+        .req-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .req-list li {
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            background: #f8f8f8;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: start;
+            gap: 15px;
+        }
+        .req-list li:before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: 900;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .req-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Form */
+        .signup-form {
+            background: rgba(255,255,255,0.98);
+            color: #333;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        .signup-form h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #cc0000;
+            text-align: center;
+            font-weight: 900;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #cc0000;
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .form-hint {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #cc0000 0%, #ff0000 100%);
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(204,0,0,0.4);
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(204,0,0,0.5);
+        }
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .form-error {
+            display: none;
+            padding: 15px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* FAQ */
+        .faq {
+            background: rgba(255,255,255,0.98);
+            color: #333;
+            border-radius: 20px;
+            padding: 40px;
+        }
+        .faq h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #cc0000;
+            text-align: center;
+            font-weight: 900;
+        }
+        .faq-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #cc0000;
+        }
+        .faq-a {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .footer-cta-text {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+        .footer-cta-btn {
+            display: inline-block;
+            background: white;
+            color: #cc0000;
+            padding: 20px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            transition: all 0.3s;
+        }
+        .footer-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero .value { font-size: 1.5rem; }
+            .hero .catch { font-size: 1.1rem; }
+            .countdown { font-size: 2rem; gap: 10px; }
+            .countdown-number { min-width: 70px; padding: 15px; }
+            .spots-number { font-size: 3rem; }
+            .value-breakdown { grid-template-columns: 1fr; }
+            .value-item .amount { font-size: 2rem; }
+            .total-value .amount { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="urgent-banner">
+        ⚡ FLASH OFFER ⚡ FIRST 3 CUSTOMERS ONLY ⚡ 72 HOURS ⚡
+    </div>
+
+    <section class="hero">
+        <div class="eyebrow">🔥 INSANE LAUNCH OFFER</div>
+        <h1>First 3 Customers<br>Get LIFETIME FREE</h1>
+        <p class="value">
+            <span class="value-strike">€2,400/year</span> → <strong>€0 FOREVER</strong>
+        </p>
+        <p class="catch">
+            We need 3 brave early adopters to create video testimonials.<br>
+            You get ArkWatch for life. We get social proof. Win-win.
+        </p>
+    </section>
+
+    <div class="countdown-section">
+        <h2>⏰ OFFER EXPIRES IN:</h2>
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+        <div class="spots-left">
+            <span class="spots-number" id="spots">3</span>
+            SPOTS LEFT
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="value-prop">
+            <h2>What You Get (FREE Forever)</h2>
+            <div class="value-breakdown">
+                <div class="value-item">
+                    <div class="amount">€200</div>
+                    <div class="label">Monthly value<br>(€2,400/year)</div>
+                </div>
+                <div class="value-item">
+                    <div class="amount">∞</div>
+                    <div class="label">Unlimited monitors,<br>API calls, alerts</div>
+                </div>
+            </div>
+            <div class="total-value">
+                LIFETIME VALUE
+                <span class="amount">€24,000+</span>
+                (10 years @ €200/month)
+            </div>
+        </div>
+
+        <div class="requirements">
+            <h2>What We Need From You</h2>
+            <ul class="req-list">
+                <li><strong>1 video testimonial</strong> (30-60 seconds, phone quality OK)</li>
+                <li><strong>1 written case study</strong> (how you use ArkWatch, results you got)</li>
+                <li><strong>Actually use the product</strong> (we need real feedback, not freeloaders)</li>
+                <li><strong>Permission to use your testimonial</strong> (marketing materials, website, social)</li>
+            </ul>
+            <p class="req-note">
+                We'll help you create great content. No professional video needed.<br>
+                Testimonial due within 30 days of signup.
+            </p>
+        </div>
+
+        <div class="signup-form">
+            <h2>🚀 Claim Your Free Lifetime Access</h2>
+            <div class="form-error" id="formError"></div>
+            <form id="first3Form">
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="you@company.com">
+                </div>
+                <div class="form-group">
+                    <label for="company">Company / Role *</label>
+                    <input type="text" id="company" name="company" required placeholder="Acme Inc - Marketing Director">
+                    <div class="form-hint">So we know who you are for the testimonial</div>
+                </div>
+                <div class="form-group">
+                    <label for="usecase">How will you use ArkWatch? *</label>
+                    <textarea id="usecase" name="usecase" required placeholder="e.g., Monitor competitor pricing pages, track regulatory changes on government sites, get alerted when job postings appear..."></textarea>
+                    <div class="form-hint">Specific use cases make better testimonials</div>
+                </div>
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn Profile (optional)</label>
+                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                    <div class="form-hint">Helps us verify + link to your profile in case study</div>
+                </div>
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    🔥 CLAIM MY LIFETIME FREE ACCESS NOW
+                </button>
+            </form>
+            <div class="form-success" id="formSuccess">
+                <h3>🎉 CONGRATULATIONS!</h3>
+                <p style="margin-top: 15px;">You're one of the FIRST 3 customers!<br>Check your email for next steps (account creation + testimonial guidelines).</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <h2>Questions?</h2>
+            <div class="faq-item">
+                <div class="faq-q">Is this really 100% free forever?</div>
+                <div class="faq-a">Yes. Zero cost, forever. No hidden fees, no "free for 1 year then we charge you". You get the full Pro plan (normally €200/month) for life, as long as you deliver the testimonial within 30 days.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What if I don't like the product?</div>
+                <div class="faq-a">You can cancel anytime. But you only get to keep the lifetime free access if you deliver the video testimonial + case study. If you cancel before delivering, the deal is void.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What exactly is in the testimonial?</div>
+                <div class="faq-a">30-60 second video: who you are, what problem you had, how ArkWatch solved it, results you got. We'll send you a template script and examples. Phone quality is fine.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">When do I need to deliver the testimonial?</div>
+                <div class="faq-a">Within 30 days of signup. We'll check in at day 7, 14, and 21 to help you. If you don't deliver by day 30, your account converts to a paid plan or gets cancelled.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Can I sign up multiple accounts?</div>
+                <div class="faq-a">No. One person/company = one lifetime account max. We verify via email, LinkedIn, and payment info. Gaming the system = instant ban.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Why are you doing this?</div>
+                <div class="faq-a">We're launching. Zero customers = zero trust. We need 3 killer testimonials to break the ice. This is cheaper and faster than buying ads.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-cta">
+        <p class="footer-cta-text">Don't miss this. It's gone in 72 hours.</p>
+        <a href="#first3Form" class="footer-cta-btn">🚀 Claim My Free Lifetime Access</a>
+    </div>
+
+    <script>
+    // Countdown timer (72 hours from now)
+    const endDate = new Date();
+    endDate.setHours(endDate.getHours() + 72);
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate - now;
+
+        if (distance < 0) {
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+            document.querySelector('.urgent-banner').textContent = '⚠️ OFFER EXPIRED ⚠️';
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('submitBtn').textContent = 'OFFER EXPIRED';
+            return;
+        }
+
+        const hours = Math.floor(distance / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    // Update every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Fetch remaining spots from API
+    async function updateSpots() {
+        try {
+            const response = await fetch('https://watch.arkforge.fr/api/first-3/remaining');
+            const data = await response.json();
+            if (data.remaining !== undefined) {
+                const remaining = data.remaining;
+                document.getElementById('spots').textContent = remaining;
+
+                if (remaining === 0) {
+                    document.querySelector('.urgent-banner').textContent = '⚠️ ALL 3 SPOTS TAKEN ⚠️ TOO LATE ⚠️';
+                    document.getElementById('submitBtn').disabled = true;
+                    document.getElementById('submitBtn').textContent = 'ALL SPOTS TAKEN';
+                    document.querySelector('.spots-left').innerHTML = '<span style="color: #ff6b6b;">SOLD OUT</span>';
+                }
+            }
+        } catch (e) {
+            // Keep default value if API fails
+            console.log('API check failed, keeping default');
+        }
+    }
+    updateSpots();
+    setInterval(updateSpots, 10000); // Update every 10s
+
+    // Form submission
+    document.getElementById('first3Form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = document.getElementById('submitBtn');
+        const formError = document.getElementById('formError');
+        const formSuccess = document.getElementById('formSuccess');
+        const form = document.getElementById('first3Form');
+
+        // Disable button
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'SUBMITTING...';
+        formError.style.display = 'none';
+
+        // Get form data
+        const formData = {
+            email: document.getElementById('email').value,
+            company: document.getElementById('company').value,
+            usecase: document.getElementById('usecase').value,
+            linkedin: document.getElementById('linkedin').value,
+            source: window._tkSrc || 'direct',
+            timestamp: new Date().toISOString()
+        };
+
+        try {
+            const response = await fetch('https://watch.arkforge.fr/api/first-3/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Success
+                form.style.display = 'none';
+                formSuccess.style.display = 'block';
+
+                // Track conversion
+                window._tk('conversion_first_3_signup');
+
+                // Update spots
+                updateSpots();
+            } else {
+                // Error from API
+                formError.textContent = data.error || 'Something went wrong. Please try again.';
+                formError.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = '🔥 CLAIM MY LIFETIME FREE ACCESS NOW';
+            }
+        } catch (error) {
+            // Network error
+            formError.textContent = 'Network error. Please check your connection and try again.';
+            formError.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.textContent = '🔥 CLAIM MY LIFETIME FREE ACCESS NOW';
+        }
+    });
+
+    // Analytics
+    (function() {
+        function getSource() {
+            var params = new URLSearchParams(location.search);
+            var utm = params.get('utm_source') || params.get('ref') || '';
+            if (utm) return utm.toLowerCase();
+            var ref = (document.referrer || '').toLowerCase();
+            if (ref.indexOf('news.ycombinator.com') !== -1) return 'hackernews';
+            if (ref.indexOf('reddit.com') !== -1) return 'reddit';
+            if (ref.indexOf('twitter.com') !== -1 || ref.indexOf('x.com') !== -1) return 'twitter';
+            if (ref.indexOf('linkedin.com') !== -1) return 'linkedin';
+            return 'direct';
+        }
+        window._tkSrc = getSource();
+        function tk(event) {
+            var img = new Image();
+            img.src = 'https://watch.arkforge.fr/t.gif?e=' + encodeURIComponent(event) +
+                      '&p=first-3' +
+                      '&s=' + encodeURIComponent(window._tkSrc) +
+                      '&_=' + Date.now();
+        }
+        window._tk = tk;
+        tk('pageview_first_3');
+
+        // Track scroll depth
+        var maxScroll = 0;
+        window.addEventListener('scroll', function() {
+            var scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercent > maxScroll) {
+                maxScroll = scrollPercent;
+                if (scrollPercent >= 25 && scrollPercent < 50) tk('scroll_25_first_3');
+                if (scrollPercent >= 50 && scrollPercent < 75) tk('scroll_50_first_3');
+                if (scrollPercent >= 75) tk('scroll_75_first_3');
+            }
+        });
+
+        // Track form focus
+        var formFocused = false;
+        document.querySelectorAll('#first3Form input, #first3Form textarea').forEach(function(field) {
+            field.addEventListener('focus', function() {
+                if (!formFocused) {
+                    formFocused = true;
+                    tk('form_focus_first_3');
+                }
+            });
+        });
+    })();
+    </script>
+
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">À propos</a>
+            <a href="/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialité</a>
+            <a href="/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions légales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Months FREE - ArkWatch | Stop Website Downtime in 5 Minutes</title>
+    <meta name="description" content="Monitor your website 24/7. Get instant alerts when something breaks. 6 months completely free for first 10 users. No credit card. Start in 5 minutes.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Hero - Ultra focused */
+        .hero {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            border: 2px solid rgba(255,255,255,0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+        .hero h1 .highlight {
+            color: #fbbf24;
+            display: block;
+            font-size: 4rem;
+        }
+        .hero .problem {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* VARIANTE B: Social Proof Badge - PROMINENT */
+        .hero-social-proof {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 15px;
+            padding: 20px 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+            font-size: 1.1rem;
+        }
+        .hero-social-proof .avatars {
+            display: flex;
+            margin-right: 10px;
+        }
+        .hero-social-proof .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-left: -12px;
+            border: 3px solid #8b5cf6;
+            font-size: 0.85rem;
+        }
+        .hero-social-proof .avatar:first-child {
+            margin-left: 0;
+        }
+        .hero-social-proof .text {
+            font-weight: 600;
+        }
+        .hero-social-proof .text strong {
+            color: #fbbf24;
+            font-size: 1.2rem;
+        }
+
+        /* Free offer box */
+        .free-box {
+            background: white;
+            color: #1a1a1a;
+            max-width: 600px;
+            margin: -30px auto 0;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 10;
+        }
+        .free-box h2 {
+            font-size: 2.5rem;
+            color: #6366f1;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+        .free-box .value {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .free-box .value strong {
+            color: #10b981;
+            font-size: 1.3rem;
+        }
+
+        /* Email form */
+        .email-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .email-input {
+            flex: 1;
+            padding: 18px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .email-input:focus {
+            border-color: #6366f1;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99,102,241,0.4);
+        }
+        .form-note {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+        }
+        .form-note strong { color: #10b981; }
+
+        /* VARIANTE B: Inline Social Proof */
+        .inline-social-proof {
+            background: #f0fdf4;
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 25px;
+            font-weight: 600;
+            color: #166534;
+        }
+        .inline-social-proof .number {
+            font-size: 1.8rem;
+            color: #10b981;
+            font-weight: 900;
+        }
+
+        /* Social proof */
+        .spots-counter {
+            background: #fef3c7;
+            border: 2px solid #fbbf24;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 700;
+            color: #78350f;
+        }
+        .spots-number {
+            font-size: 2rem;
+            color: #f59e0b;
+        }
+
+        /* Content sections */
+        .section {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        /* How it works - Simple 3 steps */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .step {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0 auto 20px;
+        }
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        .step p {
+            color: #666;
+            font-size: 1rem;
+        }
+        .time-badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        /* Features - Simple list */
+        .features {
+            background: #f9fafb;
+            border-radius: 20px;
+            padding: 50px 40px;
+        }
+        .features h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+        .feature {
+            display: flex;
+            gap: 15px;
+            align-items: start;
+        }
+        .feature-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        .feature-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #1a1a1a;
+        }
+        .feature-text p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* VARIANTE B: Enhanced Social proof section */
+        .proof {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+        .proof h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        .proof .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .proof-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .proof-item {
+            text-align: center;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .proof-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #10b981;
+            display: block;
+        }
+        .proof-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Testimonial cards - VARIANTE B */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .testimonial {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .testimonial-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.1rem;
+        }
+        .testimonial-name {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        .testimonial-text {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+        .final-cta .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        .final-cta .email-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero h1 .highlight { font-size: 2.8rem; }
+            .hero .problem { font-size: 1.15rem; }
+            .hero-social-proof { flex-direction: column; text-align: center; }
+            .free-box { padding: 30px 20px; margin: -20px 20px 0; }
+            .free-box h2 { font-size: 2rem; }
+            .email-form { flex-direction: column; }
+            .submit-btn { width: 100%; }
+            .steps { grid-template-columns: 1fr; }
+            .testimonials { grid-template-columns: 1fr; }
+            .final-cta h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="badge">⚡ Limited Offer - First 10 Users Only</div>
+        <h1>
+            Stop Website Downtime
+            <span class="highlight">in 5 Minutes</span>
+        </h1>
+        <p class="problem">Get instant alerts when your website breaks. Before your customers notice.</p>
+
+        <!-- VARIANTE B: Hero Social Proof -->
+        <div class="hero-social-proof">
+            <div class="avatars">
+                <div class="avatar">JD</div>
+                <div class="avatar">SK</div>
+                <div class="avatar">TM</div>
+                <div class="avatar">+44</div>
+            </div>
+            <div class="text">
+                <strong>47 developers</strong> already testing ArkWatch
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Offer Box -->
+    <div class="section">
+        <div class="free-box">
+            <h2>🎁 6 Months FREE</h2>
+            <p class="value">Be one of the first 10 users. <strong>Save €174</strong> (worth €29/month × 6)</p>
+
+            <form class="email-form" id="signup-form" action="https://watch.arkforge.fr/api/early-signup" method="POST">
+                <input
+                    type="email"
+                    name="email"
+                    class="email-input"
+                    placeholder="your@email.com"
+                    required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                >
+                <button type="submit" class="submit-btn">Start Free →</button>
+            </form>
+
+            <p class="form-note">
+                <strong>No credit card.</strong> No commitment. Cancel anytime.
+            </p>
+
+            <!-- VARIANTE B: Inline social proof -->
+            <div class="inline-social-proof">
+                ✓ Join <span class="number">47</span> developers monitoring their sites with ArkWatch
+            </div>
+
+            <div class="spots-counter">
+                🔥 Only <span class="spots-number" id="spots-left">10</span> spots left
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <section class="section">
+        <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 20px;">How It Works</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 50px;">Get started in under 5 minutes. Seriously.</p>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Enter Your Email</h3>
+                <p>No credit card. Just your email to get started.</p>
+                <span class="time-badge">30 seconds</span>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Add Your Website</h3>
+                <p>Paste your URL. We start monitoring instantly.</p>
+                <span class="time-badge">1 minute</span>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Relax</h3>
+                <p>We check every 5 minutes. You get alerts when things break.</p>
+                <span class="time-badge">Done!</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+        <div class="features">
+            <h2>Everything You Need</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-text">
+                        <h3>5-Min Monitoring</h3>
+                        <p>Fast detection. Know before users complain.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📧</div>
+                    <div class="feature-text">
+                        <h3>Instant Alerts</h3>
+                        <p>Email + SMS when something breaks.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-text">
+                        <h3>AI Summaries</h3>
+                        <p>Understand what changed, instantly.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">∞</div>
+                    <div class="feature-text">
+                        <h3>Unlimited Sites</h3>
+                        <p>Monitor as many websites as needed.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔌</div>
+                    <div class="feature-text">
+                        <h3>Full API Access</h3>
+                        <p>Integrate with your tools. No limits.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <div class="feature-text">
+                        <h3>Founder Support</h3>
+                        <p>Direct access. We actually care.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VARIANTE B: Enhanced Social Proof with Testimonials -->
+    <section class="proof">
+        <h2>Join 47 Developers Already Testing</h2>
+        <p class="subtitle">Early adopters are seeing results</p>
+
+        <div class="testimonials">
+            <div class="testimonial">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">SK</div>
+                    <div>
+                        <div class="testimonial-name">Sarah K.</div>
+                        <div class="testimonial-role">Indie Hacker</div>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    "Caught a payment gateway issue at 3am. Saved me from losing customers."
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">JD</div>
+                    <div>
+                        <div class="testimonial-name">James D.</div>
+                        <div class="testimonial-role">Startup Founder</div>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    "Setup took 2 minutes. Already caught 3 issues this week. Worth it."
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">TM</div>
+                    <div>
+                        <div class="testimonial-name">Tom M.</div>
+                        <div class="testimonial-role">SaaS Developer</div>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    "Finally a monitoring tool that just works. No complex setup, no BS."
+                </div>
+            </div>
+        </div>
+
+        <div class="proof-grid" style="margin-top: 50px;">
+            <div class="proof-item">
+                <span class="proof-number">47</span>
+                <span class="proof-label">Active Beta Users</span>
+            </div>
+            <div class="proof-item">
+                <span class="proof-number">142</span>
+                <span class="proof-label">Issues Detected</span>
+            </div>
+            <div class="proof-item">
+                <span class="proof-number">2min</span>
+                <span class="proof-label">Avg. Setup Time</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Ready to Never Miss Downtime Again?</h2>
+        <p class="subtitle">Join 47 developers. Get 6 months free. No catch.</p>
+
+        <form class="email-form" id="signup-form-bottom" action="https://watch.arkforge.fr/api/early-signup" method="POST">
+            <input
+                type="email"
+                name="email"
+                class="email-input"
+                placeholder="your@email.com"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            >
+            <button type="submit" class="submit-btn">Get 6 Months FREE →</button>
+        </form>
+
+        <p class="form-note" style="color: rgba(255,255,255,0.9); margin-top: 20px;">
+            <strong>No credit card required.</strong> Start monitoring in 5 minutes.
+        </p>
+    </section>
+
+    <script>
+    // Mark variant for tracking
+    window._abVariant = 'B';
+
+    // Track form submissions
+    function trackSubmit(formId) {
+        const form = document.getElementById(formId);
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = form.querySelector('input[type="email"]').value;
+            const btn = form.querySelector('button');
+            const originalText = btn.textContent;
+
+            btn.textContent = 'Processing...';
+            btn.disabled = true;
+
+            // Analytics tracking
+            if (window._tk) window._tk('submit_free_trial_variant_b_' + formId);
+
+            // Submit to API
+            fetch(form.action, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: email,
+                    source: window._tkSrc || 'direct',
+                    campaign: 'free_trial_6months',
+                    variant: 'B'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Redirect to dashboard or confirmation
+                    window.location.href = '/dashboard?welcome=true&plan=free_trial&variant=B';
+                } else {
+                    alert('Error: ' + (data.message || 'Please try again'));
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }
+            })
+            .catch(err => {
+                console.error('Signup error:', err);
+                alert('Something went wrong. Please try again.');
+                btn.textContent = originalText;
+                btn.disabled = false;
+            });
+        });
+    }
+
+    trackSubmit('signup-form');
+    trackSubmit('signup-form-bottom');
+
+    // Update spots counter
+    async function updateSpots() {
+        try {
+            const response = await fetch('https://watch.arkforge.fr/api/free-trial/spots');
+            const data = await response.json();
+            if (data.remaining !== undefined) {
+                const spotElements = document.querySelectorAll('#spots-left');
+                spotElements.forEach(el => el.textContent = data.remaining);
+
+                // Add urgency if low
+                if (data.remaining <= 3) {
+                    spotElements.forEach(el => {
+                        el.parentElement.style.background = '#fee2e2';
+                        el.parentElement.style.borderColor = '#ef4444';
+                        el.style.color = '#dc2626';
+                    });
+                }
+            }
+        } catch (e) {
+            console.log('Could not fetch spots');
+        }
+    }
+    updateSpots();
+    setInterval(updateSpots, 15000); // Update every 15s
+
+    // Analytics
+    (function() {
+        function getSource() {
+            var params = new URLSearchParams(location.search);
+            var utm = params.get('utm_source') || params.get('ref') || '';
+            if (utm) return utm.toLowerCase();
+            var ref = (document.referrer || '').toLowerCase();
+            if (ref.indexOf('news.ycombinator.com') !== -1) return 'hackernews';
+            if (ref.indexOf('reddit.com') !== -1) return 'reddit';
+            if (ref.indexOf('twitter.com') !== -1 || ref.indexOf('x.com') !== -1) return 'twitter';
+            if (ref.indexOf('facebook.com') !== -1) return 'facebook';
+            if (ref.indexOf('linkedin.com') !== -1) return 'linkedin';
+            return 'direct';
+        }
+        window._tkSrc = getSource();
+
+        function tk(event) {
+            var img = new Image();
+            img.src = '/t.gif?e=' + encodeURIComponent(event) +
+                      '&p=free-trial-variant-b' +
+                      '&s=' + encodeURIComponent(window._tkSrc) +
+                      '&v=B' +
+                      '&_=' + Date.now();
+        }
+        window._tk = tk;
+        tk('pageview_free_trial_variant_b');
+
+        // Track scroll depth
+        var scrolled50 = false, scrolled75 = false;
+        window.addEventListener('scroll', function() {
+            var scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent > 50 && !scrolled50) {
+                scrolled50 = true;
+                tk('scroll_50');
+            }
+            if (scrollPercent > 75 && !scrolled75) {
+                scrolled75 = true;
+                tk('scroll_75');
+            }
+        });
+    })();
+    </script>
+
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">À propos</a>
+            <a href="/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialité</a>
+            <a href="/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions légales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+</body>
+</html>

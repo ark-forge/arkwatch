@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Adopter Offer - ArkWatch | 50% OFF Lifetime</title>
+    <meta name="description" content="Join the first 20 ArkWatch customers and get 50% OFF for life. Limited time offer for early adopters.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+
+        /* Hero section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            color: white;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 900; }
+        .hero .subtitle { font-size: 1.5rem; margin-bottom: 30px; opacity: 0.95; }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        /* Countdown */
+        .countdown-section {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            color: white;
+        }
+        .countdown-section h2 { font-size: 1.3rem; margin-bottom: 20px; }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .countdown-number {
+            background: rgba(255,255,255,0.9);
+            color: #667eea;
+            padding: 15px 25px;
+            border-radius: 12px;
+            min-width: 80px;
+        }
+        .countdown-label {
+            font-size: 0.85rem;
+            margin-top: 8px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .spots-left {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .spots-number {
+            font-size: 2.5rem;
+            color: #FFD700;
+            font-weight: 900;
+        }
+
+        /* Main content */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* Pricing card */
+        .pricing-comparison {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+        }
+        .comparison-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .comparison-header h2 { font-size: 2rem; margin-bottom: 10px; }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        .comparison-col {
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .comparison-col:first-child {
+            border-right: 2px solid #f0f0f0;
+            opacity: 0.6;
+        }
+        .comparison-col h3 { font-size: 1.2rem; margin-bottom: 20px; color: #888; }
+        .comparison-col.featured h3 { color: #667eea; font-weight: 800; }
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .new-price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #667eea;
+            line-height: 1;
+        }
+        .new-price .currency { font-size: 2rem; vertical-align: super; }
+        .new-price .period { font-size: 1rem; color: #888; font-weight: 400; }
+        .price-detail {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        .savings {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        /* Features */
+        .features {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        .features h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .feature-text h3 {
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .feature-text p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 20px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+        }
+        .cta-note {
+            color: white;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Social proof */
+        .social-proof {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+        .social-proof h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .guarantee-list {
+            list-style: none;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .guarantee-list li {
+            padding: 12px 0;
+            font-size: 1.05rem;
+            color: #555;
+        }
+        .guarantee-list li:before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .comparison-col:first-child { border-right: none; border-bottom: 2px solid #f0f0f0; }
+            .features-grid { grid-template-columns: 1fr; }
+            .countdown { font-size: 2rem; }
+            .countdown-number { min-width: 60px; padding: 10px 15px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="badge">🚀 EARLY ADOPTER PROGRAM</div>
+        <h1>50% OFF for Life</h1>
+        <p class="subtitle">Be one of the first 20 customers and get lifetime discount</p>
+    </section>
+
+    <div class="countdown-section">
+        <h2>⏰ Limited Time Offer</h2>
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+        </div>
+        <div class="spots-left">
+            Only <span class="spots-number" id="spots">20</span> spots remaining
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="pricing-comparison">
+            <div class="comparison-header">
+                <h2>Exclusive Early Adopter Price</h2>
+                <p>Lock in this price forever — no price increases, ever.</p>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-col">
+                    <h3>Regular Price</h3>
+                    <div class="old-price">€29/month</div>
+                    <p class="price-detail">What everyone else will pay</p>
+                </div>
+                <div class="comparison-col featured">
+                    <h3>🎉 Your Price (Lifetime)</h3>
+                    <div class="new-price">
+                        <span class="currency">€</span>14.50<span class="period">/mo</span>
+                    </div>
+                    <div class="savings">Save €174/year FOREVER</div>
+                    <p class="price-detail" style="margin-top:15px;"><strong>This price never changes</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>Everything Included</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">∞</div>
+                    <div class="feature-text">
+                        <h3>Unlimited Monitors</h3>
+                        <p>Track as many websites as you need</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-text">
+                        <h3>5-Minute Checks</h3>
+                        <p>Get notified within minutes</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📧</div>
+                    <div class="feature-text">
+                        <h3>Email + SMS Alerts</h3>
+                        <p>Never miss an important change</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-text">
+                        <h3>AI Summaries</h3>
+                        <p>Understand what changed at a glance</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔌</div>
+                    <div class="feature-text">
+                        <h3>Full API Access</h3>
+                        <p>Unlimited API calls, no restrictions</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⭐</div>
+                    <div class="feature-text">
+                        <h3>Priority Support</h3>
+                        <p>Direct access to the founder</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-proof">
+            <h2>Why Join Now?</h2>
+            <ul class="guarantee-list">
+                <li><strong>Lock in 50% discount forever</strong> — price never increases</li>
+                <li><strong>14-day free trial</strong> — no credit card required</li>
+                <li><strong>Shape the product</strong> — your feedback drives development</li>
+                <li><strong>Early adopter badge</strong> — exclusive recognition</li>
+                <li><strong>Cancel anytime</strong> — no long-term commitment</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <a href="/register.html?plan=pro_early&coupon=EARLY50" class="cta-btn">
+            🚀 Claim Your 50% OFF Now
+        </a>
+        <p class="cta-note">Only available to the first 20 customers • No credit card required for trial</p>
+    </div>
+
+    <script>
+    // Countdown timer (7 days from now)
+    const endDate = new Date();
+    endDate.setDate(endDate.getDate() + 7);
+    endDate.setHours(23, 59, 59, 999);
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate - now;
+
+        if (distance < 0) {
+            document.getElementById('days').textContent = '00';
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    }
+
+    // Update every minute
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+
+    // Fetch remaining spots from API (simulated for now)
+    async function updateSpots() {
+        try {
+            const response = await fetch('/api/early-adopter/spots');
+            const data = await response.json();
+            if (data.remaining !== undefined) {
+                document.getElementById('spots').textContent = data.remaining;
+            }
+        } catch (e) {
+            // Keep default value if API fails
+        }
+    }
+    updateSpots();
+    setInterval(updateSpots, 30000); // Update every 30s
+
+    // Analytics
+    (function() {
+        function getSource() {
+            var params = new URLSearchParams(location.search);
+            var utm = params.get('utm_source') || params.get('ref') || '';
+            if (utm) return utm.toLowerCase();
+            var ref = (document.referrer || '').toLowerCase();
+            if (ref.indexOf('news.ycombinator.com') !== -1) return 'hackernews';
+            if (ref.indexOf('reddit.com') !== -1) return 'reddit';
+            if (ref.indexOf('twitter.com') !== -1 || ref.indexOf('x.com') !== -1) return 'twitter';
+            return 'direct';
+        }
+        window._tkSrc = getSource();
+        function tk(event) {
+            var img = new Image();
+            img.src = '/t.gif?e=' + encodeURIComponent(event) +
+                      '&p=early-adopter' +
+                      '&s=' + encodeURIComponent(window._tkSrc) +
+                      '&_=' + Date.now();
+        }
+        window._tk = tk;
+        tk('pageview_early_adopter');
+
+        // Track CTA clicks
+        document.querySelector('.cta-btn').addEventListener('click', function() {
+            tk('click_early_adopter_cta');
+        });
+    })();
+    </script>
+
+    <footer style="background:#0f1117;color:#9ca3af;padding:40px 20px;text-align:center;margin-top:40px;border-top:1px solid #374151;font-size:0.9rem;">
+        <div style="margin-bottom:16px;">
+            <a href="/support.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Support</a>
+            <a href="/about.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">À propos</a>
+            <a href="/privacy.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Confidentialité</a>
+            <a href="/cgv.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">CGV</a>
+            <a href="/mentions-legales.html" style="color:#6366f1;text-decoration:none;margin:0 12px;">Mentions légales</a>
+        </div>
+        <div style="color:#6b7280;font-size:0.85rem;">&copy; 2026 ArkForge. Tous droits réservés.</div>
+    </footer>
+</body>
+</html>

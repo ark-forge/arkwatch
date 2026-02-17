@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification Visuelle - CTA ArkWatch</title>
+    <style>
+        body { font-family: system-ui; max-width: 800px; margin: 40px auto; padding: 20px; }
+        .check { margin: 15px 0; padding: 12px; border-radius: 8px; }
+        .check.ok { background: #e8f5e9; border-left: 4px solid #4caf50; }
+        .check.fail { background: #ffebee; border-left: 4px solid #ef5350; }
+        .status { font-weight: bold; margin-right: 10px; }
+        iframe { width: 100%; height: 600px; border: 2px solid #ddd; margin-top: 20px; border-radius: 8px; }
+        h1 { color: #667eea; }
+        .summary { background: #f0f0ff; padding: 20px; border-radius: 12px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>🎯 Vérification Visuelle - Optimisation CTA ArkWatch</h1>
+    
+    <div class="summary">
+        <h2>Résumé de l'implémentation</h2>
+        <p><strong>Date:</strong> 2026-02-06</p>
+        <p><strong>Objectif:</strong> CTA ultra-visible + parcours signup < 30s</p>
+    </div>
+    
+    <h2>Checklist de Vérification</h2>
+    <div id="checks"></div>
+    
+    <h2>Aperçu de la Landing Page</h2>
+    <iframe src="https://arkforge.fr/arkwatch.html"></iframe>
+    
+    <script>
+        const checks = [
+            { name: "CTA avec animation pulse", test: () => fetch('https://arkforge.fr/arkwatch.html').then(r => r.text()).then(html => html.includes('class="cta-button pulse"')) },
+            { name: "Sticky CTA (apparaît au scroll)", test: () => fetch('https://arkforge.fr/arkwatch.html').then(r => r.text()).then(html => html.includes('class="sticky-cta"')) },
+            { name: "Fonction smoothScroll", test: () => fetch('https://arkforge.fr/arkwatch.html').then(r => r.text()).then(html => html.includes('function smoothScroll')) },
+            { name: "Trust badge présent", test: () => fetch('https://arkforge.fr/arkwatch.html').then(r => r.text()).then(html => html.includes('trust-badge')) },
+            { name: "USP visible sous CTA", test: () => fetch('https://arkforge.fr/arkwatch.html').then(r => r.text()).then(html => html.includes('3 URLs gratuites')) },
+            { name: "Responsive design (media queries)", test: () => fetch('https://arkforge.fr/arkwatch.html').then(r => r.text()).then(html => html.includes('@media (max-width: 768px)')) },
+            { name: "Early Adopter promo", test: () => fetch('https://arkforge.fr/arkwatch.html').then(r => r.text()).then(html => html.includes('EARLYHN')) },
+        ];
+        
+        const checksDiv = document.getElementById('checks');
+        let passCount = 0;
+        
+        Promise.all(checks.map(async check => {
+            const result = await check.test();
+            const div = document.createElement('div');
+            div.className = `check ${result ? 'ok' : 'fail'}`;
+            div.innerHTML = `<span class="status">${result ? '✅' : '❌'}</span>${check.name}`;
+            checksDiv.appendChild(div);
+            if (result) passCount++;
+        })).then(() => {
+            const summary = document.createElement('div');
+            summary.className = 'check ' + (passCount === checks.length ? 'ok' : 'fail');
+            summary.innerHTML = `<strong>RÉSULTAT:</strong> ${passCount}/${checks.length} vérifications réussies`;
+            checksDiv.appendChild(summary);
+        });
+    </script>
+</body>
+</html>
